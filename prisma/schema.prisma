@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")   
+}
+
+
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String   @db.VarChar(100)
+  providerAccountId  String   @db.VarChar(100)
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  password      String?
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  userCollections UserCollection[]
+
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model UserCollection {
+  id               String           @id @default(uuid())
+  description      String
+  userId           String           @map(name: "user_id")
+  createdAt        DateTime         @default(now()) @map(name: "created_at")
+  status           Boolean          @default(true)
+  fatherId         String?          @map(name: "father_id")
+  user             User             @relation(fields: [userId], references: [id])
+  parent           UserCollection?  @relation("ChildCollections", fields: [fatherId], references: [id])
+  childCollections UserCollection[] @relation("ChildCollections")
+  models           Model[]
+}
+
+model Model {
+  id               String         @id @default(uuid())
+  createdAt        DateTime       @default(now()) @map(name: "created_at")
+  userCollectionId String         @map(name: "collection_id")
+  userCollection   UserCollection @relation(fields: [userCollectionId], references: [id])
+  modelImages      ModelImage[]
+}
+
+model ModelImage {
+  id              String   @id @default(uuid())
+  modelId         String   @map(name: "model_id")
+  name            String
+  link            String
+  principal       Boolean  @default(false)
+  createdAt       DateTime @default(now()) @map(name: "created_at")
+  status          Boolean  @default(true)
+  modelCollection Model    @relation(fields: [modelId], references: [id])
+}
