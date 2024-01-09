@@ -77,20 +77,22 @@ const handler = NextAuth({
     },
     async jwt({  token, user, account, profile}) {
        if (account && user) {
-        token.user = {};
-        token.user.image = user.image;
-        token.user.email = user.email;
-        token.user.name = user.name;
-        token.user.id = user.id;
+        token.image = user.image;
+        token.email = user.email;
+        token.name = user.name;
+        token.id = user.id;
         return Promise.resolve(token);
       }
       return Promise.resolve(token)
     },
     async session({ session, user, token }) {
       if (token) {
-        session.user = token.user
-        session.accessToken = token.accessToken
-        session.error = token.error
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.id = token.id;
+        session.user.image = token.image;
+        session.accessToken = token.accessToken;
+        session.error = token.error;
       }
       return  Promise.resolve(session);
     },
