@@ -38,6 +38,7 @@ export const POST = async (req,res) => {
     const { description } = await req.json();
     try {
         const session = await getServerSession(authOptions)
+        console.log(session);
         var user = await prisma.user.findUnique({
             where: {
                 email: session.user.email
