@@ -1,7 +1,9 @@
 import {useState,useEffect} from "react"
 import { signIn,getProviders } from "next-auth/react";
+import Image from "next/image"
+import ErrorCard from "@components/ErrorCard";
 
-const RegisterForm = ({ type, user, setUser, submitting, handleSubmit }) => {
+const RegisterForm = ({ type, user, setUser, submitting, handleSubmit ,errors }) => {
     const [providers, setProviders] = useState(null);
   
     useEffect(() => {
@@ -74,11 +76,11 @@ const RegisterForm = ({ type, user, setUser, submitting, handleSubmit }) => {
                     <button
                         type='submit'
                         disabled={submitting}
-                        className=' black_btn w-full mb-2'
+                        className=' black_btn w-full mb-4'
                     >
                         {submitting ? `${type}ing...` : "register"}
                     </button>
-                    {providers &&
+                    {/*providers &&
                      Object.values(providers).map((provider) => (
                         <div key={provider.id}>
                             <button
@@ -88,9 +90,25 @@ const RegisterForm = ({ type, user, setUser, submitting, handleSubmit }) => {
                             Sign in with {provider.name}
                             </button>
                         </div>
-                    ))}
+                     ))*/}
+                    <div className="w-full flex flex-col items-center">
+                        <button
+                            type='button'
+                            onClick={() => signIn("google")}
+                            className="flex gap-2 flex-center mb-2"
+                        >
+                            <Image 
+                               src="/assets/images/google.svg" 
+                               height={20} 
+                               width={20} 
+                               className="object-contain"
+                               alt="google"/>
+                            Sign in with Google
+                        </button>
+                    </div>    
                 </div>
             </form>
+        
         </section>
   );
 };

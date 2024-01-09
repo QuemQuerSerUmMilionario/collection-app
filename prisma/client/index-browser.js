@@ -135,13 +135,33 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   password: 'password',
   emailVerified: 'emailVerified',
-  image: 'image'
+  image: 'image',
+  isTwoFactorEnabled: 'isTwoFactorEnabled'
 };
 
 exports.Prisma.VerificationTokenScalarFieldEnum = {
   identifier: 'identifier',
   token: 'token',
   expires: 'expires'
+};
+
+exports.Prisma.PasswordResetTokenScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  token: 'token',
+  expires: 'expires'
+};
+
+exports.Prisma.TwoFactorTokenScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  token: 'token',
+  expires: 'expires'
+};
+
+exports.Prisma.TwoFactorConfirmationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId'
 };
 
 exports.Prisma.UserCollectionScalarFieldEnum = {
@@ -185,6 +205,9 @@ exports.Prisma.ModelName = {
   Session: 'Session',
   User: 'User',
   VerificationToken: 'VerificationToken',
+  PasswordResetToken: 'PasswordResetToken',
+  TwoFactorToken: 'TwoFactorToken',
+  TwoFactorConfirmation: 'TwoFactorConfirmation',
   UserCollection: 'UserCollection',
   Model: 'Model',
   ModelImage: 'ModelImage'
