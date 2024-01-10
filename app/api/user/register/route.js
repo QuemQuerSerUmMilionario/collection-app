@@ -27,7 +27,7 @@ export const POST = async (request) => {
     try {
         const validResult = FormData.safeParse(userForm);
         if(!validResult.success){
-            return new Response(JSON.stringify({errors:validResult.error.issues}), { status: 400  })
+            return new Response(JSON.stringify({errors:validResult.error.issues}), { status: 400 })
         }
         var user = await prisma.user.findUnique({
             where: {
