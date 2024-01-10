@@ -1,6 +1,8 @@
 import bcrypt from "bcryptjs";
 import { PrismaClient } from '@prisma/client';
 import { z } from 'zod'
+import { sendVerificationEmail } from "@/lib/mail";
+import { generateVerificationToken } from "@/lib/tokens";
 
 const FormData = z.object({
   name: z.string().min(1).max(70),
@@ -41,10 +43,17 @@ export const POST = async (request) => {
                 email: userForm.email,
                 name: userForm.name,
                 password: hashPassword,
-                image:""
+                image:"/assets/images/perfil.png"
             },
         });
-        return new Response(JSON.stringify({message:"Sucessfully registered account"}), { status: 200 })
+        const verificationToken = await generateVerificationToken(userForm.email);
+        console.log(verificationToken);
+        await sendVerificationEmail(
+          verificationToken.identifier,
+          verificationToken.token,
+        );
+      
+        return new Response(JSON.stringify({message:"Sucessfully registered account"}), { status: 201 })
     } catch (error) {
         console.log(error);
         return new Response(JSON.stringify({message:"Failed to register account"}), { status: 500 })

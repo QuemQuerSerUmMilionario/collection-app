@@ -21,9 +21,6 @@ const SideNav = () => {
     );
     const wrapperClasses = classNames(
         "h-screen w-[27rem] px-4 pt-8 pb-4 bg-light flex justify-between flex-col",
-        {
-            ["hidden"]:!activeMenu
-        }
       );
     const getNavItemClasses = (menu) => {
         return classNames(
@@ -36,33 +33,35 @@ const SideNav = () => {
    
 
     return (
-        <section className= {wrapperClasses}>
-            <div className="flex flex-col items-start">
-            {menuItems.map(({ icon: Icon, ...menu } , index) => {
-                const classes = getNavItemClasses(menu);
-                return (
-                <div className={classes} key={index}>
-                    <Link href={menu.link}>
-                    <div className="flex py-4 px-3 items-center w-full h-full">
-                        <div style={{ width: "2.5rem" }}>
-                            <FontAwesomeIcon icon={Icon} />
-                        </div>
-                        {(
-                        <span
-                            className={classNames(
-                            "text-md font-medium text-text-light"
+        <>
+            {activeMenu?(<section className= {wrapperClasses}>
+                <div className="flex flex-col items-start">
+                {menuItems.map(({ icon: Icon, ...menu } , index) => {
+                    const classes = getNavItemClasses(menu);
+                    return (
+                    <div className={classes} key={index}>
+                        <Link href={menu.link}>
+                        <div className="flex py-4 px-3 items-center w-full h-full">
+                            <div style={{ width: "2.5rem" }}>
+                                <FontAwesomeIcon icon={Icon} />
+                            </div>
+                            {(
+                            <span
+                                className={classNames(
+                                "text-md font-medium text-text-light"
+                                )}
+                            >
+                                {menu.label}
+                            </span>
                             )}
-                        >
-                            {menu.label}
-                        </span>
-                        )}
+                        </div>
+                        </Link>
                     </div>
-                    </Link>
+                    );
+                })}
                 </div>
-                );
-            })}
-            </div>
-        </section>
+            </section>):""}
+        </>
   );
 };
 

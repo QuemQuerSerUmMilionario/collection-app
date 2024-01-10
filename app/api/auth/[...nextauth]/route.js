@@ -68,7 +68,7 @@ const handler = NextAuth({
           throw error;
         });
         if(!collectionFolderExists){
-          createCollectionFolder(user.id);
+       //   createCollectionFolder(user.id);
         }
       }catch(e){
         console.log(e)
@@ -106,29 +106,6 @@ const handler = NextAuth({
   }
 });
 
-/*const handleProfileLogin = async (profile) => {
-  try {
-    var userExists = await prisma.user.findUnique({
-      where: {
-        email: profile.email,
-      }
-    });
-    if (!userExists) {
-       userExists = await prisma.user.create({
-        data: {
-            email: profile.email,
-            username: profile.name.replace(" ", "").toLowerCase(),
-            image: profile.picture,
-        },
-      });
-        await createCollectionFolder(userExists.id);
-    }
-    return userExists
-  } catch (error) {
-    console.log("Error checking if user exists: ", error.message);
-    return false
-  }
-}*/
 
 const handleCredentialLogin = async (credentials) => {
   try {

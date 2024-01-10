@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Form from "@components/user/LoginForm";
+import Form from "@components/auth/LoginForm";
 import { signIn } from "next-auth/react";
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await signIn("credentials", user);
+      const response = await signIn("credentials", user,{ callbackUrl: '/collection' });
       if (response.ok) {
         router.push("/collection");
       }
@@ -27,7 +27,7 @@ const Login = () => {
   };
   return (
        <Form
-        type='Create'
+        type='Login'
         user={user}
         setUser={setUser}
         submitting={submitting}
