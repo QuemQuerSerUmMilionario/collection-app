@@ -36,12 +36,10 @@ const Collection = () => {
 
   return (
     <div className="w-full">
-        <Link href='/create-collection' className="black_btn">+</Link>
-        {collections.length > 0?
+        <Link href='/collection/create-collection' className="black_btn">+</Link>
+        {collections.length > 0??
               (
                 <CollectionList data={collections}/>
-              ):(
-                ""
               )
             }
     </div>

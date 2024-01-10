@@ -98,11 +98,11 @@ const RegisterForm = ({ type, user, setUser, submitting, handleSubmit ,errors })
                             className="flex gap-2 flex-center mb-2"
                         >
                             <Image 
-                               src="/assets/images/google.svg" 
-                               height={20} 
-                               width={20} 
-                               className="object-contain"
-                               alt="google"/>
+                                src="/assets/images/google.svg" 
+                                height={20} 
+                                width={20} 
+                                className="object-contain"
+                                alt="google"/>
                             Sign in with Google
                         </button>
                     </div>    

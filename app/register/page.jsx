@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Form from "@components/user/RegisterForm";
+import Form from "@components/auth/RegisterForm";
 import ErrorCard from "@components/ErrorCard";
 const Register = () => {
   const [submitting, setIsSubmitting] = useState(false);

@@ -90,12 +90,10 @@ const Collection = () => {
           Upload
         </button>
       </form>
-      {searchedImages ?
+      {searchedImages ??
         (
           <ImagesList data={searchedImages} />
-        ) : (
-          ""
-        )
+        ) 
       }
     </div>
   );

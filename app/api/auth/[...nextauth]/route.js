@@ -68,7 +68,7 @@ const handler = NextAuth({
           throw error;
         });
         if(!collectionFolderExists){
-       //   createCollectionFolder(user.id);
+           createCollectionFolder(user.id);
         }
       }catch(e){
         console.log(e)
