@@ -11,21 +11,31 @@ const Form = ({ type, collection, setCollection, submitting, handleSubmit }) => 
         onSubmit={handleSubmit}
         className='mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism'
       >
-
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Name of Collection{" "}
+            Name{" "}
           </span>
           <input
-            value={collection.description}
-            onChange={(e) => setCollection({ ...collection, description: e.target.value })}
+            value={collection.name}
+            onChange={(e) => setCollection({ ...collection, name: e.target.value })}
             type='text'
             placeholder='Name'
             required
             className='form_input'
           />
         </label>
-
+        <label>
+          <span className='font-satoshi font-semibold text-base text-gray-700'>
+            Description{" "}
+          </span>
+          <textarea
+            value={collection.description}
+            onChange={(e) => setCollection({ ...collection, description: e.target.value })}
+            placeholder='Description'
+            required
+            className='form_input'
+          ></textarea>
+        </label>
         <div className='flex-end mx-3 mb-5 gap-4'>
           <Link href='/collection' className='text-gray-500 text-sm'>
             Cancel

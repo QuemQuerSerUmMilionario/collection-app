@@ -167,6 +167,7 @@ exports.Prisma.TwoFactorConfirmationScalarFieldEnum = {
 exports.Prisma.UserCollectionScalarFieldEnum = {
   id: 'id',
   description: 'description',
+  name: 'name',
   userId: 'userId',
   createdAt: 'createdAt',
   status: 'status',

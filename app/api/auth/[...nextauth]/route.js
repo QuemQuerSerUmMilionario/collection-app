@@ -46,10 +46,6 @@ export const authOptions = {
       }
     }),
   ],
-};
-
-const handler = NextAuth({
-  providers: authOptions.providers,
   session:{
     strategy: "jwt",
     maxAge:  60*60*24  
@@ -81,20 +77,20 @@ const handler = NextAuth({
         token.email = user.email;
         token.name = user.name;
         token.id = user.id;
-        return Promise.resolve(token);
+        return token
       }
-      return Promise.resolve(token)
+      return token
     },
     async session({ session, user, token }) {
       if (token) {
         session.user.name = token.name;
         session.user.email = token.email;
-        session.user.id = token.id;
+        session.user.id = token.sub;
         session.user.image = token.image;
         session.accessToken = token.accessToken;
         session.error = token.error;
       }
-      return  Promise.resolve(session);
+      return  session;
     },
     pages: {
       signIn: '/login',
@@ -104,7 +100,9 @@ const handler = NextAuth({
       newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
     }
   }
-});
+}
+
+const handler = NextAuth(authOptions);
 
 
 const handleCredentialLogin = async (credentials) => {

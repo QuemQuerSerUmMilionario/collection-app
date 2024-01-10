@@ -6,7 +6,7 @@ const ErrorCard = ({ errors }) => {
   return (
     <>
         <ul>
-            {errors.length > 0 ??(
+            {errors.length > 0 && (
                 Object.values(errors).map((error) => (
                     <li>
                         {error.message}

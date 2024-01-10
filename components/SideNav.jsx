@@ -34,7 +34,7 @@ const SideNav = () => {
 
     return (
         <>
-            {activeMenu?(<section className= {wrapperClasses}>
+            {activeMenu && (<section className= {wrapperClasses}>
                 <div className="flex flex-col items-start">
                 {menuItems.map(({ icon: Icon, ...menu } , index) => {
                     const classes = getNavItemClasses(menu);
@@ -60,7 +60,7 @@ const SideNav = () => {
                     );
                 })}
                 </div>
-            </section>):""}
+            </section>)}
         </>
   );
 };

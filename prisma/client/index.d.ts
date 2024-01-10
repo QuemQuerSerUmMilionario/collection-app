@@ -8161,6 +8161,7 @@ export namespace Prisma {
   export type UserCollectionMinAggregateOutputType = {
     id: string | null
     description: string | null
+    name: string | null
     userId: string | null
     createdAt: Date | null
     status: boolean | null
@@ -8170,6 +8171,7 @@ export namespace Prisma {
   export type UserCollectionMaxAggregateOutputType = {
     id: string | null
     description: string | null
+    name: string | null
     userId: string | null
     createdAt: Date | null
     status: boolean | null
@@ -8179,6 +8181,7 @@ export namespace Prisma {
   export type UserCollectionCountAggregateOutputType = {
     id: number
     description: number
+    name: number
     userId: number
     createdAt: number
     status: number
@@ -8190,6 +8193,7 @@ export namespace Prisma {
   export type UserCollectionMinAggregateInputType = {
     id?: true
     description?: true
+    name?: true
     userId?: true
     createdAt?: true
     status?: true
@@ -8199,6 +8203,7 @@ export namespace Prisma {
   export type UserCollectionMaxAggregateInputType = {
     id?: true
     description?: true
+    name?: true
     userId?: true
     createdAt?: true
     status?: true
@@ -8208,6 +8213,7 @@ export namespace Prisma {
   export type UserCollectionCountAggregateInputType = {
     id?: true
     description?: true
+    name?: true
     userId?: true
     createdAt?: true
     status?: true
@@ -8290,6 +8296,7 @@ export namespace Prisma {
   export type UserCollectionGroupByOutputType = {
     id: string
     description: string
+    name: string
     userId: string
     createdAt: Date
     status: boolean
@@ -8316,6 +8323,7 @@ export namespace Prisma {
   export type UserCollectionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     description?: boolean
+    name?: boolean
     userId?: boolean
     createdAt?: boolean
     status?: boolean
@@ -8330,6 +8338,7 @@ export namespace Prisma {
   export type UserCollectionSelectScalar = {
     id?: boolean
     description?: boolean
+    name?: boolean
     userId?: boolean
     createdAt?: boolean
     status?: boolean
@@ -8356,6 +8365,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       description: string
+      name: string
       userId: string
       createdAt: Date
       status: boolean
@@ -8763,6 +8773,7 @@ export namespace Prisma {
   interface UserCollectionFieldRefs {
     readonly id: FieldRef<"UserCollection", 'String'>
     readonly description: FieldRef<"UserCollection", 'String'>
+    readonly name: FieldRef<"UserCollection", 'String'>
     readonly userId: FieldRef<"UserCollection", 'String'>
     readonly createdAt: FieldRef<"UserCollection", 'DateTime'>
     readonly status: FieldRef<"UserCollection", 'Boolean'>
@@ -11111,6 +11122,7 @@ export namespace Prisma {
   export const UserCollectionScalarFieldEnum: {
     id: 'id',
     description: 'description',
+    name: 'name',
     userId: 'userId',
     createdAt: 'createdAt',
     status: 'status',
@@ -11603,6 +11615,7 @@ export namespace Prisma {
     NOT?: UserCollectionWhereInput | UserCollectionWhereInput[]
     id?: StringFilter<"UserCollection"> | string
     description?: StringFilter<"UserCollection"> | string
+    name?: StringFilter<"UserCollection"> | string
     userId?: StringFilter<"UserCollection"> | string
     createdAt?: DateTimeFilter<"UserCollection"> | Date | string
     status?: BoolFilter<"UserCollection"> | boolean
@@ -11616,6 +11629,7 @@ export namespace Prisma {
   export type UserCollectionOrderByWithRelationInput = {
     id?: SortOrder
     description?: SortOrder
+    name?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     status?: SortOrder
@@ -11632,6 +11646,7 @@ export namespace Prisma {
     OR?: UserCollectionWhereInput[]
     NOT?: UserCollectionWhereInput | UserCollectionWhereInput[]
     description?: StringFilter<"UserCollection"> | string
+    name?: StringFilter<"UserCollection"> | string
     userId?: StringFilter<"UserCollection"> | string
     createdAt?: DateTimeFilter<"UserCollection"> | Date | string
     status?: BoolFilter<"UserCollection"> | boolean
@@ -11645,6 +11660,7 @@ export namespace Prisma {
   export type UserCollectionOrderByWithAggregationInput = {
     id?: SortOrder
     description?: SortOrder
+    name?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     status?: SortOrder
@@ -11660,6 +11676,7 @@ export namespace Prisma {
     NOT?: UserCollectionScalarWhereWithAggregatesInput | UserCollectionScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"UserCollection"> | string
     description?: StringWithAggregatesFilter<"UserCollection"> | string
+    name?: StringWithAggregatesFilter<"UserCollection"> | string
     userId?: StringWithAggregatesFilter<"UserCollection"> | string
     createdAt?: DateTimeWithAggregatesFilter<"UserCollection"> | Date | string
     status?: BoolWithAggregatesFilter<"UserCollection"> | boolean
@@ -12194,6 +12211,7 @@ export namespace Prisma {
   export type UserCollectionCreateInput = {
     id?: string
     description: string
+    name: string
     createdAt?: Date | string
     status?: boolean
     user: UserCreateNestedOneWithoutUserCollectionsInput
@@ -12205,6 +12223,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedCreateInput = {
     id?: string
     description: string
+    name: string
     userId: string
     createdAt?: Date | string
     status?: boolean
@@ -12216,6 +12235,7 @@ export namespace Prisma {
   export type UserCollectionUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutUserCollectionsNestedInput
@@ -12227,6 +12247,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -12238,6 +12259,7 @@ export namespace Prisma {
   export type UserCollectionCreateManyInput = {
     id?: string
     description: string
+    name: string
     userId: string
     createdAt?: Date | string
     status?: boolean
@@ -12247,6 +12269,7 @@ export namespace Prisma {
   export type UserCollectionUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
   }
@@ -12254,6 +12277,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -12788,6 +12812,7 @@ export namespace Prisma {
   export type UserCollectionCountOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
+    name?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     status?: SortOrder
@@ -12797,6 +12822,7 @@ export namespace Prisma {
   export type UserCollectionMaxOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
+    name?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     status?: SortOrder
@@ -12806,6 +12832,7 @@ export namespace Prisma {
   export type UserCollectionMinOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
+    name?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     status?: SortOrder
@@ -13665,6 +13692,7 @@ export namespace Prisma {
   export type UserCollectionCreateWithoutUserInput = {
     id?: string
     description: string
+    name: string
     createdAt?: Date | string
     status?: boolean
     parent?: UserCollectionCreateNestedOneWithoutChildCollectionsInput
@@ -13675,6 +13703,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedCreateWithoutUserInput = {
     id?: string
     description: string
+    name: string
     createdAt?: Date | string
     status?: boolean
     fatherId?: string | null
@@ -13787,6 +13816,7 @@ export namespace Prisma {
     NOT?: UserCollectionScalarWhereInput | UserCollectionScalarWhereInput[]
     id?: StringFilter<"UserCollection"> | string
     description?: StringFilter<"UserCollection"> | string
+    name?: StringFilter<"UserCollection"> | string
     userId?: StringFilter<"UserCollection"> | string
     createdAt?: DateTimeFilter<"UserCollection"> | Date | string
     status?: BoolFilter<"UserCollection"> | boolean
@@ -13914,6 +13944,7 @@ export namespace Prisma {
   export type UserCollectionCreateWithoutChildCollectionsInput = {
     id?: string
     description: string
+    name: string
     createdAt?: Date | string
     status?: boolean
     user: UserCreateNestedOneWithoutUserCollectionsInput
@@ -13924,6 +13955,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedCreateWithoutChildCollectionsInput = {
     id?: string
     description: string
+    name: string
     userId: string
     createdAt?: Date | string
     status?: boolean
@@ -13939,6 +13971,7 @@ export namespace Prisma {
   export type UserCollectionCreateWithoutParentInput = {
     id?: string
     description: string
+    name: string
     createdAt?: Date | string
     status?: boolean
     user: UserCreateNestedOneWithoutUserCollectionsInput
@@ -13949,6 +13982,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedCreateWithoutParentInput = {
     id?: string
     description: string
+    name: string
     userId: string
     createdAt?: Date | string
     status?: boolean
@@ -14039,6 +14073,7 @@ export namespace Prisma {
   export type UserCollectionUpdateWithoutChildCollectionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutUserCollectionsNestedInput
@@ -14049,6 +14084,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedUpdateWithoutChildCollectionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -14100,6 +14136,7 @@ export namespace Prisma {
   export type UserCollectionCreateWithoutModelsInput = {
     id?: string
     description: string
+    name: string
     createdAt?: Date | string
     status?: boolean
     user: UserCreateNestedOneWithoutUserCollectionsInput
@@ -14110,6 +14147,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedCreateWithoutModelsInput = {
     id?: string
     description: string
+    name: string
     userId: string
     createdAt?: Date | string
     status?: boolean
@@ -14164,6 +14202,7 @@ export namespace Prisma {
   export type UserCollectionUpdateWithoutModelsInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutUserCollectionsNestedInput
@@ -14174,6 +14213,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedUpdateWithoutModelsInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -14273,6 +14313,7 @@ export namespace Prisma {
   export type UserCollectionCreateManyUserInput = {
     id?: string
     description: string
+    name: string
     createdAt?: Date | string
     status?: boolean
     fatherId?: string | null
@@ -14341,6 +14382,7 @@ export namespace Prisma {
   export type UserCollectionUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     parent?: UserCollectionUpdateOneWithoutChildCollectionsNestedInput
@@ -14351,6 +14393,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     fatherId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14361,6 +14404,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     fatherId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14369,6 +14413,7 @@ export namespace Prisma {
   export type UserCollectionCreateManyParentInput = {
     id?: string
     description: string
+    name: string
     userId: string
     createdAt?: Date | string
     status?: boolean
@@ -14382,6 +14427,7 @@ export namespace Prisma {
   export type UserCollectionUpdateWithoutParentInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutUserCollectionsNestedInput
@@ -14392,6 +14438,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedUpdateWithoutParentInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -14402,6 +14449,7 @@ export namespace Prisma {
   export type UserCollectionUncheckedUpdateManyWithoutParentInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean

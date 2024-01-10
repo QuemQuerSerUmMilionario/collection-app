@@ -35,7 +35,7 @@ export const POST = async (request) => {
             }
         });
         if (user) {
-            return new Response(JSON.stringify({message:"User with this e-mail alredy exists"}), { status: 400 })
+            return new Response(JSON.stringify([{message:"User with this e-mail alredy exists"}]), { status: 400 })
         }
         const hashPassword = await bcrypt.hash(userForm.password,8);
         user = await prisma.user.create({
@@ -53,9 +53,9 @@ export const POST = async (request) => {
           verificationToken.token,
         );
       
-        return new Response(JSON.stringify({message:"Sucessfully registered account"}), { status: 201 })
+        return new Response(JSON.stringify([{message:"Sucessfully registered account"}]), { status: 201 })
     } catch (error) {
         console.log(error);
-        return new Response(JSON.stringify({message:"Failed to register account"}), { status: 500 })
+        return new Response(JSON.stringify([{message:"Failed to register account"}]), { status: 500 })
     }
 }

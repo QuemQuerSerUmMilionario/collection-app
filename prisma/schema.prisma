@@ -89,6 +89,7 @@ model TwoFactorConfirmation {
 model UserCollection {
   id               String           @id @default(uuid())
   description      String
+  name             String
   userId           String           @map(name: "user_id")
   createdAt        DateTime         @default(now()) @map(name: "created_at")
   status           Boolean          @default(true)
