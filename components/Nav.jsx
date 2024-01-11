@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-
+import ThemeSwitch from "@components/ThemeSwitch"
 const Nav = () => {
   const { data: session } = useSession();
 
@@ -35,7 +35,7 @@ const Nav = () => {
       {/* Desktop Navigation */}
       <div className='sm:flex hidden'>
         {session?.user ? (
-          <div className='flex gap-3 md:gap-5'>
+          <div className='flex gap-3 md:gap-5 items-center'>
            
             <button type='button' onClick={signOut} className='outline_btn'>
               Sign Out
@@ -50,6 +50,7 @@ const Nav = () => {
                 alt='profile'
               />
             </Link>
+            <ThemeSwitch/>
           </div>
         ) : (
           <>
