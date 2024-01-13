@@ -4,27 +4,22 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaClient } from '@prisma/client';
 import bcrypt from "bcryptjs";
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
-import {
-  S3Client,
-  PutObjectCommand,
-  HeadObjectCommand
-} from "@aws-sdk/client-s3";
-const client = new S3Client({ region: process.env.AWS_REGION })
+import { createUserFolder,fetchFolder } from "@/lib/s3Client"
+
 const prisma = new PrismaClient();
 
-const createCollectionFolder = async (userId) => {
-  const params = {
-    Bucket: process.env.AWS_BUCKET_NAME,
-    Key: `user-${userId}/collections/`,
-    Body: '', 
-  };
-  await client.send(new PutObjectCommand(params));
-};
 
 export const authOptions = {
+  pages: {
+    signIn: '/login',
+    signOut: '/',
+    error: '/auth/error',
+    verifyRequest: '/new-verification', 
+    newUser: '/auth/new-user' 
+  },
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
+      clientId: process.env.GOOGLE_ID,  
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     CredentialsProvider({
@@ -53,25 +48,17 @@ export const authOptions = {
   adapter: PrismaAdapter(prisma),
   callbacks: {
     async signIn ({ user, account, profile, email, credentials }){
-      try{
-        const collectionFolderExists = await client.send(new HeadObjectCommand({
-          Bucket: process.env.AWS_BUCKET_NAME,
-          Key: `user-${user.id}/collections/`,
-        })).catch((error) => {
-          if (error.name === 'NotFound') {
-            return null;
-          }
-          throw error;
-        });
-        if(!collectionFolderExists){
-           createCollectionFolder(user.id);
-        }
-      }catch(e){
-        console.log(e)
+      console.log(credentials);
+      if(credentials && user?.error){
+        throw new Error(user.error);
+      }
+      const collectionFolderExists = fetchFolder(user.id,"");
+      if(!collectionFolderExists){
+        createUserFolder(user.id);
       }
       return user;
     },
-    async jwt({  token, user, account, profile}) {
+    async jwt({ token, user, account, profile}) {
        if (account && user) {
         token.image = user.image;
         token.email = user.email;
@@ -92,13 +79,7 @@ export const authOptions = {
       }
       return  session;
     },
-    pages: {
-      signIn: '/login',
-      signOut: '/',
-      error: '/auth/error', // Error code passed in query string as ?error=
-      verifyRequest: '/auth/verify-request', // (used for check email message)
-      newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
-    }
+    
   }
 }
 
@@ -116,6 +97,11 @@ const handleCredentialLogin = async (credentials) => {
     if (!user) {
       return null;
     }
+
+    if(!user.emailVerified){
+      return { error: 'emailNotVerified' };
+    }
+
     const passwordsMatch = await bcrypt.compare(credentials.password, user.password);
     if (!passwordsMatch) {
       return null;

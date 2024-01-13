@@ -8,16 +8,18 @@ import { signIn } from "next-auth/react";
 const Login = () => {
   const router = useRouter();
   const [submitting, setIsSubmitting] = useState(false);
-  const [user, setUser] = useState({ email: "" , password: ""});
+  const [user, setUser] = useState({ email: "" , password: "",redirect:false});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const response = await signIn("credentials", user,{ callbackUrl: '/collection' });
-      if (response.ok) {
+      const response = await signIn("credentials", user,);
+      if (response.ok && !response.error) {
         router.push("/collection");
+      }else if(response.error) {
+        console.log(response.error);
       }
     } catch (error) {
       console.log(error);

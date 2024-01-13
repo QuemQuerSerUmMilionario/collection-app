@@ -27,7 +27,7 @@ export const POST = async (request) => {
     try {
         const validResult = FormData.safeParse(userForm);
         if(!validResult.success){
-            return new Response(JSON.stringify({errors:validResult.error.issues}), { status: 400 })
+            return new Response(JSON.stringify({message:"Invalid Params",errors:validResult.error.issues}), { status: 400 })
         }
         var user = await prisma.user.findUnique({
             where: {
@@ -35,7 +35,7 @@ export const POST = async (request) => {
             }
         });
         if (user) {
-            return new Response(JSON.stringify([{message:"User with this e-mail alredy exists"}]), { status: 400 })
+            return new Response(JSON.stringify({message:"Invalid Params",errors:[{ message: "User with this e-mail alredy exists" }]}), { status: 500 });
         }
         const hashPassword = await bcrypt.hash(userForm.password,8);
         user = await prisma.user.create({
@@ -56,6 +56,6 @@ export const POST = async (request) => {
         return new Response(JSON.stringify([{message:"Sucessfully registered account"}]), { status: 201 })
     } catch (error) {
         console.log(error);
-        return new Response(JSON.stringify([{message:"Failed to register account"}]), { status: 500 })
+        return new Response(JSON.stringify({message:"Internal Server Error",errors:[{ message: 'Failed to register account' }]}), { status: 500 });
     }
 }
