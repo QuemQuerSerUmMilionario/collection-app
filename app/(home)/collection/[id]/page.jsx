@@ -79,10 +79,11 @@ const Collection = () => {
   }, []);
   return (
     <div>
-      <img
+      <Image
         src={createObjectURL}
         width={200}
         height={200}
+        alt="image to upload"
       />
       <input type="file" name="myImage" onChange={uploadToClient} />
       <form onSubmit={handleSubmit}>
