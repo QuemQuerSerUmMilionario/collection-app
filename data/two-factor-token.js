@@ -7,8 +7,9 @@ export const getTwoFactorTokenByToken = async (token) => {
     });
 
     return twoFactorToken;
-  } catch {
-    return null;
+  } catch (error) {
+    console.error("Error fetching getTwoFactorTokenByToken :", error);
+    throw error;
   }
 };
 
@@ -19,7 +20,8 @@ export const getTwoFactorTokenByEmail = async (email) => {
     });
 
     return twoFactorToken;
-  } catch {
-    return null;
+  } catch (error) {
+    console.error("Error fetching getTwoFactorTokenByEmail :", error);
+    throw error;
   }
 };

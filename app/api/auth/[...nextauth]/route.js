@@ -48,7 +48,6 @@ export const authOptions = {
   adapter: PrismaAdapter(prisma),
   callbacks: {
     async signIn ({ user, account, profile, email, credentials }){
-      console.log(credentials);
       if(credentials && user?.error){
         throw new Error(user.error);
       }

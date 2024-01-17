@@ -19,15 +19,20 @@ const CollectionList = ({data}) => {
 
 const Collection = () => {
   const [collections, setCollections] = useState([]);
-  const getCollections = async (event) => {
+  const getCollections = async (e) => {
+
     const response = await fetch( `/api/collection/`,
       {
         method: 'GET'
       }
-    ).then((response) => {
-      return response.json();
-    });
-     setCollections(response);
+    );
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.log(errorData);
+      return;
+    }
+     const lista = await response.json();
+     setCollections(lista);
   };
 
   useEffect(() => {

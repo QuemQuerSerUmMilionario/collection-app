@@ -18,9 +18,7 @@ const FormData = z.object({
     }
 });
 
-
 const prisma = new PrismaClient();
-
 
 export const POST = async (request) => {
     const userForm = await request.json();
@@ -47,7 +45,6 @@ export const POST = async (request) => {
             },
         });
         const verificationToken = await generateVerificationToken(userForm.email);
-        console.log(verificationToken);
         await sendVerificationEmail(
           verificationToken.identifier,
           verificationToken.token,
