@@ -134,6 +134,8 @@ exports.Prisma.UserScalarFieldEnum = {
   name: 'name',
   email: 'email',
   password: 'password',
+  phone: 'phone',
+  cpf: 'cpf',
   emailVerified: 'emailVerified',
   image: 'image',
   isTwoFactorEnabled: 'isTwoFactorEnabled'
@@ -193,6 +195,11 @@ exports.Prisma.ModelImageScalarFieldEnum = {
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
 };
 
 exports.Prisma.NullsOrder = {
