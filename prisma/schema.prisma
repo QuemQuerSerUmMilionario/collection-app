@@ -4,23 +4,24 @@ generator client {
 }
 
 datasource db {
-  provider = "postgres"
-  url      = env("DATABASE_URL")   
+  provider  = "postgres"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String   
-  providerAccountId  String   
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -36,54 +37,97 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  password      String?
-  phone         String?
-  cpf           String?
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  userCollections UserCollection[]
-  isTwoFactorEnabled Boolean @default(false)
+  id                    String                 @id @default(cuid())
+  name                  String?
+  email                 String?                @unique
+  password              String?
+  phone                 String?                @unique
+  cpf                   String?                @unique
+  emailVerified         DateTime?
+  image                 String?
+  accounts              Account[]
+  sessions              Session[]
+  userCollections       UserCollection[]
+  models                Model[]
+  isTwoFactorEnabled    Boolean                @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
 }
 
 model VerificationToken {
-  identifier String 
-  token      String   @unique 
-  expires    DateTime 
+  identifier String
+  token      String   @unique
+  expires    DateTime
 
   @@unique([identifier, token])
 }
 
 model PasswordResetToken {
-  id String @id @default(cuid())
-  email String 
-  token String @unique 
-  expires DateTime 
+  id      String   @id @default(cuid())
+  email   String
+  token   String   @unique
+  expires DateTime
 
   @@unique([email, token])
 }
 
 model TwoFactorToken {
-  id String @id @default(cuid())
-  email String 
-  token String @unique 
+  id      String   @id @default(cuid())
+  email   String
+  token   String   @unique
   expires DateTime
 
   @@unique([email, token])
 }
 
 model TwoFactorConfirmation {
-  id String @id @default(cuid())
-
+  id     String @id @default(cuid())
   userId String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId])
+}
+
+model TypeCollection {
+  id          Int              @id
+  description String           @unique
+  collections UserCollection[]
+  models      Model[]
+}
+
+model TypeModel {
+  id          Int     @id
+  description String  @unique
+  models      Model[]
+}
+
+model Model {
+  id               String          @id
+  model            String?
+  series           String?
+  seriesNum        String?
+  year             String?
+  status           Boolean         @default(true)
+  image            String
+  createdAt        DateTime        @default(now()) @map(name: "created_at")
+  userId           String?
+  typeModelId      Int
+  typeCollectionId Int?
+  typeCollection   TypeCollection? @relation(fields: [typeCollectionId], references: [id])
+  typeModel        TypeModel       @relation(fields: [typeModelId], references: [id])
+  user             User?           @relation(fields: [userId], references: [id])
+  modelImages      ModelImage[]
+  userModel        UserModel[]
+}
+
+model ModelImage {
+  id        String   @id @default(uuid())
+  modelId   String
+  fileName  String
+  link      String
+  principal Boolean  @default(false)
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  status    Boolean  @default(true)
+  model     Model    @relation(fields: [modelId], references: [id])
 }
 
 model UserCollection {
@@ -91,30 +135,36 @@ model UserCollection {
   description      String?
   name             String
   userId           String           @map(name: "user_id")
+  typeCollectionId Int?
   createdAt        DateTime         @default(now()) @map(name: "created_at")
   status           Boolean          @default(true)
   fatherId         String?          @map(name: "father_id")
   user             User             @relation(fields: [userId], references: [id])
+  typeCollection   TypeCollection?  @relation(fields: [typeCollectionId], references: [id])
   parent           UserCollection?  @relation("ChildCollections", fields: [fatherId], references: [id])
   childCollections UserCollection[] @relation("ChildCollections")
-  models           Model[]
+  models           UserModel[]
 }
 
-model Model {
-  id               String         @id @default(uuid())
-  createdAt        DateTime       @default(now()) @map(name: "created_at")
-  userCollectionId String         @map(name: "collection_id")
-  userCollection   UserCollection @relation(fields: [userCollectionId], references: [id])
-  modelImages      ModelImage[]
+model UserModel {
+  id               String           @id @default(uuid())
+  createdAt        DateTime         @default(now()) @map(name: "created_at")
+  description      String?
+  name             String?
+  modelId          String
+  userCollectionId String
+  userCollection   UserCollection   @relation(fields: [userCollectionId], references: [id])
+  model            Model            @relation(fields: [modelId], references: [id])
+  modelImages      UserModelImage[]
 }
 
-model ModelImage {
-  id              String   @id @default(uuid())
-  modelId         String   @map(name: "model_id")
-  name            String
-  link            String
-  principal       Boolean  @default(false)
-  createdAt       DateTime @default(now()) @map(name: "created_at")
-  status          Boolean  @default(true)
-  modelCollection Model    @relation(fields: [modelId], references: [id])
+model UserModelImage {
+  id          String    @id @default(uuid())
+  userModelId String
+  link        String
+  fileName    String
+  principal   Boolean   @default(false)
+  createdAt   DateTime  @default(now()) @map(name: "created_at")
+  status      Boolean   @default(true)
+  userModel   UserModel @relation(fields: [userModelId], references: [id])
 }

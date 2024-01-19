@@ -1,20 +1,18 @@
-import  { S3Client, PutObjectCommand,ListObjectsV2Command }  from '@aws-sdk/client-s3'
 import { authOptions } from '@app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth"
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
-const client = new S3Client({ region: process.env.AWS_REGION })
+import { z } from 'zod'
+import { db } from '@/lib/db';
 
+const FormData = z.object({
+    id: z.string(),
+    name: z.string().min(1).max(70),
+    description: z.string().min(1).max(200),
+});
 
 export async function GET(request,{ params }) {
     const id = params.id;
     const session = await getServerSession(authOptions)
     try {
-     var user = await prisma.user.findUnique({
-          where: {
-            email: session.user.email,
-          }
-      });  
       const listObjectsParams = {
         Bucket: process.env.AWS_BUCKET_NAME,
         Prefix: `user-${user.id}/collections/${id}/`,
@@ -33,11 +31,6 @@ export async function POST(request, { params }) {
   const session = await getServerSession(authOptions);
   const id = params.id;
   try {
-    var user = await prisma.user.findUnique({
-        where: {
-          email: session.user.email,
-        }
-    });
     if(user){
       const formData = await request.formData();
       const file =  formData.get("file");

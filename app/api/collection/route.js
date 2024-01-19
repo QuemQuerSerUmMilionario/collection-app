@@ -36,7 +36,6 @@ export const POST = async (request,response) => {
             }
         });
         if(collection){
-            console.log("entrou");
             return new Response(JSON.stringify({errors:[{message:"Collection with this name alredy exists"}]}), { status: 400 });
         }
 

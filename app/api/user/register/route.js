@@ -1,8 +1,10 @@
 import bcrypt from "bcryptjs";
-import { PrismaClient } from '@prisma/client';
 import { z } from 'zod'
 import { sendVerificationEmail } from "@/lib/mail";
 import { generateVerificationToken } from "@/lib/tokens";
+import { getUserByEmail } from "@/data/user";
+import { db } from "@/lib/db";
+
 
 const FormData = z.object({
   name: z.string().min(1).max(70),
@@ -18,7 +20,6 @@ const FormData = z.object({
     }
 });
 
-const prisma = new PrismaClient();
 
 export const POST = async (request) => {
     const userForm = await request.json();
@@ -27,16 +28,12 @@ export const POST = async (request) => {
         if(!validResult.success){
             return new Response(JSON.stringify({message:"Invalid Params",errors:validResult.error.issues}), { status: 400 })
         }
-        var user = await prisma.user.findUnique({
-            where: {
-                email:userForm.email,
-            }
-        });
+        var user = await getUserByEmail(userForm.email);
         if (user) {
-            return new Response(JSON.stringify({message:"Invalid Params",errors:[{ message: "User with this e-mail alredy exists" }]}), { status: 500 });
+            return new Response(JSON.stringify({message:"Invalid Params",errors:[{ message: "User with this e-mail alredy exists" }]}), { status: 400 });
         }
         const hashPassword = await bcrypt.hash(userForm.password,8);
-        user = await prisma.user.create({
+        user = await db.user.create({
             data: {
                 email: userForm.email,
                 name: userForm.name,
@@ -53,6 +50,6 @@ export const POST = async (request) => {
         return new Response(JSON.stringify([{message:"Sucessfully registered account"}]), { status: 201 })
     } catch (error) {
         console.log(error);
-        return new Response(JSON.stringify({message:"Internal Server Error",errors:[{ message: 'Failed to register account' }]}), { status: 500 });
+        return new Response(JSON.stringify({message:"Internal Server Error",errors:[{ message: 'Failed to register account - ' + error}]}), { status: 500 });
     }
 }

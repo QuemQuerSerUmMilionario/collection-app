@@ -13,9 +13,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
-      const response = await signIn("credentials", user,);
+      const response = await signIn("credentials", user);
       if (response.ok && !response.error) {
         router.push("/collection");
       }else if(response.error) {

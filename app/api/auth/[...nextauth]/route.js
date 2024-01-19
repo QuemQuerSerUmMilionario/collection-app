@@ -51,6 +51,7 @@ export const authOptions = {
       if(credentials && user?.error){
         throw new Error(user.error);
       }
+
       const collectionFolderExists = fetchFolder(user.id,"");
       if(!collectionFolderExists){
         createUserFolder(user.id);
