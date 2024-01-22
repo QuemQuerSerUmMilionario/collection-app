@@ -48,7 +48,7 @@ model User {
   accounts              Account[]
   sessions              Session[]
   userCollections       UserCollection[]
-  models                Model[]
+  items                 Item[]
   isTwoFactorEnabled    Boolean                @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
 }
@@ -87,47 +87,47 @@ model TwoFactorConfirmation {
   @@unique([userId])
 }
 
-model TypeCollection {
+model Collection {
   id          Int              @id
   description String           @unique
   collections UserCollection[]
-  models      Model[]
+  items       Item[]
 }
 
 model TypeModel {
   id          Int     @id
   description String  @unique
-  models      Model[]
+  items       Item[]
 }
 
-model Model {
+model Item {
   id               String          @id
-  model            String?
+  model            String
   series           String?
   seriesNum        String?
-  year             String?
+  year             String
   status           Boolean         @default(true)
-  image            String
+  image            String?
   createdAt        DateTime        @default(now()) @map(name: "created_at")
   userId           String?
   typeModelId      Int
-  typeCollectionId Int?
-  typeCollection   TypeCollection? @relation(fields: [typeCollectionId], references: [id])
+  collectionId     Int?
+  collection       Collection? @relation(fields: [collectionId], references: [id])
   typeModel        TypeModel       @relation(fields: [typeModelId], references: [id])
   user             User?           @relation(fields: [userId], references: [id])
-  modelImages      ModelImage[]
-  userModel        UserModel[]
+  itemImages       ItemImage[]
+  userItem         UserItem[]
 }
 
-model ModelImage {
+model ItemImage {
   id        String   @id @default(uuid())
-  modelId   String
+  itemId    String
   fileName  String
   link      String
   principal Boolean  @default(false)
   createdAt DateTime @default(now()) @map(name: "created_at")
   status    Boolean  @default(true)
-  model     Model    @relation(fields: [modelId], references: [id])
+  item      Item     @relation(fields: [itemId], references: [id])
 }
 
 model UserCollection {
@@ -135,36 +135,36 @@ model UserCollection {
   description      String?
   name             String
   userId           String           @map(name: "user_id")
-  typeCollectionId Int?
+  collectionId Int?
   createdAt        DateTime         @default(now()) @map(name: "created_at")
   status           Boolean          @default(true)
   fatherId         String?          @map(name: "father_id")
   user             User             @relation(fields: [userId], references: [id])
-  typeCollection   TypeCollection?  @relation(fields: [typeCollectionId], references: [id])
+  collection       Collection?  @relation(fields: [collectionId], references: [id])
   parent           UserCollection?  @relation("ChildCollections", fields: [fatherId], references: [id])
   childCollections UserCollection[] @relation("ChildCollections")
-  models           UserModel[]
+  items            UserItem[]
 }
 
-model UserModel {
+model UserItem {
   id               String           @id @default(uuid())
   createdAt        DateTime         @default(now()) @map(name: "created_at")
   description      String?
   name             String?
-  modelId          String
+  itemId           String
   userCollectionId String
   userCollection   UserCollection   @relation(fields: [userCollectionId], references: [id])
-  model            Model            @relation(fields: [modelId], references: [id])
-  modelImages      UserModelImage[]
+  item             Item             @relation(fields: [itemId], references: [id])
+  itemImages       UserItemImage[]
 }
 
-model UserModelImage {
+model UserItemImage {
   id          String    @id @default(uuid())
-  userModelId String
+  userItemId  String
   link        String
   fileName    String
   principal   Boolean   @default(false)
   createdAt   DateTime  @default(now()) @map(name: "created_at")
   status      Boolean   @default(true)
-  userModel   UserModel @relation(fields: [userModelId], references: [id])
+  userItem    UserItem  @relation(fields: [userItemId], references: [id])
 }

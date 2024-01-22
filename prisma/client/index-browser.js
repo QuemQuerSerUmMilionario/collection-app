@@ -166,27 +166,65 @@ exports.Prisma.TwoFactorConfirmationScalarFieldEnum = {
   userId: 'userId'
 };
 
+exports.Prisma.TypeCollectionScalarFieldEnum = {
+  id: 'id',
+  description: 'description'
+};
+
+exports.Prisma.TypeModelScalarFieldEnum = {
+  id: 'id',
+  description: 'description'
+};
+
+exports.Prisma.ItemScalarFieldEnum = {
+  id: 'id',
+  model: 'model',
+  series: 'series',
+  seriesNum: 'seriesNum',
+  year: 'year',
+  status: 'status',
+  image: 'image',
+  createdAt: 'createdAt',
+  userId: 'userId',
+  typeModelId: 'typeModelId',
+  typeCollectionId: 'typeCollectionId'
+};
+
+exports.Prisma.ItemImageScalarFieldEnum = {
+  id: 'id',
+  itemId: 'itemId',
+  fileName: 'fileName',
+  link: 'link',
+  principal: 'principal',
+  createdAt: 'createdAt',
+  status: 'status'
+};
+
 exports.Prisma.UserCollectionScalarFieldEnum = {
   id: 'id',
   description: 'description',
   name: 'name',
   userId: 'userId',
+  typeCollectionId: 'typeCollectionId',
   createdAt: 'createdAt',
   status: 'status',
   fatherId: 'fatherId'
 };
 
-exports.Prisma.ModelScalarFieldEnum = {
+exports.Prisma.UserItemScalarFieldEnum = {
   id: 'id',
   createdAt: 'createdAt',
+  description: 'description',
+  name: 'name',
+  itemId: 'itemId',
   userCollectionId: 'userCollectionId'
 };
 
-exports.Prisma.ModelImageScalarFieldEnum = {
+exports.Prisma.UserItemImageScalarFieldEnum = {
   id: 'id',
-  modelId: 'modelId',
-  name: 'name',
+  userItemId: 'userItemId',
   link: 'link',
+  fileName: 'fileName',
   principal: 'principal',
   createdAt: 'createdAt',
   status: 'status'
@@ -216,9 +254,13 @@ exports.Prisma.ModelName = {
   PasswordResetToken: 'PasswordResetToken',
   TwoFactorToken: 'TwoFactorToken',
   TwoFactorConfirmation: 'TwoFactorConfirmation',
+  TypeCollection: 'TypeCollection',
+  TypeModel: 'TypeModel',
+  Item: 'Item',
+  ItemImage: 'ItemImage',
   UserCollection: 'UserCollection',
-  Model: 'Model',
-  ModelImage: 'ModelImage'
+  UserItem: 'UserItem',
+  UserItemImage: 'UserItemImage'
 };
 
 /**

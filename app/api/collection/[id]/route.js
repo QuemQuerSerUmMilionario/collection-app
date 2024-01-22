@@ -10,9 +10,9 @@ const FormData = z.object({
 });
 
 export const GET = async (request,{params}) => {
-    const session = await getServerSession(authOptions);
-    const { id } = params.id;
     try {
+        const session = await getServerSession(authOptions);
+        const { id } = params.id;
         const existingCollection = await db.userCollection.findFirst({
             select: {
                 id: true,
@@ -57,7 +57,6 @@ export const PUT = async (request,{params}) => {
         if(collection){
             return new Response(JSON.stringify({message:"Error",errors:[{message:"Collection with this name alredy exists"}]}), { status: 400 });
         }
-        console.log(collectionForm.id); 
         const updateCollection = await db.userCollection.update({
             where: {
                 id:collectionForm.id,

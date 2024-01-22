@@ -2,55 +2,64 @@ import { authOptions } from '@app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth"
 import { z } from 'zod'
 import { db } from '@/lib/db';
-
+import { getCollectionById } from '@/data/collection';
+import {formDataToObject} from "@/lib/util"
 const FormData = z.object({
-    id: z.string(),
-    name: z.string().min(1).max(70),
-    description: z.string().min(1).max(200),
+  collectiondId: z.string().min(1),
+  itemId: z.string().min(1),
+  description: z.string(),
 });
 
 export async function GET(request,{ params }) {
-    const id = params.id;
-    const session = await getServerSession(authOptions)
-    try {
-      const listObjectsParams = {
-        Bucket: process.env.AWS_BUCKET_NAME,
-        Prefix: `user-${user.id}/collections/${id}/`,
-      };
-      const listObjectsCommand = new ListObjectsV2Command(listObjectsParams);
-
-      const response = await client.send(listObjectsCommand);
-      const images = response.Contents.filter((object) => !object.Key.endsWith('/')) .map((object) => process.env.AWS_BUCKET_URL + '/' + object.Key);
-      return new Response(JSON.stringify(images), { status: 200 })
-    } catch (error) {
-      return Response.json({ error: error.message }, { status: 500 })
-    }
+    
 }
   
-export async function POST(request, { params }) {
-  const session = await getServerSession(authOptions);
-  const id = params.id;
+export const POST = async (request, response) => {
   try {
-    if(user){
-      const formData = await request.formData();
-      const file =  formData.get("file");
-      if(!file) {
-          return NextResponse.json( { error: "File is required."}, { status: 400 } );
-      } 
-  
-      const buffer = Buffer.from(await file.arrayBuffer());
-      const uploadParams = {
-        Bucket: process.env.AWS_BUCKET_NAME,
-        Key: `user-${user.id}/collections/${id}/${file.name}`,
-        Body: buffer
-      };
-      const uploadCommand = new PutObjectCommand(uploadParams);
-      await client.send(uploadCommand);
-      return Response.json({ success:true })
-    }else{
-      return Response.json({ error: "log in first" })
-    }
+      const session = await getServerSession(authOptions);
+      const itemForm = await request.formData();
+      const userItem = await formDataToObject(itemForm);
+      const file = itemForm.get("files");
+      const validResult = FormData.safeParse(itemForm);
+      if (!validResult.success) {
+          console.log(validResult.error);
+          return new Response(JSON.stringify({ errors: validResult.error.issues }), { status: 400 })
+      }
+      const collection = await getCollectionById(userItem.collectionId);
+      if(!collection){
+        return new Response(JSON.stringify({ errors: [{ message: "Collection not found"}] }), { status: 400 });
+      }
+
+      const item = await getItemById(userItem.collectionId);
+      if(!collection){
+        return new Response(JSON.stringify({ errors: [{ message: "Item not found"}] }), { status: 400 });
+      }
+
+      const newItem = await db.$transaction(async (tx) => {
+          const userItem = await tx.userItem.create({
+              data: {
+                  collectionId: userItem.collectiondId,
+                  itemId: userItem.itemId,
+                  userId: session?.user?.id,
+              },
+          });
+          const userItemImage = await tx.userItemImage.create({
+            data: {
+              itemId: item.itemId,
+              collectionId:item.collectionId,
+              image: `${process.env.AWS_BUCKET_URL}/${filePath}`,
+            },
+          });
+          const filePath = `user-${session?.user?.id}/collections/${userItem.collectiondId}/${userItem.id}/${file.name}`;
+          const resultUpload = await uploadFile(filePath, file);
+          if (resultUpload?.$metadata?.httpStatusCode != 200) {
+              throw new Error(`Error model file`);
+          }
+          return entity;
+      });
+      return new Response(JSON.stringify(newItem), { status: 200 });
   } catch (error) {
-    return Response.json({ error: error.message })
+      console.log(error);
+      return new Response(JSON.stringify({ errors: [{ message: "Failed to create collection item ," + error }] }), { status: 500 });
   }
 }

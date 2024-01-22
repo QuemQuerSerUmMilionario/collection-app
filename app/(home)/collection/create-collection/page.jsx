@@ -21,7 +21,8 @@ const CreateCollection = () => {
         method: "POST",
         body: JSON.stringify(collection),
       });
-
+      const result = await response.json();
+      console.log(result);
       if (response.ok) {
         router.push("/collection");
       }

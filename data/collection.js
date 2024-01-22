@@ -7,7 +7,19 @@ export const getCollectionByUser = async (userId) => {
     });
     return user;
   } catch (error) {
-    console.log("Error fetching getUserByEmail:" + error);
+    console.log("Error fetching getCollectionByUser:" + error);
+    throw error;
+  }
+};
+
+export const getCollectionById = async (collectioId) => {
+  try {
+    const user = await db.userCollection.findUnique({
+      where: { id:collectionId }
+    });
+    return user;
+  } catch (error) {
+    console.log("Error fetching getCollectionById:" + error);
     throw error;
   }
 };

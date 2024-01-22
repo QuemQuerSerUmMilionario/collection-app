@@ -51,7 +51,6 @@ export const authOptions = {
       if(credentials && user?.error){
         throw new Error(user.error);
       }
-
       const collectionFolderExists = fetchFolder(user.id,"");
       if(!collectionFolderExists){
         createUserFolder(user.id);
@@ -70,6 +69,7 @@ export const authOptions = {
     },
     async session({ session, user, token }) {
       if (token) {
+        session.user = {};
         session.user.name = token.name;
         session.user.email = token.email;
         session.user.id = token.sub;
@@ -88,29 +88,35 @@ const handler = NextAuth(authOptions);
 
 const handleCredentialLogin = async (credentials) => {
   try {
-    var user = await prisma.user.findUnique({
-      where: {
-        email:credentials.email,
+    if(credentials){
+      var user = await prisma.user.findUnique({
+        where: {
+          email:credentials.email,
+        }
+      });
+      
+      if (!user) {
+        if(!user.emailVerified){
+          return { error: 'userNotFound' };
+        }
       }
-    });
-    
-    if (!user) {
-      return null;
+  
+      if(!user.emailVerified){
+        return { error: 'emailNotVerified' };
+      }
+  
+      const passwordsMatch = await bcrypt.compare(credentials.password, user.password);
+      if (!passwordsMatch) {
+        if(!user.emailVerified){
+          return { error: 'passwordInvalid' };
+        }
+      }
+      return user;
     }
-
-    if(!user.emailVerified){
-      return { error: 'emailNotVerified' };
-    }
-
-    const passwordsMatch = await bcrypt.compare(credentials.password, user.password);
-    if (!passwordsMatch) {
-      return null;
-    }
-    return user;
   } catch (error) {
     console.log("Error: ", error);
-    return null;
   }
+  return null;
 }
 
 export { handler as GET, handler as POST , handler}

@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'next/navigation';
 import Image from "next/image"
-
 const ImagesList = ({ data }) => {
   return (
     <div className='mt-16'>
@@ -74,12 +73,10 @@ const Collection = () => {
     });
     setSearchedImages(images);
   };
-  useEffect(() => {
-    getImages();
-  }, []);
+
   return (
     <div>
-      <Image
+      <img
         src={createObjectURL}
         width={200}
         height={200}
