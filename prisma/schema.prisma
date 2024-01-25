@@ -150,6 +150,7 @@ model UserItem {
   id               String           @id @default(uuid())
   createdAt        DateTime         @default(now()) @map(name: "created_at")
   description      String?
+  scale            String?
   name             String?
   itemId           String
   userCollectionId String

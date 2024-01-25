@@ -13,7 +13,7 @@ const FormData = z.object({
 export const GET = async (request,response) => {
     try {
         const session = await getServerSession(authOptions)
-        const collections = await getCollectionByUser(session.user.id);
+        const collections = await getCollectionByUser(session?.user?.id);
         return new Response(JSON.stringify(collections), { status: 200 })
     } catch (error) {
         return new Response(JSON.stringify({errors:[{message:"Failed to fetch all collections , " + error}]}), { status: 500 })
@@ -47,8 +47,8 @@ export const POST = async (request,response) => {
                     userId:session?.user?.id,
                 },
             });
-            
-            const resultFolder = await createFolder(session.user.id,entity.id);
+            const path = `collections/${entity.id}/`;
+            const resultFolder = await createFolder(path);
             if(resultFolder?.$metadata?.httpStatusCode != 200){
                 throw new Error(`error to create folder`);
             }

@@ -38,10 +38,10 @@ DATABASE_URL=
 RESEND_API_KEY=
 ```
 
-### Setup Prisma
+### Setup Prisma 
 ```shell
 npx prisma generate
-npx prisma db push
+npx prisma db push (utilizar em caso de banco local)
 ```
 
 ### Start the app

@@ -22,8 +22,8 @@ const FormData = z.object({
 
 
 export const POST = async (request) => {
-    const userForm = await request.json();
-    try {
+  try {
+        const userForm = await request.json();
         const validResult = FormData.safeParse(userForm);
         if(!validResult.success){
             return new Response(JSON.stringify({message:"Invalid Params",errors:validResult.error.issues}), { status: 400 })

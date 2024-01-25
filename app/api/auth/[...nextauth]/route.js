@@ -15,7 +15,7 @@ export const authOptions = {
     signOut: '/',
     error: '/auth/error',
     verifyRequest: '/new-verification', 
-    newUser: '/auth/new-user' 
+    newUser: '/collection' 
   },
   providers: [
     GoogleProvider({
@@ -96,9 +96,7 @@ const handleCredentialLogin = async (credentials) => {
       });
       
       if (!user) {
-        if(!user.emailVerified){
           return { error: 'userNotFound' };
-        }
       }
   
       if(!user.emailVerified){
@@ -107,9 +105,7 @@ const handleCredentialLogin = async (credentials) => {
   
       const passwordsMatch = await bcrypt.compare(credentials.password, user.password);
       if (!passwordsMatch) {
-        if(!user.emailVerified){
           return { error: 'passwordInvalid' };
-        }
       }
       return user;
     }

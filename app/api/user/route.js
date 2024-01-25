@@ -11,8 +11,8 @@ const FormData = z.object({
 });
 
 export const PUT = async (request) => {
-    const session = await getServerSession(authOptions);
     try {
+        const session = await getServerSession(authOptions);
         const userForm = await request.json();
         const validResult = FormData.safeParse(userForm);
         if(!validResult.success){
@@ -33,7 +33,7 @@ export const PUT = async (request) => {
 
         const updateUser = await db.user.update({
             where: {
-                id:session.user.id,
+                id:session.user?.id,
             },
             data: {
                 name:userForm.name,

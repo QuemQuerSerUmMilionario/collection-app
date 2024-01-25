@@ -43,14 +43,14 @@ export const POST = async (request, response) => {
                   userId: session?.user?.id,
               },
           });
-          const userItemImage = await tx.userItemImage.create({
+          await tx.userItemImage.create({
             data: {
               itemId: item.itemId,
               collectionId:item.collectionId,
               image: `${process.env.AWS_BUCKET_URL}/${filePath}`,
             },
           });
-          const filePath = `user-${session?.user?.id}/collections/${userItem.collectiondId}/${userItem.id}/${file.name}`;
+          const filePath = `collections/${userItem.collectiondId}/${userItem.id}/${file.name}`;
           const resultUpload = await uploadFile(filePath, file);
           if (resultUpload?.$metadata?.httpStatusCode != 200) {
               throw new Error(`Error model file`);
