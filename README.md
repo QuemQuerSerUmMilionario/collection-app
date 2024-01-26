@@ -79,12 +79,12 @@ app
 │   │     ├──[id]
 │   │     │   │  
 │   │     │   └── route.js 
-│   │     └── route.js (criar (POST))
-│   ├── user
+│   │     └── route.js (editar dados (POST))
+│   ├── model
 │   │     ├──[id]
 │   │     │   │  
 │   │     │   └── route.js 
-│   │     └── route.js (editar (PUT) / listar todas (GET))
+│   │     └── route.js (criar model (POST) / listar todos (GET))
 │   └── route.js
 ├── page.jsx
 │    
