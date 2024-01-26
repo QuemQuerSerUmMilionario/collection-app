@@ -67,7 +67,24 @@ prisma
 └── migrations
 app
 ├── api
-│   ├── [next-auth]
+│   ├── auth
+│   │     ├──[next-auth]
+│   │     └── route.js (autenticação)
+│   ├── collection
+│   │     ├──[id]
+│   │     │   │  
+│   │     │   └── route.js (editar (PUT) / listar única (GET))
+│   │     └── route.js (criar (POST) / listar todas (GET))
+│   ├── user
+│   │     ├──[id]
+│   │     │   │  
+│   │     │   └── route.js 
+│   │     └── route.js (criar (POST))
+│   ├── user
+│   │     ├──[id]
+│   │     │   │  
+│   │     │   └── route.js 
+│   │     └── route.js (editar (PUT) / listar todas (GET))
 │   └── route.js
 ├── page.jsx
 │    

@@ -85,3 +85,18 @@ export const getItemsByModelAndYear = async (model,year) => {
   }
 };
 
+
+export const getItemById = async (id) => {
+  try {
+    const items = await db.item.findFirst({
+      where: { 
+        id : id
+      },
+      distinct: ['model'],
+    });
+    return items;
+  } catch (error) {
+    console.log("Error fetching getItemByModel:" + error);
+    throw error;
+  }
+};

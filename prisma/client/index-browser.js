@@ -166,7 +166,7 @@ exports.Prisma.TwoFactorConfirmationScalarFieldEnum = {
   userId: 'userId'
 };
 
-exports.Prisma.TypeCollectionScalarFieldEnum = {
+exports.Prisma.CollectionScalarFieldEnum = {
   id: 'id',
   description: 'description'
 };
@@ -187,7 +187,7 @@ exports.Prisma.ItemScalarFieldEnum = {
   createdAt: 'createdAt',
   userId: 'userId',
   typeModelId: 'typeModelId',
-  typeCollectionId: 'typeCollectionId'
+  collectionId: 'collectionId'
 };
 
 exports.Prisma.ItemImageScalarFieldEnum = {
@@ -205,16 +205,16 @@ exports.Prisma.UserCollectionScalarFieldEnum = {
   description: 'description',
   name: 'name',
   userId: 'userId',
-  typeCollectionId: 'typeCollectionId',
+  collectionId: 'collectionId',
   createdAt: 'createdAt',
   status: 'status',
   fatherId: 'fatherId'
 };
 
 exports.Prisma.UserItemScalarFieldEnum = {
-  id: 'id',
   createdAt: 'createdAt',
   description: 'description',
+  scale: 'scale',
   name: 'name',
   itemId: 'itemId',
   userCollectionId: 'userCollectionId'
@@ -222,7 +222,8 @@ exports.Prisma.UserItemScalarFieldEnum = {
 
 exports.Prisma.UserItemImageScalarFieldEnum = {
   id: 'id',
-  userItemId: 'userItemId',
+  itemId: 'itemId',
+  userCollectionId: 'userCollectionId',
   link: 'link',
   fileName: 'fileName',
   principal: 'principal',
@@ -254,7 +255,7 @@ exports.Prisma.ModelName = {
   PasswordResetToken: 'PasswordResetToken',
   TwoFactorToken: 'TwoFactorToken',
   TwoFactorConfirmation: 'TwoFactorConfirmation',
-  TypeCollection: 'TypeCollection',
+  Collection: 'Collection',
   TypeModel: 'TypeModel',
   Item: 'Item',
   ItemImage: 'ItemImage',

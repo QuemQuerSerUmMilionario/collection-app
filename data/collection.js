@@ -15,7 +15,7 @@ export const getCollectionByUser = async (userId) => {
 export const getCollectionById = async (collectioId) => {
   try {
     const user = await db.userCollection.findUnique({
-      where: { id:collectionId }
+      where: { id:collectioId }
     });
     return user;
   } catch (error) {

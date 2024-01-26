@@ -49,10 +49,10 @@ export type TwoFactorToken = $Result.DefaultSelection<Prisma.$TwoFactorTokenPayl
  */
 export type TwoFactorConfirmation = $Result.DefaultSelection<Prisma.$TwoFactorConfirmationPayload>
 /**
- * Model TypeCollection
+ * Model Collection
  * 
  */
-export type TypeCollection = $Result.DefaultSelection<Prisma.$TypeCollectionPayload>
+export type Collection = $Result.DefaultSelection<Prisma.$CollectionPayload>
 /**
  * Model TypeModel
  * 
@@ -277,14 +277,14 @@ export class PrismaClient<
   get twoFactorConfirmation(): Prisma.TwoFactorConfirmationDelegate<ExtArgs>;
 
   /**
-   * `prisma.typeCollection`: Exposes CRUD operations for the **TypeCollection** model.
+   * `prisma.collection`: Exposes CRUD operations for the **Collection** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more TypeCollections
-    * const typeCollections = await prisma.typeCollection.findMany()
+    * // Fetch zero or more Collections
+    * const collections = await prisma.collection.findMany()
     * ```
     */
-  get typeCollection(): Prisma.TypeCollectionDelegate<ExtArgs>;
+  get collection(): Prisma.CollectionDelegate<ExtArgs>;
 
   /**
    * `prisma.typeModel`: Exposes CRUD operations for the **TypeModel** model.
@@ -822,7 +822,7 @@ export namespace Prisma {
     PasswordResetToken: 'PasswordResetToken',
     TwoFactorToken: 'TwoFactorToken',
     TwoFactorConfirmation: 'TwoFactorConfirmation',
-    TypeCollection: 'TypeCollection',
+    Collection: 'Collection',
     TypeModel: 'TypeModel',
     Item: 'Item',
     ItemImage: 'ItemImage',
@@ -845,7 +845,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'account' | 'session' | 'user' | 'verificationToken' | 'passwordResetToken' | 'twoFactorToken' | 'twoFactorConfirmation' | 'typeCollection' | 'typeModel' | 'item' | 'itemImage' | 'userCollection' | 'userItem' | 'userItemImage'
+      modelProps: 'account' | 'session' | 'user' | 'verificationToken' | 'passwordResetToken' | 'twoFactorToken' | 'twoFactorConfirmation' | 'collection' | 'typeModel' | 'item' | 'itemImage' | 'userCollection' | 'userItem' | 'userItemImage'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -1311,69 +1311,69 @@ export namespace Prisma {
           }
         }
       }
-      TypeCollection: {
-        payload: Prisma.$TypeCollectionPayload<ExtArgs>
-        fields: Prisma.TypeCollectionFieldRefs
+      Collection: {
+        payload: Prisma.$CollectionPayload<ExtArgs>
+        fields: Prisma.CollectionFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.TypeCollectionFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TypeCollectionPayload> | null
+            args: Prisma.CollectionFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.TypeCollectionFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TypeCollectionPayload>
+            args: Prisma.CollectionFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
           }
           findFirst: {
-            args: Prisma.TypeCollectionFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TypeCollectionPayload> | null
+            args: Prisma.CollectionFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.TypeCollectionFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TypeCollectionPayload>
+            args: Prisma.CollectionFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
           }
           findMany: {
-            args: Prisma.TypeCollectionFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TypeCollectionPayload>[]
+            args: Prisma.CollectionFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>[]
           }
           create: {
-            args: Prisma.TypeCollectionCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TypeCollectionPayload>
+            args: Prisma.CollectionCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
           }
           createMany: {
-            args: Prisma.TypeCollectionCreateManyArgs<ExtArgs>,
+            args: Prisma.CollectionCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.TypeCollectionDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TypeCollectionPayload>
+            args: Prisma.CollectionDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
           }
           update: {
-            args: Prisma.TypeCollectionUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TypeCollectionPayload>
+            args: Prisma.CollectionUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
           }
           deleteMany: {
-            args: Prisma.TypeCollectionDeleteManyArgs<ExtArgs>,
+            args: Prisma.CollectionDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.TypeCollectionUpdateManyArgs<ExtArgs>,
+            args: Prisma.CollectionUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.TypeCollectionUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TypeCollectionPayload>
+            args: Prisma.CollectionUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
           }
           aggregate: {
-            args: Prisma.TypeCollectionAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateTypeCollection>
+            args: Prisma.CollectionAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateCollection>
           }
           groupBy: {
-            args: Prisma.TypeCollectionGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<TypeCollectionGroupByOutputType>[]
+            args: Prisma.CollectionGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<CollectionGroupByOutputType>[]
           }
           count: {
-            args: Prisma.TypeCollectionCountArgs<ExtArgs>,
-            result: $Utils.Optional<TypeCollectionCountAggregateOutputType> | number
+            args: Prisma.CollectionCountArgs<ExtArgs>,
+            result: $Utils.Optional<CollectionCountAggregateOutputType> | number
           }
         }
       }
@@ -1982,44 +1982,44 @@ export namespace Prisma {
 
 
   /**
-   * Count Type TypeCollectionCountOutputType
+   * Count Type CollectionCountOutputType
    */
 
-  export type TypeCollectionCountOutputType = {
+  export type CollectionCountOutputType = {
     collections: number
     items: number
   }
 
-  export type TypeCollectionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    collections?: boolean | TypeCollectionCountOutputTypeCountCollectionsArgs
-    items?: boolean | TypeCollectionCountOutputTypeCountItemsArgs
+  export type CollectionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    collections?: boolean | CollectionCountOutputTypeCountCollectionsArgs
+    items?: boolean | CollectionCountOutputTypeCountItemsArgs
   }
 
   // Custom InputTypes
 
   /**
-   * TypeCollectionCountOutputType without action
+   * CollectionCountOutputType without action
    */
-  export type TypeCollectionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollectionCountOutputType
+     * Select specific fields to fetch from the CollectionCountOutputType
      */
-    select?: TypeCollectionCountOutputTypeSelect<ExtArgs> | null
+    select?: CollectionCountOutputTypeSelect<ExtArgs> | null
   }
 
 
   /**
-   * TypeCollectionCountOutputType without action
+   * CollectionCountOutputType without action
    */
-  export type TypeCollectionCountOutputTypeCountCollectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionCountOutputTypeCountCollectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserCollectionWhereInput
   }
 
 
   /**
-   * TypeCollectionCountOutputType without action
+   * CollectionCountOutputType without action
    */
-  export type TypeCollectionCountOutputTypeCountItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionCountOutputTypeCountItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ItemWhereInput
   }
 
@@ -8657,198 +8657,198 @@ export namespace Prisma {
 
 
   /**
-   * Model TypeCollection
+   * Model Collection
    */
 
-  export type AggregateTypeCollection = {
-    _count: TypeCollectionCountAggregateOutputType | null
-    _avg: TypeCollectionAvgAggregateOutputType | null
-    _sum: TypeCollectionSumAggregateOutputType | null
-    _min: TypeCollectionMinAggregateOutputType | null
-    _max: TypeCollectionMaxAggregateOutputType | null
+  export type AggregateCollection = {
+    _count: CollectionCountAggregateOutputType | null
+    _avg: CollectionAvgAggregateOutputType | null
+    _sum: CollectionSumAggregateOutputType | null
+    _min: CollectionMinAggregateOutputType | null
+    _max: CollectionMaxAggregateOutputType | null
   }
 
-  export type TypeCollectionAvgAggregateOutputType = {
+  export type CollectionAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type TypeCollectionSumAggregateOutputType = {
+  export type CollectionSumAggregateOutputType = {
     id: number | null
   }
 
-  export type TypeCollectionMinAggregateOutputType = {
-    id: number | null
-    description: string | null
-  }
-
-  export type TypeCollectionMaxAggregateOutputType = {
+  export type CollectionMinAggregateOutputType = {
     id: number | null
     description: string | null
   }
 
-  export type TypeCollectionCountAggregateOutputType = {
+  export type CollectionMaxAggregateOutputType = {
+    id: number | null
+    description: string | null
+  }
+
+  export type CollectionCountAggregateOutputType = {
     id: number
     description: number
     _all: number
   }
 
 
-  export type TypeCollectionAvgAggregateInputType = {
+  export type CollectionAvgAggregateInputType = {
     id?: true
   }
 
-  export type TypeCollectionSumAggregateInputType = {
+  export type CollectionSumAggregateInputType = {
     id?: true
   }
 
-  export type TypeCollectionMinAggregateInputType = {
-    id?: true
-    description?: true
-  }
-
-  export type TypeCollectionMaxAggregateInputType = {
+  export type CollectionMinAggregateInputType = {
     id?: true
     description?: true
   }
 
-  export type TypeCollectionCountAggregateInputType = {
+  export type CollectionMaxAggregateInputType = {
+    id?: true
+    description?: true
+  }
+
+  export type CollectionCountAggregateInputType = {
     id?: true
     description?: true
     _all?: true
   }
 
-  export type TypeCollectionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which TypeCollection to aggregate.
+     * Filter which Collection to aggregate.
      */
-    where?: TypeCollectionWhereInput
+    where?: CollectionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of TypeCollections to fetch.
+     * Determine the order of Collections to fetch.
      */
-    orderBy?: TypeCollectionOrderByWithRelationInput | TypeCollectionOrderByWithRelationInput[]
+    orderBy?: CollectionOrderByWithRelationInput | CollectionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: TypeCollectionWhereUniqueInput
+    cursor?: CollectionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` TypeCollections from the position of the cursor.
+     * Take `±n` Collections from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` TypeCollections.
+     * Skip the first `n` Collections.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned TypeCollections
+     * Count returned Collections
     **/
-    _count?: true | TypeCollectionCountAggregateInputType
+    _count?: true | CollectionCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: TypeCollectionAvgAggregateInputType
+    _avg?: CollectionAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: TypeCollectionSumAggregateInputType
+    _sum?: CollectionSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: TypeCollectionMinAggregateInputType
+    _min?: CollectionMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: TypeCollectionMaxAggregateInputType
+    _max?: CollectionMaxAggregateInputType
   }
 
-  export type GetTypeCollectionAggregateType<T extends TypeCollectionAggregateArgs> = {
-        [P in keyof T & keyof AggregateTypeCollection]: P extends '_count' | 'count'
+  export type GetCollectionAggregateType<T extends CollectionAggregateArgs> = {
+        [P in keyof T & keyof AggregateCollection]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateTypeCollection[P]>
-      : GetScalarType<T[P], AggregateTypeCollection[P]>
+        : GetScalarType<T[P], AggregateCollection[P]>
+      : GetScalarType<T[P], AggregateCollection[P]>
   }
 
 
 
 
-  export type TypeCollectionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TypeCollectionWhereInput
-    orderBy?: TypeCollectionOrderByWithAggregationInput | TypeCollectionOrderByWithAggregationInput[]
-    by: TypeCollectionScalarFieldEnum[] | TypeCollectionScalarFieldEnum
-    having?: TypeCollectionScalarWhereWithAggregatesInput
+  export type CollectionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CollectionWhereInput
+    orderBy?: CollectionOrderByWithAggregationInput | CollectionOrderByWithAggregationInput[]
+    by: CollectionScalarFieldEnum[] | CollectionScalarFieldEnum
+    having?: CollectionScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: TypeCollectionCountAggregateInputType | true
-    _avg?: TypeCollectionAvgAggregateInputType
-    _sum?: TypeCollectionSumAggregateInputType
-    _min?: TypeCollectionMinAggregateInputType
-    _max?: TypeCollectionMaxAggregateInputType
+    _count?: CollectionCountAggregateInputType | true
+    _avg?: CollectionAvgAggregateInputType
+    _sum?: CollectionSumAggregateInputType
+    _min?: CollectionMinAggregateInputType
+    _max?: CollectionMaxAggregateInputType
   }
 
-  export type TypeCollectionGroupByOutputType = {
+  export type CollectionGroupByOutputType = {
     id: number
     description: string
-    _count: TypeCollectionCountAggregateOutputType | null
-    _avg: TypeCollectionAvgAggregateOutputType | null
-    _sum: TypeCollectionSumAggregateOutputType | null
-    _min: TypeCollectionMinAggregateOutputType | null
-    _max: TypeCollectionMaxAggregateOutputType | null
+    _count: CollectionCountAggregateOutputType | null
+    _avg: CollectionAvgAggregateOutputType | null
+    _sum: CollectionSumAggregateOutputType | null
+    _min: CollectionMinAggregateOutputType | null
+    _max: CollectionMaxAggregateOutputType | null
   }
 
-  type GetTypeCollectionGroupByPayload<T extends TypeCollectionGroupByArgs> = Prisma.PrismaPromise<
+  type GetCollectionGroupByPayload<T extends CollectionGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<TypeCollectionGroupByOutputType, T['by']> &
+      PickEnumerable<CollectionGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof TypeCollectionGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof CollectionGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], TypeCollectionGroupByOutputType[P]>
-            : GetScalarType<T[P], TypeCollectionGroupByOutputType[P]>
+              : GetScalarType<T[P], CollectionGroupByOutputType[P]>
+            : GetScalarType<T[P], CollectionGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type TypeCollectionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CollectionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     description?: boolean
-    collections?: boolean | TypeCollection$collectionsArgs<ExtArgs>
-    items?: boolean | TypeCollection$itemsArgs<ExtArgs>
-    _count?: boolean | TypeCollectionCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["typeCollection"]>
+    collections?: boolean | Collection$collectionsArgs<ExtArgs>
+    items?: boolean | Collection$itemsArgs<ExtArgs>
+    _count?: boolean | CollectionCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["collection"]>
 
-  export type TypeCollectionSelectScalar = {
+  export type CollectionSelectScalar = {
     id?: boolean
     description?: boolean
   }
 
-  export type TypeCollectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    collections?: boolean | TypeCollection$collectionsArgs<ExtArgs>
-    items?: boolean | TypeCollection$itemsArgs<ExtArgs>
-    _count?: boolean | TypeCollectionCountOutputTypeDefaultArgs<ExtArgs>
+  export type CollectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    collections?: boolean | Collection$collectionsArgs<ExtArgs>
+    items?: boolean | Collection$itemsArgs<ExtArgs>
+    _count?: boolean | CollectionCountOutputTypeDefaultArgs<ExtArgs>
   }
 
 
-  export type $TypeCollectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "TypeCollection"
+  export type $CollectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Collection"
     objects: {
       collections: Prisma.$UserCollectionPayload<ExtArgs>[]
       items: Prisma.$ItemPayload<ExtArgs>[]
@@ -8856,160 +8856,160 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       description: string
-    }, ExtArgs["result"]["typeCollection"]>
+    }, ExtArgs["result"]["collection"]>
     composites: {}
   }
 
 
-  type TypeCollectionGetPayload<S extends boolean | null | undefined | TypeCollectionDefaultArgs> = $Result.GetResult<Prisma.$TypeCollectionPayload, S>
+  type CollectionGetPayload<S extends boolean | null | undefined | CollectionDefaultArgs> = $Result.GetResult<Prisma.$CollectionPayload, S>
 
-  type TypeCollectionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<TypeCollectionFindManyArgs, 'select' | 'include' | 'distinct' > & {
-      select?: TypeCollectionCountAggregateInputType | true
+  type CollectionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<CollectionFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: CollectionCountAggregateInputType | true
     }
 
-  export interface TypeCollectionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TypeCollection'], meta: { name: 'TypeCollection' } }
+  export interface CollectionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Collection'], meta: { name: 'Collection' } }
     /**
-     * Find zero or one TypeCollection that matches the filter.
-     * @param {TypeCollectionFindUniqueArgs} args - Arguments to find a TypeCollection
+     * Find zero or one Collection that matches the filter.
+     * @param {CollectionFindUniqueArgs} args - Arguments to find a Collection
      * @example
-     * // Get one TypeCollection
-     * const typeCollection = await prisma.typeCollection.findUnique({
+     * // Get one Collection
+     * const collection = await prisma.collection.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends TypeCollectionFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, TypeCollectionFindUniqueArgs<ExtArgs>>
-    ): Prisma__TypeCollectionClient<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends CollectionFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, CollectionFindUniqueArgs<ExtArgs>>
+    ): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one TypeCollection that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Collection that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {TypeCollectionFindUniqueOrThrowArgs} args - Arguments to find a TypeCollection
+     * @param {CollectionFindUniqueOrThrowArgs} args - Arguments to find a Collection
      * @example
-     * // Get one TypeCollection
-     * const typeCollection = await prisma.typeCollection.findUniqueOrThrow({
+     * // Get one Collection
+     * const collection = await prisma.collection.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends TypeCollectionFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, TypeCollectionFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__TypeCollectionClient<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends CollectionFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, CollectionFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first TypeCollection that matches the filter.
+     * Find the first Collection that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TypeCollectionFindFirstArgs} args - Arguments to find a TypeCollection
+     * @param {CollectionFindFirstArgs} args - Arguments to find a Collection
      * @example
-     * // Get one TypeCollection
-     * const typeCollection = await prisma.typeCollection.findFirst({
+     * // Get one Collection
+     * const collection = await prisma.collection.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends TypeCollectionFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, TypeCollectionFindFirstArgs<ExtArgs>>
-    ): Prisma__TypeCollectionClient<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends CollectionFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, CollectionFindFirstArgs<ExtArgs>>
+    ): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first TypeCollection that matches the filter or
+     * Find the first Collection that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TypeCollectionFindFirstOrThrowArgs} args - Arguments to find a TypeCollection
+     * @param {CollectionFindFirstOrThrowArgs} args - Arguments to find a Collection
      * @example
-     * // Get one TypeCollection
-     * const typeCollection = await prisma.typeCollection.findFirstOrThrow({
+     * // Get one Collection
+     * const collection = await prisma.collection.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends TypeCollectionFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, TypeCollectionFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__TypeCollectionClient<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends CollectionFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, CollectionFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more TypeCollections that matches the filter.
+     * Find zero or more Collections that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TypeCollectionFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {CollectionFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all TypeCollections
-     * const typeCollections = await prisma.typeCollection.findMany()
+     * // Get all Collections
+     * const collections = await prisma.collection.findMany()
      * 
-     * // Get first 10 TypeCollections
-     * const typeCollections = await prisma.typeCollection.findMany({ take: 10 })
+     * // Get first 10 Collections
+     * const collections = await prisma.collection.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const typeCollectionWithIdOnly = await prisma.typeCollection.findMany({ select: { id: true } })
+     * const collectionWithIdOnly = await prisma.collection.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends TypeCollectionFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, TypeCollectionFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends CollectionFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CollectionFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a TypeCollection.
-     * @param {TypeCollectionCreateArgs} args - Arguments to create a TypeCollection.
+     * Create a Collection.
+     * @param {CollectionCreateArgs} args - Arguments to create a Collection.
      * @example
-     * // Create one TypeCollection
-     * const TypeCollection = await prisma.typeCollection.create({
+     * // Create one Collection
+     * const Collection = await prisma.collection.create({
      *   data: {
-     *     // ... data to create a TypeCollection
+     *     // ... data to create a Collection
      *   }
      * })
      * 
     **/
-    create<T extends TypeCollectionCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, TypeCollectionCreateArgs<ExtArgs>>
-    ): Prisma__TypeCollectionClient<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends CollectionCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, CollectionCreateArgs<ExtArgs>>
+    ): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many TypeCollections.
-     *     @param {TypeCollectionCreateManyArgs} args - Arguments to create many TypeCollections.
+     * Create many Collections.
+     *     @param {CollectionCreateManyArgs} args - Arguments to create many Collections.
      *     @example
-     *     // Create many TypeCollections
-     *     const typeCollection = await prisma.typeCollection.createMany({
+     *     // Create many Collections
+     *     const collection = await prisma.collection.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends TypeCollectionCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, TypeCollectionCreateManyArgs<ExtArgs>>
+    createMany<T extends CollectionCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CollectionCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a TypeCollection.
-     * @param {TypeCollectionDeleteArgs} args - Arguments to delete one TypeCollection.
+     * Delete a Collection.
+     * @param {CollectionDeleteArgs} args - Arguments to delete one Collection.
      * @example
-     * // Delete one TypeCollection
-     * const TypeCollection = await prisma.typeCollection.delete({
+     * // Delete one Collection
+     * const Collection = await prisma.collection.delete({
      *   where: {
-     *     // ... filter to delete one TypeCollection
+     *     // ... filter to delete one Collection
      *   }
      * })
      * 
     **/
-    delete<T extends TypeCollectionDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, TypeCollectionDeleteArgs<ExtArgs>>
-    ): Prisma__TypeCollectionClient<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends CollectionDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, CollectionDeleteArgs<ExtArgs>>
+    ): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one TypeCollection.
-     * @param {TypeCollectionUpdateArgs} args - Arguments to update one TypeCollection.
+     * Update one Collection.
+     * @param {CollectionUpdateArgs} args - Arguments to update one Collection.
      * @example
-     * // Update one TypeCollection
-     * const typeCollection = await prisma.typeCollection.update({
+     * // Update one Collection
+     * const collection = await prisma.collection.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9019,34 +9019,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends TypeCollectionUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, TypeCollectionUpdateArgs<ExtArgs>>
-    ): Prisma__TypeCollectionClient<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends CollectionUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, CollectionUpdateArgs<ExtArgs>>
+    ): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more TypeCollections.
-     * @param {TypeCollectionDeleteManyArgs} args - Arguments to filter TypeCollections to delete.
+     * Delete zero or more Collections.
+     * @param {CollectionDeleteManyArgs} args - Arguments to filter Collections to delete.
      * @example
-     * // Delete a few TypeCollections
-     * const { count } = await prisma.typeCollection.deleteMany({
+     * // Delete a few Collections
+     * const { count } = await prisma.collection.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends TypeCollectionDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, TypeCollectionDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends CollectionDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CollectionDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more TypeCollections.
+     * Update zero or more Collections.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TypeCollectionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {CollectionUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many TypeCollections
-     * const typeCollection = await prisma.typeCollection.updateMany({
+     * // Update many Collections
+     * const collection = await prisma.collection.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9056,59 +9056,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends TypeCollectionUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, TypeCollectionUpdateManyArgs<ExtArgs>>
+    updateMany<T extends CollectionUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, CollectionUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one TypeCollection.
-     * @param {TypeCollectionUpsertArgs} args - Arguments to update or create a TypeCollection.
+     * Create or update one Collection.
+     * @param {CollectionUpsertArgs} args - Arguments to update or create a Collection.
      * @example
-     * // Update or create a TypeCollection
-     * const typeCollection = await prisma.typeCollection.upsert({
+     * // Update or create a Collection
+     * const collection = await prisma.collection.upsert({
      *   create: {
-     *     // ... data to create a TypeCollection
+     *     // ... data to create a Collection
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the TypeCollection we want to update
+     *     // ... the filter for the Collection we want to update
      *   }
      * })
     **/
-    upsert<T extends TypeCollectionUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, TypeCollectionUpsertArgs<ExtArgs>>
-    ): Prisma__TypeCollectionClient<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends CollectionUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, CollectionUpsertArgs<ExtArgs>>
+    ): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of TypeCollections.
+     * Count the number of Collections.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TypeCollectionCountArgs} args - Arguments to filter TypeCollections to count.
+     * @param {CollectionCountArgs} args - Arguments to filter Collections to count.
      * @example
-     * // Count the number of TypeCollections
-     * const count = await prisma.typeCollection.count({
+     * // Count the number of Collections
+     * const count = await prisma.collection.count({
      *   where: {
-     *     // ... the filter for the TypeCollections we want to count
+     *     // ... the filter for the Collections we want to count
      *   }
      * })
     **/
-    count<T extends TypeCollectionCountArgs>(
-      args?: Subset<T, TypeCollectionCountArgs>,
+    count<T extends CollectionCountArgs>(
+      args?: Subset<T, CollectionCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], TypeCollectionCountAggregateOutputType>
+          : GetScalarType<T['select'], CollectionCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a TypeCollection.
+     * Allows you to perform aggregations operations on a Collection.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TypeCollectionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {CollectionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -9128,13 +9128,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends TypeCollectionAggregateArgs>(args: Subset<T, TypeCollectionAggregateArgs>): Prisma.PrismaPromise<GetTypeCollectionAggregateType<T>>
+    aggregate<T extends CollectionAggregateArgs>(args: Subset<T, CollectionAggregateArgs>): Prisma.PrismaPromise<GetCollectionAggregateType<T>>
 
     /**
-     * Group by TypeCollection.
+     * Group by Collection.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TypeCollectionGroupByArgs} args - Group by arguments.
+     * @param {CollectionGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -9149,14 +9149,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends TypeCollectionGroupByArgs,
+      T extends CollectionGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: TypeCollectionGroupByArgs['orderBy'] }
-        : { orderBy?: TypeCollectionGroupByArgs['orderBy'] },
+        ? { orderBy: CollectionGroupByArgs['orderBy'] }
+        : { orderBy?: CollectionGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -9205,25 +9205,25 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, TypeCollectionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTypeCollectionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, CollectionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCollectionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the TypeCollection model
+   * Fields of the Collection model
    */
-  readonly fields: TypeCollectionFieldRefs;
+  readonly fields: CollectionFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for TypeCollection.
+   * The delegate class that acts as a "Promise-like" for Collection.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__TypeCollectionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__CollectionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    collections<T extends TypeCollection$collectionsArgs<ExtArgs> = {}>(args?: Subset<T, TypeCollection$collectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserCollectionPayload<ExtArgs>, T, 'findMany'> | Null>;
+    collections<T extends Collection$collectionsArgs<ExtArgs> = {}>(args?: Subset<T, Collection$collectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserCollectionPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    items<T extends TypeCollection$itemsArgs<ExtArgs> = {}>(args?: Subset<T, TypeCollection$itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, 'findMany'> | Null>;
+    items<T extends Collection$itemsArgs<ExtArgs> = {}>(args?: Subset<T, Collection$itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -9250,326 +9250,326 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the TypeCollection model
+   * Fields of the Collection model
    */ 
-  interface TypeCollectionFieldRefs {
-    readonly id: FieldRef<"TypeCollection", 'Int'>
-    readonly description: FieldRef<"TypeCollection", 'String'>
+  interface CollectionFieldRefs {
+    readonly id: FieldRef<"Collection", 'Int'>
+    readonly description: FieldRef<"Collection", 'String'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * TypeCollection findUnique
+   * Collection findUnique
    */
-  export type TypeCollectionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
+    include?: CollectionInclude<ExtArgs> | null
     /**
-     * Filter, which TypeCollection to fetch.
+     * Filter, which Collection to fetch.
      */
-    where: TypeCollectionWhereUniqueInput
+    where: CollectionWhereUniqueInput
   }
 
 
   /**
-   * TypeCollection findUniqueOrThrow
+   * Collection findUniqueOrThrow
    */
-  export type TypeCollectionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
+    include?: CollectionInclude<ExtArgs> | null
     /**
-     * Filter, which TypeCollection to fetch.
+     * Filter, which Collection to fetch.
      */
-    where: TypeCollectionWhereUniqueInput
+    where: CollectionWhereUniqueInput
   }
 
 
   /**
-   * TypeCollection findFirst
+   * Collection findFirst
    */
-  export type TypeCollectionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
+    include?: CollectionInclude<ExtArgs> | null
     /**
-     * Filter, which TypeCollection to fetch.
+     * Filter, which Collection to fetch.
      */
-    where?: TypeCollectionWhereInput
+    where?: CollectionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of TypeCollections to fetch.
+     * Determine the order of Collections to fetch.
      */
-    orderBy?: TypeCollectionOrderByWithRelationInput | TypeCollectionOrderByWithRelationInput[]
+    orderBy?: CollectionOrderByWithRelationInput | CollectionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for TypeCollections.
+     * Sets the position for searching for Collections.
      */
-    cursor?: TypeCollectionWhereUniqueInput
+    cursor?: CollectionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` TypeCollections from the position of the cursor.
+     * Take `±n` Collections from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` TypeCollections.
+     * Skip the first `n` Collections.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of TypeCollections.
+     * Filter by unique combinations of Collections.
      */
-    distinct?: TypeCollectionScalarFieldEnum | TypeCollectionScalarFieldEnum[]
+    distinct?: CollectionScalarFieldEnum | CollectionScalarFieldEnum[]
   }
 
 
   /**
-   * TypeCollection findFirstOrThrow
+   * Collection findFirstOrThrow
    */
-  export type TypeCollectionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
+    include?: CollectionInclude<ExtArgs> | null
     /**
-     * Filter, which TypeCollection to fetch.
+     * Filter, which Collection to fetch.
      */
-    where?: TypeCollectionWhereInput
+    where?: CollectionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of TypeCollections to fetch.
+     * Determine the order of Collections to fetch.
      */
-    orderBy?: TypeCollectionOrderByWithRelationInput | TypeCollectionOrderByWithRelationInput[]
+    orderBy?: CollectionOrderByWithRelationInput | CollectionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for TypeCollections.
+     * Sets the position for searching for Collections.
      */
-    cursor?: TypeCollectionWhereUniqueInput
+    cursor?: CollectionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` TypeCollections from the position of the cursor.
+     * Take `±n` Collections from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` TypeCollections.
+     * Skip the first `n` Collections.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of TypeCollections.
+     * Filter by unique combinations of Collections.
      */
-    distinct?: TypeCollectionScalarFieldEnum | TypeCollectionScalarFieldEnum[]
+    distinct?: CollectionScalarFieldEnum | CollectionScalarFieldEnum[]
   }
 
 
   /**
-   * TypeCollection findMany
+   * Collection findMany
    */
-  export type TypeCollectionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
+    include?: CollectionInclude<ExtArgs> | null
     /**
-     * Filter, which TypeCollections to fetch.
+     * Filter, which Collections to fetch.
      */
-    where?: TypeCollectionWhereInput
+    where?: CollectionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of TypeCollections to fetch.
+     * Determine the order of Collections to fetch.
      */
-    orderBy?: TypeCollectionOrderByWithRelationInput | TypeCollectionOrderByWithRelationInput[]
+    orderBy?: CollectionOrderByWithRelationInput | CollectionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing TypeCollections.
+     * Sets the position for listing Collections.
      */
-    cursor?: TypeCollectionWhereUniqueInput
+    cursor?: CollectionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` TypeCollections from the position of the cursor.
+     * Take `±n` Collections from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` TypeCollections.
+     * Skip the first `n` Collections.
      */
     skip?: number
-    distinct?: TypeCollectionScalarFieldEnum | TypeCollectionScalarFieldEnum[]
+    distinct?: CollectionScalarFieldEnum | CollectionScalarFieldEnum[]
   }
 
 
   /**
-   * TypeCollection create
+   * Collection create
    */
-  export type TypeCollectionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
+    include?: CollectionInclude<ExtArgs> | null
     /**
-     * The data needed to create a TypeCollection.
+     * The data needed to create a Collection.
      */
-    data: XOR<TypeCollectionCreateInput, TypeCollectionUncheckedCreateInput>
+    data: XOR<CollectionCreateInput, CollectionUncheckedCreateInput>
   }
 
 
   /**
-   * TypeCollection createMany
+   * Collection createMany
    */
-  export type TypeCollectionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many TypeCollections.
+     * The data used to create many Collections.
      */
-    data: TypeCollectionCreateManyInput | TypeCollectionCreateManyInput[]
+    data: CollectionCreateManyInput | CollectionCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * TypeCollection update
+   * Collection update
    */
-  export type TypeCollectionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
+    include?: CollectionInclude<ExtArgs> | null
     /**
-     * The data needed to update a TypeCollection.
+     * The data needed to update a Collection.
      */
-    data: XOR<TypeCollectionUpdateInput, TypeCollectionUncheckedUpdateInput>
+    data: XOR<CollectionUpdateInput, CollectionUncheckedUpdateInput>
     /**
-     * Choose, which TypeCollection to update.
+     * Choose, which Collection to update.
      */
-    where: TypeCollectionWhereUniqueInput
+    where: CollectionWhereUniqueInput
   }
 
 
   /**
-   * TypeCollection updateMany
+   * Collection updateMany
    */
-  export type TypeCollectionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update TypeCollections.
+     * The data used to update Collections.
      */
-    data: XOR<TypeCollectionUpdateManyMutationInput, TypeCollectionUncheckedUpdateManyInput>
+    data: XOR<CollectionUpdateManyMutationInput, CollectionUncheckedUpdateManyInput>
     /**
-     * Filter which TypeCollections to update
+     * Filter which Collections to update
      */
-    where?: TypeCollectionWhereInput
+    where?: CollectionWhereInput
   }
 
 
   /**
-   * TypeCollection upsert
+   * Collection upsert
    */
-  export type TypeCollectionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
+    include?: CollectionInclude<ExtArgs> | null
     /**
-     * The filter to search for the TypeCollection to update in case it exists.
+     * The filter to search for the Collection to update in case it exists.
      */
-    where: TypeCollectionWhereUniqueInput
+    where: CollectionWhereUniqueInput
     /**
-     * In case the TypeCollection found by the `where` argument doesn't exist, create a new TypeCollection with this data.
+     * In case the Collection found by the `where` argument doesn't exist, create a new Collection with this data.
      */
-    create: XOR<TypeCollectionCreateInput, TypeCollectionUncheckedCreateInput>
+    create: XOR<CollectionCreateInput, CollectionUncheckedCreateInput>
     /**
-     * In case the TypeCollection was found with the provided `where` argument, update it with this data.
+     * In case the Collection was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<TypeCollectionUpdateInput, TypeCollectionUncheckedUpdateInput>
+    update: XOR<CollectionUpdateInput, CollectionUncheckedUpdateInput>
   }
 
 
   /**
-   * TypeCollection delete
+   * Collection delete
    */
-  export type TypeCollectionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
+    include?: CollectionInclude<ExtArgs> | null
     /**
-     * Filter which TypeCollection to delete.
+     * Filter which Collection to delete.
      */
-    where: TypeCollectionWhereUniqueInput
+    where: CollectionWhereUniqueInput
   }
 
 
   /**
-   * TypeCollection deleteMany
+   * Collection deleteMany
    */
-  export type TypeCollectionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which TypeCollections to delete
+     * Filter which Collections to delete
      */
-    where?: TypeCollectionWhereInput
+    where?: CollectionWhereInput
   }
 
 
   /**
-   * TypeCollection.collections
+   * Collection.collections
    */
-  export type TypeCollection$collectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Collection$collectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the UserCollection
      */
@@ -9588,9 +9588,9 @@ export namespace Prisma {
 
 
   /**
-   * TypeCollection.items
+   * Collection.items
    */
-  export type TypeCollection$itemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Collection$itemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Item
      */
@@ -9609,17 +9609,17 @@ export namespace Prisma {
 
 
   /**
-   * TypeCollection without action
+   * Collection without action
    */
-  export type TypeCollectionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CollectionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
+    include?: CollectionInclude<ExtArgs> | null
   }
 
 
@@ -10580,12 +10580,12 @@ export namespace Prisma {
 
   export type ItemAvgAggregateOutputType = {
     typeModelId: number | null
-    typeCollectionId: number | null
+    collectionId: number | null
   }
 
   export type ItemSumAggregateOutputType = {
     typeModelId: number | null
-    typeCollectionId: number | null
+    collectionId: number | null
   }
 
   export type ItemMinAggregateOutputType = {
@@ -10599,7 +10599,7 @@ export namespace Prisma {
     createdAt: Date | null
     userId: string | null
     typeModelId: number | null
-    typeCollectionId: number | null
+    collectionId: number | null
   }
 
   export type ItemMaxAggregateOutputType = {
@@ -10613,7 +10613,7 @@ export namespace Prisma {
     createdAt: Date | null
     userId: string | null
     typeModelId: number | null
-    typeCollectionId: number | null
+    collectionId: number | null
   }
 
   export type ItemCountAggregateOutputType = {
@@ -10627,19 +10627,19 @@ export namespace Prisma {
     createdAt: number
     userId: number
     typeModelId: number
-    typeCollectionId: number
+    collectionId: number
     _all: number
   }
 
 
   export type ItemAvgAggregateInputType = {
     typeModelId?: true
-    typeCollectionId?: true
+    collectionId?: true
   }
 
   export type ItemSumAggregateInputType = {
     typeModelId?: true
-    typeCollectionId?: true
+    collectionId?: true
   }
 
   export type ItemMinAggregateInputType = {
@@ -10653,7 +10653,7 @@ export namespace Prisma {
     createdAt?: true
     userId?: true
     typeModelId?: true
-    typeCollectionId?: true
+    collectionId?: true
   }
 
   export type ItemMaxAggregateInputType = {
@@ -10667,7 +10667,7 @@ export namespace Prisma {
     createdAt?: true
     userId?: true
     typeModelId?: true
-    typeCollectionId?: true
+    collectionId?: true
   }
 
   export type ItemCountAggregateInputType = {
@@ -10681,7 +10681,7 @@ export namespace Prisma {
     createdAt?: true
     userId?: true
     typeModelId?: true
-    typeCollectionId?: true
+    collectionId?: true
     _all?: true
   }
 
@@ -10782,7 +10782,7 @@ export namespace Prisma {
     createdAt: Date
     userId: string | null
     typeModelId: number
-    typeCollectionId: number | null
+    collectionId: number | null
     _count: ItemCountAggregateOutputType | null
     _avg: ItemAvgAggregateOutputType | null
     _sum: ItemSumAggregateOutputType | null
@@ -10815,8 +10815,8 @@ export namespace Prisma {
     createdAt?: boolean
     userId?: boolean
     typeModelId?: boolean
-    typeCollectionId?: boolean
-    typeCollection?: boolean | Item$typeCollectionArgs<ExtArgs>
+    collectionId?: boolean
+    collection?: boolean | Item$collectionArgs<ExtArgs>
     typeModel?: boolean | TypeModelDefaultArgs<ExtArgs>
     user?: boolean | Item$userArgs<ExtArgs>
     itemImages?: boolean | Item$itemImagesArgs<ExtArgs>
@@ -10835,11 +10835,11 @@ export namespace Prisma {
     createdAt?: boolean
     userId?: boolean
     typeModelId?: boolean
-    typeCollectionId?: boolean
+    collectionId?: boolean
   }
 
   export type ItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    typeCollection?: boolean | Item$typeCollectionArgs<ExtArgs>
+    collection?: boolean | Item$collectionArgs<ExtArgs>
     typeModel?: boolean | TypeModelDefaultArgs<ExtArgs>
     user?: boolean | Item$userArgs<ExtArgs>
     itemImages?: boolean | Item$itemImagesArgs<ExtArgs>
@@ -10851,7 +10851,7 @@ export namespace Prisma {
   export type $ItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Item"
     objects: {
-      typeCollection: Prisma.$TypeCollectionPayload<ExtArgs> | null
+      collection: Prisma.$CollectionPayload<ExtArgs> | null
       typeModel: Prisma.$TypeModelPayload<ExtArgs>
       user: Prisma.$UserPayload<ExtArgs> | null
       itemImages: Prisma.$ItemImagePayload<ExtArgs>[]
@@ -10868,7 +10868,7 @@ export namespace Prisma {
       createdAt: Date
       userId: string | null
       typeModelId: number
-      typeCollectionId: number | null
+      collectionId: number | null
     }, ExtArgs["result"]["item"]>
     composites: {}
   }
@@ -11234,7 +11234,7 @@ export namespace Prisma {
   export interface Prisma__ItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    typeCollection<T extends Item$typeCollectionArgs<ExtArgs> = {}>(args?: Subset<T, Item$typeCollectionArgs<ExtArgs>>): Prisma__TypeCollectionClient<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+    collection<T extends Item$collectionArgs<ExtArgs> = {}>(args?: Subset<T, Item$collectionArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
     typeModel<T extends TypeModelDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TypeModelDefaultArgs<ExtArgs>>): Prisma__TypeModelClient<$Result.GetResult<Prisma.$TypeModelPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
@@ -11282,7 +11282,7 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"Item", 'DateTime'>
     readonly userId: FieldRef<"Item", 'String'>
     readonly typeModelId: FieldRef<"Item", 'Int'>
-    readonly typeCollectionId: FieldRef<"Item", 'Int'>
+    readonly collectionId: FieldRef<"Item", 'Int'>
   }
     
 
@@ -11595,18 +11595,18 @@ export namespace Prisma {
 
 
   /**
-   * Item.typeCollection
+   * Item.collection
    */
-  export type Item$typeCollectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Item$collectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
-    where?: TypeCollectionWhereInput
+    include?: CollectionInclude<ExtArgs> | null
+    where?: CollectionWhereInput
   }
 
 
@@ -12637,11 +12637,11 @@ export namespace Prisma {
   }
 
   export type UserCollectionAvgAggregateOutputType = {
-    typeCollectionId: number | null
+    collectionId: number | null
   }
 
   export type UserCollectionSumAggregateOutputType = {
-    typeCollectionId: number | null
+    collectionId: number | null
   }
 
   export type UserCollectionMinAggregateOutputType = {
@@ -12649,7 +12649,7 @@ export namespace Prisma {
     description: string | null
     name: string | null
     userId: string | null
-    typeCollectionId: number | null
+    collectionId: number | null
     createdAt: Date | null
     status: boolean | null
     fatherId: string | null
@@ -12660,7 +12660,7 @@ export namespace Prisma {
     description: string | null
     name: string | null
     userId: string | null
-    typeCollectionId: number | null
+    collectionId: number | null
     createdAt: Date | null
     status: boolean | null
     fatherId: string | null
@@ -12671,7 +12671,7 @@ export namespace Prisma {
     description: number
     name: number
     userId: number
-    typeCollectionId: number
+    collectionId: number
     createdAt: number
     status: number
     fatherId: number
@@ -12680,11 +12680,11 @@ export namespace Prisma {
 
 
   export type UserCollectionAvgAggregateInputType = {
-    typeCollectionId?: true
+    collectionId?: true
   }
 
   export type UserCollectionSumAggregateInputType = {
-    typeCollectionId?: true
+    collectionId?: true
   }
 
   export type UserCollectionMinAggregateInputType = {
@@ -12692,7 +12692,7 @@ export namespace Prisma {
     description?: true
     name?: true
     userId?: true
-    typeCollectionId?: true
+    collectionId?: true
     createdAt?: true
     status?: true
     fatherId?: true
@@ -12703,7 +12703,7 @@ export namespace Prisma {
     description?: true
     name?: true
     userId?: true
-    typeCollectionId?: true
+    collectionId?: true
     createdAt?: true
     status?: true
     fatherId?: true
@@ -12714,7 +12714,7 @@ export namespace Prisma {
     description?: true
     name?: true
     userId?: true
-    typeCollectionId?: true
+    collectionId?: true
     createdAt?: true
     status?: true
     fatherId?: true
@@ -12812,7 +12812,7 @@ export namespace Prisma {
     description: string | null
     name: string
     userId: string
-    typeCollectionId: number | null
+    collectionId: number | null
     createdAt: Date
     status: boolean
     fatherId: string | null
@@ -12842,12 +12842,12 @@ export namespace Prisma {
     description?: boolean
     name?: boolean
     userId?: boolean
-    typeCollectionId?: boolean
+    collectionId?: boolean
     createdAt?: boolean
     status?: boolean
     fatherId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    typeCollection?: boolean | UserCollection$typeCollectionArgs<ExtArgs>
+    collection?: boolean | UserCollection$collectionArgs<ExtArgs>
     parent?: boolean | UserCollection$parentArgs<ExtArgs>
     childCollections?: boolean | UserCollection$childCollectionsArgs<ExtArgs>
     items?: boolean | UserCollection$itemsArgs<ExtArgs>
@@ -12859,7 +12859,7 @@ export namespace Prisma {
     description?: boolean
     name?: boolean
     userId?: boolean
-    typeCollectionId?: boolean
+    collectionId?: boolean
     createdAt?: boolean
     status?: boolean
     fatherId?: boolean
@@ -12867,7 +12867,7 @@ export namespace Prisma {
 
   export type UserCollectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    typeCollection?: boolean | UserCollection$typeCollectionArgs<ExtArgs>
+    collection?: boolean | UserCollection$collectionArgs<ExtArgs>
     parent?: boolean | UserCollection$parentArgs<ExtArgs>
     childCollections?: boolean | UserCollection$childCollectionsArgs<ExtArgs>
     items?: boolean | UserCollection$itemsArgs<ExtArgs>
@@ -12879,7 +12879,7 @@ export namespace Prisma {
     name: "UserCollection"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      typeCollection: Prisma.$TypeCollectionPayload<ExtArgs> | null
+      collection: Prisma.$CollectionPayload<ExtArgs> | null
       parent: Prisma.$UserCollectionPayload<ExtArgs> | null
       childCollections: Prisma.$UserCollectionPayload<ExtArgs>[]
       items: Prisma.$UserItemPayload<ExtArgs>[]
@@ -12889,7 +12889,7 @@ export namespace Prisma {
       description: string | null
       name: string
       userId: string
-      typeCollectionId: number | null
+      collectionId: number | null
       createdAt: Date
       status: boolean
       fatherId: string | null
@@ -13260,7 +13260,7 @@ export namespace Prisma {
 
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    typeCollection<T extends UserCollection$typeCollectionArgs<ExtArgs> = {}>(args?: Subset<T, UserCollection$typeCollectionArgs<ExtArgs>>): Prisma__TypeCollectionClient<$Result.GetResult<Prisma.$TypeCollectionPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+    collection<T extends UserCollection$collectionArgs<ExtArgs> = {}>(args?: Subset<T, UserCollection$collectionArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
     parent<T extends UserCollection$parentArgs<ExtArgs> = {}>(args?: Subset<T, UserCollection$parentArgs<ExtArgs>>): Prisma__UserCollectionClient<$Result.GetResult<Prisma.$UserCollectionPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
@@ -13300,7 +13300,7 @@ export namespace Prisma {
     readonly description: FieldRef<"UserCollection", 'String'>
     readonly name: FieldRef<"UserCollection", 'String'>
     readonly userId: FieldRef<"UserCollection", 'String'>
-    readonly typeCollectionId: FieldRef<"UserCollection", 'Int'>
+    readonly collectionId: FieldRef<"UserCollection", 'Int'>
     readonly createdAt: FieldRef<"UserCollection", 'DateTime'>
     readonly status: FieldRef<"UserCollection", 'Boolean'>
     readonly fatherId: FieldRef<"UserCollection", 'String'>
@@ -13616,18 +13616,18 @@ export namespace Prisma {
 
 
   /**
-   * UserCollection.typeCollection
+   * UserCollection.collection
    */
-  export type UserCollection$typeCollectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCollection$collectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TypeCollection
+     * Select specific fields to fetch from the Collection
      */
-    select?: TypeCollectionSelect<ExtArgs> | null
+    select?: CollectionSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TypeCollectionInclude<ExtArgs> | null
-    where?: TypeCollectionWhereInput
+    include?: CollectionInclude<ExtArgs> | null
+    where?: CollectionWhereInput
   }
 
 
@@ -13716,27 +13716,27 @@ export namespace Prisma {
   }
 
   export type UserItemMinAggregateOutputType = {
-    id: string | null
     createdAt: Date | null
     description: string | null
+    scale: string | null
     name: string | null
     itemId: string | null
     userCollectionId: string | null
   }
 
   export type UserItemMaxAggregateOutputType = {
-    id: string | null
     createdAt: Date | null
     description: string | null
+    scale: string | null
     name: string | null
     itemId: string | null
     userCollectionId: string | null
   }
 
   export type UserItemCountAggregateOutputType = {
-    id: number
     createdAt: number
     description: number
+    scale: number
     name: number
     itemId: number
     userCollectionId: number
@@ -13745,27 +13745,27 @@ export namespace Prisma {
 
 
   export type UserItemMinAggregateInputType = {
-    id?: true
     createdAt?: true
     description?: true
+    scale?: true
     name?: true
     itemId?: true
     userCollectionId?: true
   }
 
   export type UserItemMaxAggregateInputType = {
-    id?: true
     createdAt?: true
     description?: true
+    scale?: true
     name?: true
     itemId?: true
     userCollectionId?: true
   }
 
   export type UserItemCountAggregateInputType = {
-    id?: true
     createdAt?: true
     description?: true
+    scale?: true
     name?: true
     itemId?: true
     userCollectionId?: true
@@ -13845,9 +13845,9 @@ export namespace Prisma {
   }
 
   export type UserItemGroupByOutputType = {
-    id: string
     createdAt: Date
     description: string | null
+    scale: string | null
     name: string | null
     itemId: string
     userCollectionId: string
@@ -13871,30 +13871,30 @@ export namespace Prisma {
 
 
   export type UserItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     createdAt?: boolean
     description?: boolean
+    scale?: boolean
     name?: boolean
     itemId?: boolean
     userCollectionId?: boolean
-    userCollection?: boolean | UserCollectionDefaultArgs<ExtArgs>
-    item?: boolean | ItemDefaultArgs<ExtArgs>
+    userCollection?: boolean | UserItem$userCollectionArgs<ExtArgs>
+    item?: boolean | UserItem$itemArgs<ExtArgs>
     itemImages?: boolean | UserItem$itemImagesArgs<ExtArgs>
     _count?: boolean | UserItemCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userItem"]>
 
   export type UserItemSelectScalar = {
-    id?: boolean
     createdAt?: boolean
     description?: boolean
+    scale?: boolean
     name?: boolean
     itemId?: boolean
     userCollectionId?: boolean
   }
 
   export type UserItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    userCollection?: boolean | UserCollectionDefaultArgs<ExtArgs>
-    item?: boolean | ItemDefaultArgs<ExtArgs>
+    userCollection?: boolean | UserItem$userCollectionArgs<ExtArgs>
+    item?: boolean | UserItem$itemArgs<ExtArgs>
     itemImages?: boolean | UserItem$itemImagesArgs<ExtArgs>
     _count?: boolean | UserItemCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -13903,14 +13903,14 @@ export namespace Prisma {
   export type $UserItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "UserItem"
     objects: {
-      userCollection: Prisma.$UserCollectionPayload<ExtArgs>
-      item: Prisma.$ItemPayload<ExtArgs>
+      userCollection: Prisma.$UserCollectionPayload<ExtArgs> | null
+      item: Prisma.$ItemPayload<ExtArgs> | null
       itemImages: Prisma.$UserItemImagePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
       createdAt: Date
       description: string | null
+      scale: string | null
       name: string | null
       itemId: string
       userCollectionId: string
@@ -14006,8 +14006,8 @@ export namespace Prisma {
      * // Get first 10 UserItems
      * const userItems = await prisma.userItem.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const userItemWithIdOnly = await prisma.userItem.findMany({ select: { id: true } })
+     * // Only select the `createdAt`
+     * const userItemWithCreatedAtOnly = await prisma.userItem.findMany({ select: { createdAt: true } })
      * 
     **/
     findMany<T extends UserItemFindManyArgs<ExtArgs>>(
@@ -14279,9 +14279,9 @@ export namespace Prisma {
   export interface Prisma__UserItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    userCollection<T extends UserCollectionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserCollectionDefaultArgs<ExtArgs>>): Prisma__UserCollectionClient<$Result.GetResult<Prisma.$UserCollectionPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    userCollection<T extends UserItem$userCollectionArgs<ExtArgs> = {}>(args?: Subset<T, UserItem$userCollectionArgs<ExtArgs>>): Prisma__UserCollectionClient<$Result.GetResult<Prisma.$UserCollectionPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
-    item<T extends ItemDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ItemDefaultArgs<ExtArgs>>): Prisma__ItemClient<$Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    item<T extends UserItem$itemArgs<ExtArgs> = {}>(args?: Subset<T, UserItem$itemArgs<ExtArgs>>): Prisma__ItemClient<$Result.GetResult<Prisma.$ItemPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
     itemImages<T extends UserItem$itemImagesArgs<ExtArgs> = {}>(args?: Subset<T, UserItem$itemImagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserItemImagePayload<ExtArgs>, T, 'findMany'> | Null>;
 
@@ -14313,9 +14313,9 @@ export namespace Prisma {
    * Fields of the UserItem model
    */ 
   interface UserItemFieldRefs {
-    readonly id: FieldRef<"UserItem", 'String'>
     readonly createdAt: FieldRef<"UserItem", 'DateTime'>
     readonly description: FieldRef<"UserItem", 'String'>
+    readonly scale: FieldRef<"UserItem", 'String'>
     readonly name: FieldRef<"UserItem", 'String'>
     readonly itemId: FieldRef<"UserItem", 'String'>
     readonly userCollectionId: FieldRef<"UserItem", 'String'>
@@ -14631,6 +14631,38 @@ export namespace Prisma {
 
 
   /**
+   * UserItem.userCollection
+   */
+  export type UserItem$userCollectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserCollection
+     */
+    select?: UserCollectionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserCollectionInclude<ExtArgs> | null
+    where?: UserCollectionWhereInput
+  }
+
+
+  /**
+   * UserItem.item
+   */
+  export type UserItem$itemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Item
+     */
+    select?: ItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ItemInclude<ExtArgs> | null
+    where?: ItemWhereInput
+  }
+
+
+  /**
    * UserItem.itemImages
    */
   export type UserItem$itemImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -14679,7 +14711,8 @@ export namespace Prisma {
 
   export type UserItemImageMinAggregateOutputType = {
     id: string | null
-    userItemId: string | null
+    itemId: string | null
+    userCollectionId: string | null
     link: string | null
     fileName: string | null
     principal: boolean | null
@@ -14689,7 +14722,8 @@ export namespace Prisma {
 
   export type UserItemImageMaxAggregateOutputType = {
     id: string | null
-    userItemId: string | null
+    itemId: string | null
+    userCollectionId: string | null
     link: string | null
     fileName: string | null
     principal: boolean | null
@@ -14699,7 +14733,8 @@ export namespace Prisma {
 
   export type UserItemImageCountAggregateOutputType = {
     id: number
-    userItemId: number
+    itemId: number
+    userCollectionId: number
     link: number
     fileName: number
     principal: number
@@ -14711,7 +14746,8 @@ export namespace Prisma {
 
   export type UserItemImageMinAggregateInputType = {
     id?: true
-    userItemId?: true
+    itemId?: true
+    userCollectionId?: true
     link?: true
     fileName?: true
     principal?: true
@@ -14721,7 +14757,8 @@ export namespace Prisma {
 
   export type UserItemImageMaxAggregateInputType = {
     id?: true
-    userItemId?: true
+    itemId?: true
+    userCollectionId?: true
     link?: true
     fileName?: true
     principal?: true
@@ -14731,7 +14768,8 @@ export namespace Prisma {
 
   export type UserItemImageCountAggregateInputType = {
     id?: true
-    userItemId?: true
+    itemId?: true
+    userCollectionId?: true
     link?: true
     fileName?: true
     principal?: true
@@ -14814,7 +14852,8 @@ export namespace Prisma {
 
   export type UserItemImageGroupByOutputType = {
     id: string
-    userItemId: string
+    itemId: string
+    userCollectionId: string
     link: string
     fileName: string
     principal: boolean
@@ -14841,7 +14880,8 @@ export namespace Prisma {
 
   export type UserItemImageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    userItemId?: boolean
+    itemId?: boolean
+    userCollectionId?: boolean
     link?: boolean
     fileName?: boolean
     principal?: boolean
@@ -14852,7 +14892,8 @@ export namespace Prisma {
 
   export type UserItemImageSelectScalar = {
     id?: boolean
-    userItemId?: boolean
+    itemId?: boolean
+    userCollectionId?: boolean
     link?: boolean
     fileName?: boolean
     principal?: boolean
@@ -14872,7 +14913,8 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      userItemId: string
+      itemId: string
+      userCollectionId: string
       link: string
       fileName: string
       principal: boolean
@@ -15274,7 +15316,8 @@ export namespace Prisma {
    */ 
   interface UserItemImageFieldRefs {
     readonly id: FieldRef<"UserItemImage", 'String'>
-    readonly userItemId: FieldRef<"UserItemImage", 'String'>
+    readonly itemId: FieldRef<"UserItemImage", 'String'>
+    readonly userCollectionId: FieldRef<"UserItemImage", 'String'>
     readonly link: FieldRef<"UserItemImage", 'String'>
     readonly fileName: FieldRef<"UserItemImage", 'String'>
     readonly principal: FieldRef<"UserItemImage", 'Boolean'>
@@ -15701,12 +15744,12 @@ export namespace Prisma {
   export type TwoFactorConfirmationScalarFieldEnum = (typeof TwoFactorConfirmationScalarFieldEnum)[keyof typeof TwoFactorConfirmationScalarFieldEnum]
 
 
-  export const TypeCollectionScalarFieldEnum: {
+  export const CollectionScalarFieldEnum: {
     id: 'id',
     description: 'description'
   };
 
-  export type TypeCollectionScalarFieldEnum = (typeof TypeCollectionScalarFieldEnum)[keyof typeof TypeCollectionScalarFieldEnum]
+  export type CollectionScalarFieldEnum = (typeof CollectionScalarFieldEnum)[keyof typeof CollectionScalarFieldEnum]
 
 
   export const TypeModelScalarFieldEnum: {
@@ -15728,7 +15771,7 @@ export namespace Prisma {
     createdAt: 'createdAt',
     userId: 'userId',
     typeModelId: 'typeModelId',
-    typeCollectionId: 'typeCollectionId'
+    collectionId: 'collectionId'
   };
 
   export type ItemScalarFieldEnum = (typeof ItemScalarFieldEnum)[keyof typeof ItemScalarFieldEnum]
@@ -15752,7 +15795,7 @@ export namespace Prisma {
     description: 'description',
     name: 'name',
     userId: 'userId',
-    typeCollectionId: 'typeCollectionId',
+    collectionId: 'collectionId',
     createdAt: 'createdAt',
     status: 'status',
     fatherId: 'fatherId'
@@ -15762,9 +15805,9 @@ export namespace Prisma {
 
 
   export const UserItemScalarFieldEnum: {
-    id: 'id',
     createdAt: 'createdAt',
     description: 'description',
+    scale: 'scale',
     name: 'name',
     itemId: 'itemId',
     userCollectionId: 'userCollectionId'
@@ -15775,7 +15818,8 @@ export namespace Prisma {
 
   export const UserItemImageScalarFieldEnum: {
     id: 'id',
-    userItemId: 'userItemId',
+    itemId: 'itemId',
+    userCollectionId: 'userCollectionId',
     link: 'link',
     fileName: 'fileName',
     principal: 'principal',
@@ -16290,49 +16334,49 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"TwoFactorConfirmation"> | string
   }
 
-  export type TypeCollectionWhereInput = {
-    AND?: TypeCollectionWhereInput | TypeCollectionWhereInput[]
-    OR?: TypeCollectionWhereInput[]
-    NOT?: TypeCollectionWhereInput | TypeCollectionWhereInput[]
-    id?: IntFilter<"TypeCollection"> | number
-    description?: StringFilter<"TypeCollection"> | string
+  export type CollectionWhereInput = {
+    AND?: CollectionWhereInput | CollectionWhereInput[]
+    OR?: CollectionWhereInput[]
+    NOT?: CollectionWhereInput | CollectionWhereInput[]
+    id?: IntFilter<"Collection"> | number
+    description?: StringFilter<"Collection"> | string
     collections?: UserCollectionListRelationFilter
     items?: ItemListRelationFilter
   }
 
-  export type TypeCollectionOrderByWithRelationInput = {
+  export type CollectionOrderByWithRelationInput = {
     id?: SortOrder
     description?: SortOrder
     collections?: UserCollectionOrderByRelationAggregateInput
     items?: ItemOrderByRelationAggregateInput
   }
 
-  export type TypeCollectionWhereUniqueInput = Prisma.AtLeast<{
+  export type CollectionWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     description?: string
-    AND?: TypeCollectionWhereInput | TypeCollectionWhereInput[]
-    OR?: TypeCollectionWhereInput[]
-    NOT?: TypeCollectionWhereInput | TypeCollectionWhereInput[]
+    AND?: CollectionWhereInput | CollectionWhereInput[]
+    OR?: CollectionWhereInput[]
+    NOT?: CollectionWhereInput | CollectionWhereInput[]
     collections?: UserCollectionListRelationFilter
     items?: ItemListRelationFilter
   }, "id" | "description">
 
-  export type TypeCollectionOrderByWithAggregationInput = {
+  export type CollectionOrderByWithAggregationInput = {
     id?: SortOrder
     description?: SortOrder
-    _count?: TypeCollectionCountOrderByAggregateInput
-    _avg?: TypeCollectionAvgOrderByAggregateInput
-    _max?: TypeCollectionMaxOrderByAggregateInput
-    _min?: TypeCollectionMinOrderByAggregateInput
-    _sum?: TypeCollectionSumOrderByAggregateInput
+    _count?: CollectionCountOrderByAggregateInput
+    _avg?: CollectionAvgOrderByAggregateInput
+    _max?: CollectionMaxOrderByAggregateInput
+    _min?: CollectionMinOrderByAggregateInput
+    _sum?: CollectionSumOrderByAggregateInput
   }
 
-  export type TypeCollectionScalarWhereWithAggregatesInput = {
-    AND?: TypeCollectionScalarWhereWithAggregatesInput | TypeCollectionScalarWhereWithAggregatesInput[]
-    OR?: TypeCollectionScalarWhereWithAggregatesInput[]
-    NOT?: TypeCollectionScalarWhereWithAggregatesInput | TypeCollectionScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"TypeCollection"> | number
-    description?: StringWithAggregatesFilter<"TypeCollection"> | string
+  export type CollectionScalarWhereWithAggregatesInput = {
+    AND?: CollectionScalarWhereWithAggregatesInput | CollectionScalarWhereWithAggregatesInput[]
+    OR?: CollectionScalarWhereWithAggregatesInput[]
+    NOT?: CollectionScalarWhereWithAggregatesInput | CollectionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Collection"> | number
+    description?: StringWithAggregatesFilter<"Collection"> | string
   }
 
   export type TypeModelWhereInput = {
@@ -16391,8 +16435,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Item"> | Date | string
     userId?: StringNullableFilter<"Item"> | string | null
     typeModelId?: IntFilter<"Item"> | number
-    typeCollectionId?: IntNullableFilter<"Item"> | number | null
-    typeCollection?: XOR<TypeCollectionNullableRelationFilter, TypeCollectionWhereInput> | null
+    collectionId?: IntNullableFilter<"Item"> | number | null
+    collection?: XOR<CollectionNullableRelationFilter, CollectionWhereInput> | null
     typeModel?: XOR<TypeModelRelationFilter, TypeModelWhereInput>
     user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     itemImages?: ItemImageListRelationFilter
@@ -16410,8 +16454,8 @@ export namespace Prisma {
     createdAt?: SortOrder
     userId?: SortOrderInput | SortOrder
     typeModelId?: SortOrder
-    typeCollectionId?: SortOrderInput | SortOrder
-    typeCollection?: TypeCollectionOrderByWithRelationInput
+    collectionId?: SortOrderInput | SortOrder
+    collection?: CollectionOrderByWithRelationInput
     typeModel?: TypeModelOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
     itemImages?: ItemImageOrderByRelationAggregateInput
@@ -16432,8 +16476,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Item"> | Date | string
     userId?: StringNullableFilter<"Item"> | string | null
     typeModelId?: IntFilter<"Item"> | number
-    typeCollectionId?: IntNullableFilter<"Item"> | number | null
-    typeCollection?: XOR<TypeCollectionNullableRelationFilter, TypeCollectionWhereInput> | null
+    collectionId?: IntNullableFilter<"Item"> | number | null
+    collection?: XOR<CollectionNullableRelationFilter, CollectionWhereInput> | null
     typeModel?: XOR<TypeModelRelationFilter, TypeModelWhereInput>
     user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     itemImages?: ItemImageListRelationFilter
@@ -16451,7 +16495,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     userId?: SortOrderInput | SortOrder
     typeModelId?: SortOrder
-    typeCollectionId?: SortOrderInput | SortOrder
+    collectionId?: SortOrderInput | SortOrder
     _count?: ItemCountOrderByAggregateInput
     _avg?: ItemAvgOrderByAggregateInput
     _max?: ItemMaxOrderByAggregateInput
@@ -16473,7 +16517,7 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Item"> | Date | string
     userId?: StringNullableWithAggregatesFilter<"Item"> | string | null
     typeModelId?: IntWithAggregatesFilter<"Item"> | number
-    typeCollectionId?: IntNullableWithAggregatesFilter<"Item"> | number | null
+    collectionId?: IntNullableWithAggregatesFilter<"Item"> | number | null
   }
 
   export type ItemImageWhereInput = {
@@ -16549,12 +16593,12 @@ export namespace Prisma {
     description?: StringNullableFilter<"UserCollection"> | string | null
     name?: StringFilter<"UserCollection"> | string
     userId?: StringFilter<"UserCollection"> | string
-    typeCollectionId?: IntNullableFilter<"UserCollection"> | number | null
+    collectionId?: IntNullableFilter<"UserCollection"> | number | null
     createdAt?: DateTimeFilter<"UserCollection"> | Date | string
     status?: BoolFilter<"UserCollection"> | boolean
     fatherId?: StringNullableFilter<"UserCollection"> | string | null
     user?: XOR<UserRelationFilter, UserWhereInput>
-    typeCollection?: XOR<TypeCollectionNullableRelationFilter, TypeCollectionWhereInput> | null
+    collection?: XOR<CollectionNullableRelationFilter, CollectionWhereInput> | null
     parent?: XOR<UserCollectionNullableRelationFilter, UserCollectionWhereInput> | null
     childCollections?: UserCollectionListRelationFilter
     items?: UserItemListRelationFilter
@@ -16565,12 +16609,12 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     name?: SortOrder
     userId?: SortOrder
-    typeCollectionId?: SortOrderInput | SortOrder
+    collectionId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     status?: SortOrder
     fatherId?: SortOrderInput | SortOrder
     user?: UserOrderByWithRelationInput
-    typeCollection?: TypeCollectionOrderByWithRelationInput
+    collection?: CollectionOrderByWithRelationInput
     parent?: UserCollectionOrderByWithRelationInput
     childCollections?: UserCollectionOrderByRelationAggregateInput
     items?: UserItemOrderByRelationAggregateInput
@@ -16584,12 +16628,12 @@ export namespace Prisma {
     description?: StringNullableFilter<"UserCollection"> | string | null
     name?: StringFilter<"UserCollection"> | string
     userId?: StringFilter<"UserCollection"> | string
-    typeCollectionId?: IntNullableFilter<"UserCollection"> | number | null
+    collectionId?: IntNullableFilter<"UserCollection"> | number | null
     createdAt?: DateTimeFilter<"UserCollection"> | Date | string
     status?: BoolFilter<"UserCollection"> | boolean
     fatherId?: StringNullableFilter<"UserCollection"> | string | null
     user?: XOR<UserRelationFilter, UserWhereInput>
-    typeCollection?: XOR<TypeCollectionNullableRelationFilter, TypeCollectionWhereInput> | null
+    collection?: XOR<CollectionNullableRelationFilter, CollectionWhereInput> | null
     parent?: XOR<UserCollectionNullableRelationFilter, UserCollectionWhereInput> | null
     childCollections?: UserCollectionListRelationFilter
     items?: UserItemListRelationFilter
@@ -16600,7 +16644,7 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     name?: SortOrder
     userId?: SortOrder
-    typeCollectionId?: SortOrderInput | SortOrder
+    collectionId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     status?: SortOrder
     fatherId?: SortOrderInput | SortOrder
@@ -16619,7 +16663,7 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"UserCollection"> | string | null
     name?: StringWithAggregatesFilter<"UserCollection"> | string
     userId?: StringWithAggregatesFilter<"UserCollection"> | string
-    typeCollectionId?: IntNullableWithAggregatesFilter<"UserCollection"> | number | null
+    collectionId?: IntNullableWithAggregatesFilter<"UserCollection"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"UserCollection"> | Date | string
     status?: BoolWithAggregatesFilter<"UserCollection"> | boolean
     fatherId?: StringNullableWithAggregatesFilter<"UserCollection"> | string | null
@@ -16629,21 +16673,21 @@ export namespace Prisma {
     AND?: UserItemWhereInput | UserItemWhereInput[]
     OR?: UserItemWhereInput[]
     NOT?: UserItemWhereInput | UserItemWhereInput[]
-    id?: StringFilter<"UserItem"> | string
     createdAt?: DateTimeFilter<"UserItem"> | Date | string
     description?: StringNullableFilter<"UserItem"> | string | null
+    scale?: StringNullableFilter<"UserItem"> | string | null
     name?: StringNullableFilter<"UserItem"> | string | null
     itemId?: StringFilter<"UserItem"> | string
     userCollectionId?: StringFilter<"UserItem"> | string
-    userCollection?: XOR<UserCollectionRelationFilter, UserCollectionWhereInput>
-    item?: XOR<ItemRelationFilter, ItemWhereInput>
+    userCollection?: XOR<UserCollectionNullableRelationFilter, UserCollectionWhereInput> | null
+    item?: XOR<ItemNullableRelationFilter, ItemWhereInput> | null
     itemImages?: UserItemImageListRelationFilter
   }
 
   export type UserItemOrderByWithRelationInput = {
-    id?: SortOrder
     createdAt?: SortOrder
     description?: SortOrderInput | SortOrder
+    scale?: SortOrderInput | SortOrder
     name?: SortOrderInput | SortOrder
     itemId?: SortOrder
     userCollectionId?: SortOrder
@@ -16653,24 +16697,25 @@ export namespace Prisma {
   }
 
   export type UserItemWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    itemId_userCollectionId?: UserItemItemIdUserCollectionIdCompoundUniqueInput
     AND?: UserItemWhereInput | UserItemWhereInput[]
     OR?: UserItemWhereInput[]
     NOT?: UserItemWhereInput | UserItemWhereInput[]
     createdAt?: DateTimeFilter<"UserItem"> | Date | string
     description?: StringNullableFilter<"UserItem"> | string | null
+    scale?: StringNullableFilter<"UserItem"> | string | null
     name?: StringNullableFilter<"UserItem"> | string | null
     itemId?: StringFilter<"UserItem"> | string
     userCollectionId?: StringFilter<"UserItem"> | string
-    userCollection?: XOR<UserCollectionRelationFilter, UserCollectionWhereInput>
-    item?: XOR<ItemRelationFilter, ItemWhereInput>
+    userCollection?: XOR<UserCollectionNullableRelationFilter, UserCollectionWhereInput> | null
+    item?: XOR<ItemNullableRelationFilter, ItemWhereInput> | null
     itemImages?: UserItemImageListRelationFilter
-  }, "id">
+  }, "itemId_userCollectionId">
 
   export type UserItemOrderByWithAggregationInput = {
-    id?: SortOrder
     createdAt?: SortOrder
     description?: SortOrderInput | SortOrder
+    scale?: SortOrderInput | SortOrder
     name?: SortOrderInput | SortOrder
     itemId?: SortOrder
     userCollectionId?: SortOrder
@@ -16683,9 +16728,9 @@ export namespace Prisma {
     AND?: UserItemScalarWhereWithAggregatesInput | UserItemScalarWhereWithAggregatesInput[]
     OR?: UserItemScalarWhereWithAggregatesInput[]
     NOT?: UserItemScalarWhereWithAggregatesInput | UserItemScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"UserItem"> | string
     createdAt?: DateTimeWithAggregatesFilter<"UserItem"> | Date | string
     description?: StringNullableWithAggregatesFilter<"UserItem"> | string | null
+    scale?: StringNullableWithAggregatesFilter<"UserItem"> | string | null
     name?: StringNullableWithAggregatesFilter<"UserItem"> | string | null
     itemId?: StringWithAggregatesFilter<"UserItem"> | string
     userCollectionId?: StringWithAggregatesFilter<"UserItem"> | string
@@ -16696,7 +16741,8 @@ export namespace Prisma {
     OR?: UserItemImageWhereInput[]
     NOT?: UserItemImageWhereInput | UserItemImageWhereInput[]
     id?: StringFilter<"UserItemImage"> | string
-    userItemId?: StringFilter<"UserItemImage"> | string
+    itemId?: StringFilter<"UserItemImage"> | string
+    userCollectionId?: StringFilter<"UserItemImage"> | string
     link?: StringFilter<"UserItemImage"> | string
     fileName?: StringFilter<"UserItemImage"> | string
     principal?: BoolFilter<"UserItemImage"> | boolean
@@ -16707,7 +16753,8 @@ export namespace Prisma {
 
   export type UserItemImageOrderByWithRelationInput = {
     id?: SortOrder
-    userItemId?: SortOrder
+    itemId?: SortOrder
+    userCollectionId?: SortOrder
     link?: SortOrder
     fileName?: SortOrder
     principal?: SortOrder
@@ -16721,7 +16768,8 @@ export namespace Prisma {
     AND?: UserItemImageWhereInput | UserItemImageWhereInput[]
     OR?: UserItemImageWhereInput[]
     NOT?: UserItemImageWhereInput | UserItemImageWhereInput[]
-    userItemId?: StringFilter<"UserItemImage"> | string
+    itemId?: StringFilter<"UserItemImage"> | string
+    userCollectionId?: StringFilter<"UserItemImage"> | string
     link?: StringFilter<"UserItemImage"> | string
     fileName?: StringFilter<"UserItemImage"> | string
     principal?: BoolFilter<"UserItemImage"> | boolean
@@ -16732,7 +16780,8 @@ export namespace Prisma {
 
   export type UserItemImageOrderByWithAggregationInput = {
     id?: SortOrder
-    userItemId?: SortOrder
+    itemId?: SortOrder
+    userCollectionId?: SortOrder
     link?: SortOrder
     fileName?: SortOrder
     principal?: SortOrder
@@ -16748,7 +16797,8 @@ export namespace Prisma {
     OR?: UserItemImageScalarWhereWithAggregatesInput[]
     NOT?: UserItemImageScalarWhereWithAggregatesInput | UserItemImageScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"UserItemImage"> | string
-    userItemId?: StringWithAggregatesFilter<"UserItemImage"> | string
+    itemId?: StringWithAggregatesFilter<"UserItemImage"> | string
+    userCollectionId?: StringWithAggregatesFilter<"UserItemImage"> | string
     link?: StringWithAggregatesFilter<"UserItemImage"> | string
     fileName?: StringWithAggregatesFilter<"UserItemImage"> | string
     principal?: BoolWithAggregatesFilter<"UserItemImage"> | boolean
@@ -17186,45 +17236,45 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type TypeCollectionCreateInput = {
+  export type CollectionCreateInput = {
     id: number
     description: string
-    collections?: UserCollectionCreateNestedManyWithoutTypeCollectionInput
-    items?: ItemCreateNestedManyWithoutTypeCollectionInput
+    collections?: UserCollectionCreateNestedManyWithoutCollectionInput
+    items?: ItemCreateNestedManyWithoutCollectionInput
   }
 
-  export type TypeCollectionUncheckedCreateInput = {
+  export type CollectionUncheckedCreateInput = {
     id: number
     description: string
-    collections?: UserCollectionUncheckedCreateNestedManyWithoutTypeCollectionInput
-    items?: ItemUncheckedCreateNestedManyWithoutTypeCollectionInput
+    collections?: UserCollectionUncheckedCreateNestedManyWithoutCollectionInput
+    items?: ItemUncheckedCreateNestedManyWithoutCollectionInput
   }
 
-  export type TypeCollectionUpdateInput = {
+  export type CollectionUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    collections?: UserCollectionUpdateManyWithoutTypeCollectionNestedInput
-    items?: ItemUpdateManyWithoutTypeCollectionNestedInput
+    collections?: UserCollectionUpdateManyWithoutCollectionNestedInput
+    items?: ItemUpdateManyWithoutCollectionNestedInput
   }
 
-  export type TypeCollectionUncheckedUpdateInput = {
+  export type CollectionUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    collections?: UserCollectionUncheckedUpdateManyWithoutTypeCollectionNestedInput
-    items?: ItemUncheckedUpdateManyWithoutTypeCollectionNestedInput
+    collections?: UserCollectionUncheckedUpdateManyWithoutCollectionNestedInput
+    items?: ItemUncheckedUpdateManyWithoutCollectionNestedInput
   }
 
-  export type TypeCollectionCreateManyInput = {
+  export type CollectionCreateManyInput = {
     id: number
     description: string
   }
 
-  export type TypeCollectionUpdateManyMutationInput = {
+  export type CollectionUpdateManyMutationInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
   }
 
-  export type TypeCollectionUncheckedUpdateManyInput = {
+  export type CollectionUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
   }
@@ -17277,7 +17327,7 @@ export namespace Prisma {
     status?: boolean
     image?: string | null
     createdAt?: Date | string
-    typeCollection?: TypeCollectionCreateNestedOneWithoutItemsInput
+    collection?: CollectionCreateNestedOneWithoutItemsInput
     typeModel: TypeModelCreateNestedOneWithoutItemsInput
     user?: UserCreateNestedOneWithoutItemsInput
     itemImages?: ItemImageCreateNestedManyWithoutItemInput
@@ -17295,7 +17345,7 @@ export namespace Prisma {
     createdAt?: Date | string
     userId?: string | null
     typeModelId: number
-    typeCollectionId?: number | null
+    collectionId?: number | null
     itemImages?: ItemImageUncheckedCreateNestedManyWithoutItemInput
     userItem?: UserItemUncheckedCreateNestedManyWithoutItemInput
   }
@@ -17309,7 +17359,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    typeCollection?: TypeCollectionUpdateOneWithoutItemsNestedInput
+    collection?: CollectionUpdateOneWithoutItemsNestedInput
     typeModel?: TypeModelUpdateOneRequiredWithoutItemsNestedInput
     user?: UserUpdateOneWithoutItemsNestedInput
     itemImages?: ItemImageUpdateManyWithoutItemNestedInput
@@ -17327,7 +17377,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     typeModelId?: IntFieldUpdateOperationsInput | number
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     itemImages?: ItemImageUncheckedUpdateManyWithoutItemNestedInput
     userItem?: UserItemUncheckedUpdateManyWithoutItemNestedInput
   }
@@ -17343,7 +17393,7 @@ export namespace Prisma {
     createdAt?: Date | string
     userId?: string | null
     typeModelId: number
-    typeCollectionId?: number | null
+    collectionId?: number | null
   }
 
   export type ItemUpdateManyMutationInput = {
@@ -17368,7 +17418,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     typeModelId?: IntFieldUpdateOperationsInput | number
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type ItemImageCreateInput = {
@@ -17447,7 +17497,7 @@ export namespace Prisma {
     createdAt?: Date | string
     status?: boolean
     user: UserCreateNestedOneWithoutUserCollectionsInput
-    typeCollection?: TypeCollectionCreateNestedOneWithoutCollectionsInput
+    collection?: CollectionCreateNestedOneWithoutCollectionsInput
     parent?: UserCollectionCreateNestedOneWithoutChildCollectionsInput
     childCollections?: UserCollectionCreateNestedManyWithoutParentInput
     items?: UserItemCreateNestedManyWithoutUserCollectionInput
@@ -17458,7 +17508,7 @@ export namespace Prisma {
     description?: string | null
     name: string
     userId: string
-    typeCollectionId?: number | null
+    collectionId?: number | null
     createdAt?: Date | string
     status?: boolean
     fatherId?: string | null
@@ -17473,7 +17523,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutUserCollectionsNestedInput
-    typeCollection?: TypeCollectionUpdateOneWithoutCollectionsNestedInput
+    collection?: CollectionUpdateOneWithoutCollectionsNestedInput
     parent?: UserCollectionUpdateOneWithoutChildCollectionsNestedInput
     childCollections?: UserCollectionUpdateManyWithoutParentNestedInput
     items?: UserItemUpdateManyWithoutUserCollectionNestedInput
@@ -17484,7 +17534,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     fatherId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17497,7 +17547,7 @@ export namespace Prisma {
     description?: string | null
     name: string
     userId: string
-    typeCollectionId?: number | null
+    collectionId?: number | null
     createdAt?: Date | string
     status?: boolean
     fatherId?: string | null
@@ -17516,26 +17566,26 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     fatherId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserItemCreateInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
-    userCollection: UserCollectionCreateNestedOneWithoutItemsInput
-    item: ItemCreateNestedOneWithoutUserItemInput
+    userCollection?: UserCollectionCreateNestedOneWithoutItemsInput
+    item?: ItemCreateNestedOneWithoutUserItemInput
     itemImages?: UserItemImageCreateNestedManyWithoutUserItemInput
   }
 
   export type UserItemUncheckedCreateInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
     itemId: string
     userCollectionId: string
@@ -17543,19 +17593,19 @@ export namespace Prisma {
   }
 
   export type UserItemUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    userCollection?: UserCollectionUpdateOneRequiredWithoutItemsNestedInput
-    item?: ItemUpdateOneRequiredWithoutUserItemNestedInput
+    userCollection?: UserCollectionUpdateOneWithoutItemsNestedInput
+    item?: ItemUpdateOneWithoutUserItemNestedInput
     itemImages?: UserItemImageUpdateManyWithoutUserItemNestedInput
   }
 
   export type UserItemUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     itemId?: StringFieldUpdateOperationsInput | string
     userCollectionId?: StringFieldUpdateOperationsInput | string
@@ -17563,25 +17613,25 @@ export namespace Prisma {
   }
 
   export type UserItemCreateManyInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
     itemId: string
     userCollectionId: string
   }
 
   export type UserItemUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserItemUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     itemId?: StringFieldUpdateOperationsInput | string
     userCollectionId?: StringFieldUpdateOperationsInput | string
@@ -17599,7 +17649,8 @@ export namespace Prisma {
 
   export type UserItemImageUncheckedCreateInput = {
     id?: string
-    userItemId: string
+    itemId: string
+    userCollectionId: string
     link: string
     fileName: string
     principal?: boolean
@@ -17619,7 +17670,8 @@ export namespace Prisma {
 
   export type UserItemImageUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userItemId?: StringFieldUpdateOperationsInput | string
+    itemId?: StringFieldUpdateOperationsInput | string
+    userCollectionId?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     principal?: BoolFieldUpdateOperationsInput | boolean
@@ -17629,7 +17681,8 @@ export namespace Prisma {
 
   export type UserItemImageCreateManyInput = {
     id?: string
-    userItemId: string
+    itemId: string
+    userCollectionId: string
     link: string
     fileName: string
     principal?: boolean
@@ -17648,7 +17701,8 @@ export namespace Prisma {
 
   export type UserItemImageUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userItemId?: StringFieldUpdateOperationsInput | string
+    itemId?: StringFieldUpdateOperationsInput | string
+    userCollectionId?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     principal?: BoolFieldUpdateOperationsInput | boolean
@@ -18083,26 +18137,26 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type TypeCollectionCountOrderByAggregateInput = {
+  export type CollectionCountOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
   }
 
-  export type TypeCollectionAvgOrderByAggregateInput = {
+  export type CollectionAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type TypeCollectionMaxOrderByAggregateInput = {
-    id?: SortOrder
-    description?: SortOrder
-  }
-
-  export type TypeCollectionMinOrderByAggregateInput = {
+  export type CollectionMaxOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
   }
 
-  export type TypeCollectionSumOrderByAggregateInput = {
+  export type CollectionMinOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+  }
+
+  export type CollectionSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -18145,9 +18199,9 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type TypeCollectionNullableRelationFilter = {
-    is?: TypeCollectionWhereInput | null
-    isNot?: TypeCollectionWhereInput | null
+  export type CollectionNullableRelationFilter = {
+    is?: CollectionWhereInput | null
+    isNot?: CollectionWhereInput | null
   }
 
   export type TypeModelRelationFilter = {
@@ -18191,12 +18245,12 @@ export namespace Prisma {
     createdAt?: SortOrder
     userId?: SortOrder
     typeModelId?: SortOrder
-    typeCollectionId?: SortOrder
+    collectionId?: SortOrder
   }
 
   export type ItemAvgOrderByAggregateInput = {
     typeModelId?: SortOrder
-    typeCollectionId?: SortOrder
+    collectionId?: SortOrder
   }
 
   export type ItemMaxOrderByAggregateInput = {
@@ -18210,7 +18264,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     userId?: SortOrder
     typeModelId?: SortOrder
-    typeCollectionId?: SortOrder
+    collectionId?: SortOrder
   }
 
   export type ItemMinOrderByAggregateInput = {
@@ -18224,12 +18278,12 @@ export namespace Prisma {
     createdAt?: SortOrder
     userId?: SortOrder
     typeModelId?: SortOrder
-    typeCollectionId?: SortOrder
+    collectionId?: SortOrder
   }
 
   export type ItemSumOrderByAggregateInput = {
     typeModelId?: SortOrder
-    typeCollectionId?: SortOrder
+    collectionId?: SortOrder
   }
 
   export type ItemRelationFilter = {
@@ -18277,14 +18331,14 @@ export namespace Prisma {
     description?: SortOrder
     name?: SortOrder
     userId?: SortOrder
-    typeCollectionId?: SortOrder
+    collectionId?: SortOrder
     createdAt?: SortOrder
     status?: SortOrder
     fatherId?: SortOrder
   }
 
   export type UserCollectionAvgOrderByAggregateInput = {
-    typeCollectionId?: SortOrder
+    collectionId?: SortOrder
   }
 
   export type UserCollectionMaxOrderByAggregateInput = {
@@ -18292,7 +18346,7 @@ export namespace Prisma {
     description?: SortOrder
     name?: SortOrder
     userId?: SortOrder
-    typeCollectionId?: SortOrder
+    collectionId?: SortOrder
     createdAt?: SortOrder
     status?: SortOrder
     fatherId?: SortOrder
@@ -18303,19 +18357,19 @@ export namespace Prisma {
     description?: SortOrder
     name?: SortOrder
     userId?: SortOrder
-    typeCollectionId?: SortOrder
+    collectionId?: SortOrder
     createdAt?: SortOrder
     status?: SortOrder
     fatherId?: SortOrder
   }
 
   export type UserCollectionSumOrderByAggregateInput = {
-    typeCollectionId?: SortOrder
+    collectionId?: SortOrder
   }
 
-  export type UserCollectionRelationFilter = {
-    is?: UserCollectionWhereInput
-    isNot?: UserCollectionWhereInput
+  export type ItemNullableRelationFilter = {
+    is?: ItemWhereInput | null
+    isNot?: ItemWhereInput | null
   }
 
   export type UserItemImageListRelationFilter = {
@@ -18328,28 +18382,33 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type UserItemItemIdUserCollectionIdCompoundUniqueInput = {
+    itemId: string
+    userCollectionId: string
+  }
+
   export type UserItemCountOrderByAggregateInput = {
-    id?: SortOrder
     createdAt?: SortOrder
     description?: SortOrder
+    scale?: SortOrder
     name?: SortOrder
     itemId?: SortOrder
     userCollectionId?: SortOrder
   }
 
   export type UserItemMaxOrderByAggregateInput = {
-    id?: SortOrder
     createdAt?: SortOrder
     description?: SortOrder
+    scale?: SortOrder
     name?: SortOrder
     itemId?: SortOrder
     userCollectionId?: SortOrder
   }
 
   export type UserItemMinOrderByAggregateInput = {
-    id?: SortOrder
     createdAt?: SortOrder
     description?: SortOrder
+    scale?: SortOrder
     name?: SortOrder
     itemId?: SortOrder
     userCollectionId?: SortOrder
@@ -18362,7 +18421,8 @@ export namespace Prisma {
 
   export type UserItemImageCountOrderByAggregateInput = {
     id?: SortOrder
-    userItemId?: SortOrder
+    itemId?: SortOrder
+    userCollectionId?: SortOrder
     link?: SortOrder
     fileName?: SortOrder
     principal?: SortOrder
@@ -18372,7 +18432,8 @@ export namespace Prisma {
 
   export type UserItemImageMaxOrderByAggregateInput = {
     id?: SortOrder
-    userItemId?: SortOrder
+    itemId?: SortOrder
+    userCollectionId?: SortOrder
     link?: SortOrder
     fileName?: SortOrder
     principal?: SortOrder
@@ -18382,7 +18443,8 @@ export namespace Prisma {
 
   export type UserItemImageMinOrderByAggregateInput = {
     id?: SortOrder
-    userItemId?: SortOrder
+    itemId?: SortOrder
+    userCollectionId?: SortOrder
     link?: SortOrder
     fileName?: SortOrder
     principal?: SortOrder
@@ -18660,31 +18722,31 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTwoFactorConfirmationInput, UserUpdateWithoutTwoFactorConfirmationInput>, UserUncheckedUpdateWithoutTwoFactorConfirmationInput>
   }
 
-  export type UserCollectionCreateNestedManyWithoutTypeCollectionInput = {
-    create?: XOR<UserCollectionCreateWithoutTypeCollectionInput, UserCollectionUncheckedCreateWithoutTypeCollectionInput> | UserCollectionCreateWithoutTypeCollectionInput[] | UserCollectionUncheckedCreateWithoutTypeCollectionInput[]
-    connectOrCreate?: UserCollectionCreateOrConnectWithoutTypeCollectionInput | UserCollectionCreateOrConnectWithoutTypeCollectionInput[]
-    createMany?: UserCollectionCreateManyTypeCollectionInputEnvelope
+  export type UserCollectionCreateNestedManyWithoutCollectionInput = {
+    create?: XOR<UserCollectionCreateWithoutCollectionInput, UserCollectionUncheckedCreateWithoutCollectionInput> | UserCollectionCreateWithoutCollectionInput[] | UserCollectionUncheckedCreateWithoutCollectionInput[]
+    connectOrCreate?: UserCollectionCreateOrConnectWithoutCollectionInput | UserCollectionCreateOrConnectWithoutCollectionInput[]
+    createMany?: UserCollectionCreateManyCollectionInputEnvelope
     connect?: UserCollectionWhereUniqueInput | UserCollectionWhereUniqueInput[]
   }
 
-  export type ItemCreateNestedManyWithoutTypeCollectionInput = {
-    create?: XOR<ItemCreateWithoutTypeCollectionInput, ItemUncheckedCreateWithoutTypeCollectionInput> | ItemCreateWithoutTypeCollectionInput[] | ItemUncheckedCreateWithoutTypeCollectionInput[]
-    connectOrCreate?: ItemCreateOrConnectWithoutTypeCollectionInput | ItemCreateOrConnectWithoutTypeCollectionInput[]
-    createMany?: ItemCreateManyTypeCollectionInputEnvelope
+  export type ItemCreateNestedManyWithoutCollectionInput = {
+    create?: XOR<ItemCreateWithoutCollectionInput, ItemUncheckedCreateWithoutCollectionInput> | ItemCreateWithoutCollectionInput[] | ItemUncheckedCreateWithoutCollectionInput[]
+    connectOrCreate?: ItemCreateOrConnectWithoutCollectionInput | ItemCreateOrConnectWithoutCollectionInput[]
+    createMany?: ItemCreateManyCollectionInputEnvelope
     connect?: ItemWhereUniqueInput | ItemWhereUniqueInput[]
   }
 
-  export type UserCollectionUncheckedCreateNestedManyWithoutTypeCollectionInput = {
-    create?: XOR<UserCollectionCreateWithoutTypeCollectionInput, UserCollectionUncheckedCreateWithoutTypeCollectionInput> | UserCollectionCreateWithoutTypeCollectionInput[] | UserCollectionUncheckedCreateWithoutTypeCollectionInput[]
-    connectOrCreate?: UserCollectionCreateOrConnectWithoutTypeCollectionInput | UserCollectionCreateOrConnectWithoutTypeCollectionInput[]
-    createMany?: UserCollectionCreateManyTypeCollectionInputEnvelope
+  export type UserCollectionUncheckedCreateNestedManyWithoutCollectionInput = {
+    create?: XOR<UserCollectionCreateWithoutCollectionInput, UserCollectionUncheckedCreateWithoutCollectionInput> | UserCollectionCreateWithoutCollectionInput[] | UserCollectionUncheckedCreateWithoutCollectionInput[]
+    connectOrCreate?: UserCollectionCreateOrConnectWithoutCollectionInput | UserCollectionCreateOrConnectWithoutCollectionInput[]
+    createMany?: UserCollectionCreateManyCollectionInputEnvelope
     connect?: UserCollectionWhereUniqueInput | UserCollectionWhereUniqueInput[]
   }
 
-  export type ItemUncheckedCreateNestedManyWithoutTypeCollectionInput = {
-    create?: XOR<ItemCreateWithoutTypeCollectionInput, ItemUncheckedCreateWithoutTypeCollectionInput> | ItemCreateWithoutTypeCollectionInput[] | ItemUncheckedCreateWithoutTypeCollectionInput[]
-    connectOrCreate?: ItemCreateOrConnectWithoutTypeCollectionInput | ItemCreateOrConnectWithoutTypeCollectionInput[]
-    createMany?: ItemCreateManyTypeCollectionInputEnvelope
+  export type ItemUncheckedCreateNestedManyWithoutCollectionInput = {
+    create?: XOR<ItemCreateWithoutCollectionInput, ItemUncheckedCreateWithoutCollectionInput> | ItemCreateWithoutCollectionInput[] | ItemUncheckedCreateWithoutCollectionInput[]
+    connectOrCreate?: ItemCreateOrConnectWithoutCollectionInput | ItemCreateOrConnectWithoutCollectionInput[]
+    createMany?: ItemCreateManyCollectionInputEnvelope
     connect?: ItemWhereUniqueInput | ItemWhereUniqueInput[]
   }
 
@@ -18696,59 +18758,59 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type UserCollectionUpdateManyWithoutTypeCollectionNestedInput = {
-    create?: XOR<UserCollectionCreateWithoutTypeCollectionInput, UserCollectionUncheckedCreateWithoutTypeCollectionInput> | UserCollectionCreateWithoutTypeCollectionInput[] | UserCollectionUncheckedCreateWithoutTypeCollectionInput[]
-    connectOrCreate?: UserCollectionCreateOrConnectWithoutTypeCollectionInput | UserCollectionCreateOrConnectWithoutTypeCollectionInput[]
-    upsert?: UserCollectionUpsertWithWhereUniqueWithoutTypeCollectionInput | UserCollectionUpsertWithWhereUniqueWithoutTypeCollectionInput[]
-    createMany?: UserCollectionCreateManyTypeCollectionInputEnvelope
+  export type UserCollectionUpdateManyWithoutCollectionNestedInput = {
+    create?: XOR<UserCollectionCreateWithoutCollectionInput, UserCollectionUncheckedCreateWithoutCollectionInput> | UserCollectionCreateWithoutCollectionInput[] | UserCollectionUncheckedCreateWithoutCollectionInput[]
+    connectOrCreate?: UserCollectionCreateOrConnectWithoutCollectionInput | UserCollectionCreateOrConnectWithoutCollectionInput[]
+    upsert?: UserCollectionUpsertWithWhereUniqueWithoutCollectionInput | UserCollectionUpsertWithWhereUniqueWithoutCollectionInput[]
+    createMany?: UserCollectionCreateManyCollectionInputEnvelope
     set?: UserCollectionWhereUniqueInput | UserCollectionWhereUniqueInput[]
     disconnect?: UserCollectionWhereUniqueInput | UserCollectionWhereUniqueInput[]
     delete?: UserCollectionWhereUniqueInput | UserCollectionWhereUniqueInput[]
     connect?: UserCollectionWhereUniqueInput | UserCollectionWhereUniqueInput[]
-    update?: UserCollectionUpdateWithWhereUniqueWithoutTypeCollectionInput | UserCollectionUpdateWithWhereUniqueWithoutTypeCollectionInput[]
-    updateMany?: UserCollectionUpdateManyWithWhereWithoutTypeCollectionInput | UserCollectionUpdateManyWithWhereWithoutTypeCollectionInput[]
+    update?: UserCollectionUpdateWithWhereUniqueWithoutCollectionInput | UserCollectionUpdateWithWhereUniqueWithoutCollectionInput[]
+    updateMany?: UserCollectionUpdateManyWithWhereWithoutCollectionInput | UserCollectionUpdateManyWithWhereWithoutCollectionInput[]
     deleteMany?: UserCollectionScalarWhereInput | UserCollectionScalarWhereInput[]
   }
 
-  export type ItemUpdateManyWithoutTypeCollectionNestedInput = {
-    create?: XOR<ItemCreateWithoutTypeCollectionInput, ItemUncheckedCreateWithoutTypeCollectionInput> | ItemCreateWithoutTypeCollectionInput[] | ItemUncheckedCreateWithoutTypeCollectionInput[]
-    connectOrCreate?: ItemCreateOrConnectWithoutTypeCollectionInput | ItemCreateOrConnectWithoutTypeCollectionInput[]
-    upsert?: ItemUpsertWithWhereUniqueWithoutTypeCollectionInput | ItemUpsertWithWhereUniqueWithoutTypeCollectionInput[]
-    createMany?: ItemCreateManyTypeCollectionInputEnvelope
+  export type ItemUpdateManyWithoutCollectionNestedInput = {
+    create?: XOR<ItemCreateWithoutCollectionInput, ItemUncheckedCreateWithoutCollectionInput> | ItemCreateWithoutCollectionInput[] | ItemUncheckedCreateWithoutCollectionInput[]
+    connectOrCreate?: ItemCreateOrConnectWithoutCollectionInput | ItemCreateOrConnectWithoutCollectionInput[]
+    upsert?: ItemUpsertWithWhereUniqueWithoutCollectionInput | ItemUpsertWithWhereUniqueWithoutCollectionInput[]
+    createMany?: ItemCreateManyCollectionInputEnvelope
     set?: ItemWhereUniqueInput | ItemWhereUniqueInput[]
     disconnect?: ItemWhereUniqueInput | ItemWhereUniqueInput[]
     delete?: ItemWhereUniqueInput | ItemWhereUniqueInput[]
     connect?: ItemWhereUniqueInput | ItemWhereUniqueInput[]
-    update?: ItemUpdateWithWhereUniqueWithoutTypeCollectionInput | ItemUpdateWithWhereUniqueWithoutTypeCollectionInput[]
-    updateMany?: ItemUpdateManyWithWhereWithoutTypeCollectionInput | ItemUpdateManyWithWhereWithoutTypeCollectionInput[]
+    update?: ItemUpdateWithWhereUniqueWithoutCollectionInput | ItemUpdateWithWhereUniqueWithoutCollectionInput[]
+    updateMany?: ItemUpdateManyWithWhereWithoutCollectionInput | ItemUpdateManyWithWhereWithoutCollectionInput[]
     deleteMany?: ItemScalarWhereInput | ItemScalarWhereInput[]
   }
 
-  export type UserCollectionUncheckedUpdateManyWithoutTypeCollectionNestedInput = {
-    create?: XOR<UserCollectionCreateWithoutTypeCollectionInput, UserCollectionUncheckedCreateWithoutTypeCollectionInput> | UserCollectionCreateWithoutTypeCollectionInput[] | UserCollectionUncheckedCreateWithoutTypeCollectionInput[]
-    connectOrCreate?: UserCollectionCreateOrConnectWithoutTypeCollectionInput | UserCollectionCreateOrConnectWithoutTypeCollectionInput[]
-    upsert?: UserCollectionUpsertWithWhereUniqueWithoutTypeCollectionInput | UserCollectionUpsertWithWhereUniqueWithoutTypeCollectionInput[]
-    createMany?: UserCollectionCreateManyTypeCollectionInputEnvelope
+  export type UserCollectionUncheckedUpdateManyWithoutCollectionNestedInput = {
+    create?: XOR<UserCollectionCreateWithoutCollectionInput, UserCollectionUncheckedCreateWithoutCollectionInput> | UserCollectionCreateWithoutCollectionInput[] | UserCollectionUncheckedCreateWithoutCollectionInput[]
+    connectOrCreate?: UserCollectionCreateOrConnectWithoutCollectionInput | UserCollectionCreateOrConnectWithoutCollectionInput[]
+    upsert?: UserCollectionUpsertWithWhereUniqueWithoutCollectionInput | UserCollectionUpsertWithWhereUniqueWithoutCollectionInput[]
+    createMany?: UserCollectionCreateManyCollectionInputEnvelope
     set?: UserCollectionWhereUniqueInput | UserCollectionWhereUniqueInput[]
     disconnect?: UserCollectionWhereUniqueInput | UserCollectionWhereUniqueInput[]
     delete?: UserCollectionWhereUniqueInput | UserCollectionWhereUniqueInput[]
     connect?: UserCollectionWhereUniqueInput | UserCollectionWhereUniqueInput[]
-    update?: UserCollectionUpdateWithWhereUniqueWithoutTypeCollectionInput | UserCollectionUpdateWithWhereUniqueWithoutTypeCollectionInput[]
-    updateMany?: UserCollectionUpdateManyWithWhereWithoutTypeCollectionInput | UserCollectionUpdateManyWithWhereWithoutTypeCollectionInput[]
+    update?: UserCollectionUpdateWithWhereUniqueWithoutCollectionInput | UserCollectionUpdateWithWhereUniqueWithoutCollectionInput[]
+    updateMany?: UserCollectionUpdateManyWithWhereWithoutCollectionInput | UserCollectionUpdateManyWithWhereWithoutCollectionInput[]
     deleteMany?: UserCollectionScalarWhereInput | UserCollectionScalarWhereInput[]
   }
 
-  export type ItemUncheckedUpdateManyWithoutTypeCollectionNestedInput = {
-    create?: XOR<ItemCreateWithoutTypeCollectionInput, ItemUncheckedCreateWithoutTypeCollectionInput> | ItemCreateWithoutTypeCollectionInput[] | ItemUncheckedCreateWithoutTypeCollectionInput[]
-    connectOrCreate?: ItemCreateOrConnectWithoutTypeCollectionInput | ItemCreateOrConnectWithoutTypeCollectionInput[]
-    upsert?: ItemUpsertWithWhereUniqueWithoutTypeCollectionInput | ItemUpsertWithWhereUniqueWithoutTypeCollectionInput[]
-    createMany?: ItemCreateManyTypeCollectionInputEnvelope
+  export type ItemUncheckedUpdateManyWithoutCollectionNestedInput = {
+    create?: XOR<ItemCreateWithoutCollectionInput, ItemUncheckedCreateWithoutCollectionInput> | ItemCreateWithoutCollectionInput[] | ItemUncheckedCreateWithoutCollectionInput[]
+    connectOrCreate?: ItemCreateOrConnectWithoutCollectionInput | ItemCreateOrConnectWithoutCollectionInput[]
+    upsert?: ItemUpsertWithWhereUniqueWithoutCollectionInput | ItemUpsertWithWhereUniqueWithoutCollectionInput[]
+    createMany?: ItemCreateManyCollectionInputEnvelope
     set?: ItemWhereUniqueInput | ItemWhereUniqueInput[]
     disconnect?: ItemWhereUniqueInput | ItemWhereUniqueInput[]
     delete?: ItemWhereUniqueInput | ItemWhereUniqueInput[]
     connect?: ItemWhereUniqueInput | ItemWhereUniqueInput[]
-    update?: ItemUpdateWithWhereUniqueWithoutTypeCollectionInput | ItemUpdateWithWhereUniqueWithoutTypeCollectionInput[]
-    updateMany?: ItemUpdateManyWithWhereWithoutTypeCollectionInput | ItemUpdateManyWithWhereWithoutTypeCollectionInput[]
+    update?: ItemUpdateWithWhereUniqueWithoutCollectionInput | ItemUpdateWithWhereUniqueWithoutCollectionInput[]
+    updateMany?: ItemUpdateManyWithWhereWithoutCollectionInput | ItemUpdateManyWithWhereWithoutCollectionInput[]
     deleteMany?: ItemScalarWhereInput | ItemScalarWhereInput[]
   }
 
@@ -18794,10 +18856,10 @@ export namespace Prisma {
     deleteMany?: ItemScalarWhereInput | ItemScalarWhereInput[]
   }
 
-  export type TypeCollectionCreateNestedOneWithoutItemsInput = {
-    create?: XOR<TypeCollectionCreateWithoutItemsInput, TypeCollectionUncheckedCreateWithoutItemsInput>
-    connectOrCreate?: TypeCollectionCreateOrConnectWithoutItemsInput
-    connect?: TypeCollectionWhereUniqueInput
+  export type CollectionCreateNestedOneWithoutItemsInput = {
+    create?: XOR<CollectionCreateWithoutItemsInput, CollectionUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: CollectionCreateOrConnectWithoutItemsInput
+    connect?: CollectionWhereUniqueInput
   }
 
   export type TypeModelCreateNestedOneWithoutItemsInput = {
@@ -18840,14 +18902,14 @@ export namespace Prisma {
     connect?: UserItemWhereUniqueInput | UserItemWhereUniqueInput[]
   }
 
-  export type TypeCollectionUpdateOneWithoutItemsNestedInput = {
-    create?: XOR<TypeCollectionCreateWithoutItemsInput, TypeCollectionUncheckedCreateWithoutItemsInput>
-    connectOrCreate?: TypeCollectionCreateOrConnectWithoutItemsInput
-    upsert?: TypeCollectionUpsertWithoutItemsInput
-    disconnect?: TypeCollectionWhereInput | boolean
-    delete?: TypeCollectionWhereInput | boolean
-    connect?: TypeCollectionWhereUniqueInput
-    update?: XOR<XOR<TypeCollectionUpdateToOneWithWhereWithoutItemsInput, TypeCollectionUpdateWithoutItemsInput>, TypeCollectionUncheckedUpdateWithoutItemsInput>
+  export type CollectionUpdateOneWithoutItemsNestedInput = {
+    create?: XOR<CollectionCreateWithoutItemsInput, CollectionUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: CollectionCreateOrConnectWithoutItemsInput
+    upsert?: CollectionUpsertWithoutItemsInput
+    disconnect?: CollectionWhereInput | boolean
+    delete?: CollectionWhereInput | boolean
+    connect?: CollectionWhereUniqueInput
+    update?: XOR<XOR<CollectionUpdateToOneWithWhereWithoutItemsInput, CollectionUpdateWithoutItemsInput>, CollectionUncheckedUpdateWithoutItemsInput>
   }
 
   export type TypeModelUpdateOneRequiredWithoutItemsNestedInput = {
@@ -18944,10 +19006,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type TypeCollectionCreateNestedOneWithoutCollectionsInput = {
-    create?: XOR<TypeCollectionCreateWithoutCollectionsInput, TypeCollectionUncheckedCreateWithoutCollectionsInput>
-    connectOrCreate?: TypeCollectionCreateOrConnectWithoutCollectionsInput
-    connect?: TypeCollectionWhereUniqueInput
+  export type CollectionCreateNestedOneWithoutCollectionsInput = {
+    create?: XOR<CollectionCreateWithoutCollectionsInput, CollectionUncheckedCreateWithoutCollectionsInput>
+    connectOrCreate?: CollectionCreateOrConnectWithoutCollectionsInput
+    connect?: CollectionWhereUniqueInput
   }
 
   export type UserCollectionCreateNestedOneWithoutChildCollectionsInput = {
@@ -18992,14 +19054,14 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutUserCollectionsInput, UserUpdateWithoutUserCollectionsInput>, UserUncheckedUpdateWithoutUserCollectionsInput>
   }
 
-  export type TypeCollectionUpdateOneWithoutCollectionsNestedInput = {
-    create?: XOR<TypeCollectionCreateWithoutCollectionsInput, TypeCollectionUncheckedCreateWithoutCollectionsInput>
-    connectOrCreate?: TypeCollectionCreateOrConnectWithoutCollectionsInput
-    upsert?: TypeCollectionUpsertWithoutCollectionsInput
-    disconnect?: TypeCollectionWhereInput | boolean
-    delete?: TypeCollectionWhereInput | boolean
-    connect?: TypeCollectionWhereUniqueInput
-    update?: XOR<XOR<TypeCollectionUpdateToOneWithWhereWithoutCollectionsInput, TypeCollectionUpdateWithoutCollectionsInput>, TypeCollectionUncheckedUpdateWithoutCollectionsInput>
+  export type CollectionUpdateOneWithoutCollectionsNestedInput = {
+    create?: XOR<CollectionCreateWithoutCollectionsInput, CollectionUncheckedCreateWithoutCollectionsInput>
+    connectOrCreate?: CollectionCreateOrConnectWithoutCollectionsInput
+    upsert?: CollectionUpsertWithoutCollectionsInput
+    disconnect?: CollectionWhereInput | boolean
+    delete?: CollectionWhereInput | boolean
+    connect?: CollectionWhereUniqueInput
+    update?: XOR<XOR<CollectionUpdateToOneWithWhereWithoutCollectionsInput, CollectionUpdateWithoutCollectionsInput>, CollectionUncheckedUpdateWithoutCollectionsInput>
   }
 
   export type UserCollectionUpdateOneWithoutChildCollectionsNestedInput = {
@@ -19094,18 +19156,22 @@ export namespace Prisma {
     connect?: UserItemImageWhereUniqueInput | UserItemImageWhereUniqueInput[]
   }
 
-  export type UserCollectionUpdateOneRequiredWithoutItemsNestedInput = {
+  export type UserCollectionUpdateOneWithoutItemsNestedInput = {
     create?: XOR<UserCollectionCreateWithoutItemsInput, UserCollectionUncheckedCreateWithoutItemsInput>
     connectOrCreate?: UserCollectionCreateOrConnectWithoutItemsInput
     upsert?: UserCollectionUpsertWithoutItemsInput
+    disconnect?: UserCollectionWhereInput | boolean
+    delete?: UserCollectionWhereInput | boolean
     connect?: UserCollectionWhereUniqueInput
     update?: XOR<XOR<UserCollectionUpdateToOneWithWhereWithoutItemsInput, UserCollectionUpdateWithoutItemsInput>, UserCollectionUncheckedUpdateWithoutItemsInput>
   }
 
-  export type ItemUpdateOneRequiredWithoutUserItemNestedInput = {
+  export type ItemUpdateOneWithoutUserItemNestedInput = {
     create?: XOR<ItemCreateWithoutUserItemInput, ItemUncheckedCreateWithoutUserItemInput>
     connectOrCreate?: ItemCreateOrConnectWithoutUserItemInput
     upsert?: ItemUpsertWithoutUserItemInput
+    disconnect?: ItemWhereInput | boolean
+    delete?: ItemWhereInput | boolean
     connect?: ItemWhereUniqueInput
     update?: XOR<XOR<ItemUpdateToOneWithWhereWithoutUserItemInput, ItemUpdateWithoutUserItemInput>, ItemUncheckedUpdateWithoutUserItemInput>
   }
@@ -19579,7 +19645,7 @@ export namespace Prisma {
     name: string
     createdAt?: Date | string
     status?: boolean
-    typeCollection?: TypeCollectionCreateNestedOneWithoutCollectionsInput
+    collection?: CollectionCreateNestedOneWithoutCollectionsInput
     parent?: UserCollectionCreateNestedOneWithoutChildCollectionsInput
     childCollections?: UserCollectionCreateNestedManyWithoutParentInput
     items?: UserItemCreateNestedManyWithoutUserCollectionInput
@@ -19589,7 +19655,7 @@ export namespace Prisma {
     id?: string
     description?: string | null
     name: string
-    typeCollectionId?: number | null
+    collectionId?: number | null
     createdAt?: Date | string
     status?: boolean
     fatherId?: string | null
@@ -19616,7 +19682,7 @@ export namespace Prisma {
     status?: boolean
     image?: string | null
     createdAt?: Date | string
-    typeCollection?: TypeCollectionCreateNestedOneWithoutItemsInput
+    collection?: CollectionCreateNestedOneWithoutItemsInput
     typeModel: TypeModelCreateNestedOneWithoutItemsInput
     itemImages?: ItemImageCreateNestedManyWithoutItemInput
     userItem?: UserItemCreateNestedManyWithoutItemInput
@@ -19632,7 +19698,7 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     typeModelId: number
-    typeCollectionId?: number | null
+    collectionId?: number | null
     itemImages?: ItemImageUncheckedCreateNestedManyWithoutItemInput
     userItem?: UserItemUncheckedCreateNestedManyWithoutItemInput
   }
@@ -19744,7 +19810,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"UserCollection"> | string | null
     name?: StringFilter<"UserCollection"> | string
     userId?: StringFilter<"UserCollection"> | string
-    typeCollectionId?: IntNullableFilter<"UserCollection"> | number | null
+    collectionId?: IntNullableFilter<"UserCollection"> | number | null
     createdAt?: DateTimeFilter<"UserCollection"> | Date | string
     status?: BoolFilter<"UserCollection"> | boolean
     fatherId?: StringNullableFilter<"UserCollection"> | string | null
@@ -19780,7 +19846,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Item"> | Date | string
     userId?: StringNullableFilter<"Item"> | string | null
     typeModelId?: IntFilter<"Item"> | number
-    typeCollectionId?: IntNullableFilter<"Item"> | number | null
+    collectionId?: IntNullableFilter<"Item"> | number | null
   }
 
   export type TwoFactorConfirmationUpsertWithoutUserInput = {
@@ -19882,7 +19948,7 @@ export namespace Prisma {
     items?: ItemUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserCollectionCreateWithoutTypeCollectionInput = {
+  export type UserCollectionCreateWithoutCollectionInput = {
     id?: string
     description?: string | null
     name: string
@@ -19894,7 +19960,7 @@ export namespace Prisma {
     items?: UserItemCreateNestedManyWithoutUserCollectionInput
   }
 
-  export type UserCollectionUncheckedCreateWithoutTypeCollectionInput = {
+  export type UserCollectionUncheckedCreateWithoutCollectionInput = {
     id?: string
     description?: string | null
     name: string
@@ -19906,17 +19972,17 @@ export namespace Prisma {
     items?: UserItemUncheckedCreateNestedManyWithoutUserCollectionInput
   }
 
-  export type UserCollectionCreateOrConnectWithoutTypeCollectionInput = {
+  export type UserCollectionCreateOrConnectWithoutCollectionInput = {
     where: UserCollectionWhereUniqueInput
-    create: XOR<UserCollectionCreateWithoutTypeCollectionInput, UserCollectionUncheckedCreateWithoutTypeCollectionInput>
+    create: XOR<UserCollectionCreateWithoutCollectionInput, UserCollectionUncheckedCreateWithoutCollectionInput>
   }
 
-  export type UserCollectionCreateManyTypeCollectionInputEnvelope = {
-    data: UserCollectionCreateManyTypeCollectionInput | UserCollectionCreateManyTypeCollectionInput[]
+  export type UserCollectionCreateManyCollectionInputEnvelope = {
+    data: UserCollectionCreateManyCollectionInput | UserCollectionCreateManyCollectionInput[]
     skipDuplicates?: boolean
   }
 
-  export type ItemCreateWithoutTypeCollectionInput = {
+  export type ItemCreateWithoutCollectionInput = {
     id: string
     model: string
     series?: string | null
@@ -19931,7 +19997,7 @@ export namespace Prisma {
     userItem?: UserItemCreateNestedManyWithoutItemInput
   }
 
-  export type ItemUncheckedCreateWithoutTypeCollectionInput = {
+  export type ItemUncheckedCreateWithoutCollectionInput = {
     id: string
     model: string
     series?: string | null
@@ -19946,46 +20012,46 @@ export namespace Prisma {
     userItem?: UserItemUncheckedCreateNestedManyWithoutItemInput
   }
 
-  export type ItemCreateOrConnectWithoutTypeCollectionInput = {
+  export type ItemCreateOrConnectWithoutCollectionInput = {
     where: ItemWhereUniqueInput
-    create: XOR<ItemCreateWithoutTypeCollectionInput, ItemUncheckedCreateWithoutTypeCollectionInput>
+    create: XOR<ItemCreateWithoutCollectionInput, ItemUncheckedCreateWithoutCollectionInput>
   }
 
-  export type ItemCreateManyTypeCollectionInputEnvelope = {
-    data: ItemCreateManyTypeCollectionInput | ItemCreateManyTypeCollectionInput[]
+  export type ItemCreateManyCollectionInputEnvelope = {
+    data: ItemCreateManyCollectionInput | ItemCreateManyCollectionInput[]
     skipDuplicates?: boolean
   }
 
-  export type UserCollectionUpsertWithWhereUniqueWithoutTypeCollectionInput = {
+  export type UserCollectionUpsertWithWhereUniqueWithoutCollectionInput = {
     where: UserCollectionWhereUniqueInput
-    update: XOR<UserCollectionUpdateWithoutTypeCollectionInput, UserCollectionUncheckedUpdateWithoutTypeCollectionInput>
-    create: XOR<UserCollectionCreateWithoutTypeCollectionInput, UserCollectionUncheckedCreateWithoutTypeCollectionInput>
+    update: XOR<UserCollectionUpdateWithoutCollectionInput, UserCollectionUncheckedUpdateWithoutCollectionInput>
+    create: XOR<UserCollectionCreateWithoutCollectionInput, UserCollectionUncheckedCreateWithoutCollectionInput>
   }
 
-  export type UserCollectionUpdateWithWhereUniqueWithoutTypeCollectionInput = {
+  export type UserCollectionUpdateWithWhereUniqueWithoutCollectionInput = {
     where: UserCollectionWhereUniqueInput
-    data: XOR<UserCollectionUpdateWithoutTypeCollectionInput, UserCollectionUncheckedUpdateWithoutTypeCollectionInput>
+    data: XOR<UserCollectionUpdateWithoutCollectionInput, UserCollectionUncheckedUpdateWithoutCollectionInput>
   }
 
-  export type UserCollectionUpdateManyWithWhereWithoutTypeCollectionInput = {
+  export type UserCollectionUpdateManyWithWhereWithoutCollectionInput = {
     where: UserCollectionScalarWhereInput
-    data: XOR<UserCollectionUpdateManyMutationInput, UserCollectionUncheckedUpdateManyWithoutTypeCollectionInput>
+    data: XOR<UserCollectionUpdateManyMutationInput, UserCollectionUncheckedUpdateManyWithoutCollectionInput>
   }
 
-  export type ItemUpsertWithWhereUniqueWithoutTypeCollectionInput = {
+  export type ItemUpsertWithWhereUniqueWithoutCollectionInput = {
     where: ItemWhereUniqueInput
-    update: XOR<ItemUpdateWithoutTypeCollectionInput, ItemUncheckedUpdateWithoutTypeCollectionInput>
-    create: XOR<ItemCreateWithoutTypeCollectionInput, ItemUncheckedCreateWithoutTypeCollectionInput>
+    update: XOR<ItemUpdateWithoutCollectionInput, ItemUncheckedUpdateWithoutCollectionInput>
+    create: XOR<ItemCreateWithoutCollectionInput, ItemUncheckedCreateWithoutCollectionInput>
   }
 
-  export type ItemUpdateWithWhereUniqueWithoutTypeCollectionInput = {
+  export type ItemUpdateWithWhereUniqueWithoutCollectionInput = {
     where: ItemWhereUniqueInput
-    data: XOR<ItemUpdateWithoutTypeCollectionInput, ItemUncheckedUpdateWithoutTypeCollectionInput>
+    data: XOR<ItemUpdateWithoutCollectionInput, ItemUncheckedUpdateWithoutCollectionInput>
   }
 
-  export type ItemUpdateManyWithWhereWithoutTypeCollectionInput = {
+  export type ItemUpdateManyWithWhereWithoutCollectionInput = {
     where: ItemScalarWhereInput
-    data: XOR<ItemUpdateManyMutationInput, ItemUncheckedUpdateManyWithoutTypeCollectionInput>
+    data: XOR<ItemUpdateManyMutationInput, ItemUncheckedUpdateManyWithoutCollectionInput>
   }
 
   export type ItemCreateWithoutTypeModelInput = {
@@ -19997,7 +20063,7 @@ export namespace Prisma {
     status?: boolean
     image?: string | null
     createdAt?: Date | string
-    typeCollection?: TypeCollectionCreateNestedOneWithoutItemsInput
+    collection?: CollectionCreateNestedOneWithoutItemsInput
     user?: UserCreateNestedOneWithoutItemsInput
     itemImages?: ItemImageCreateNestedManyWithoutItemInput
     userItem?: UserItemCreateNestedManyWithoutItemInput
@@ -20013,7 +20079,7 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     userId?: string | null
-    typeCollectionId?: number | null
+    collectionId?: number | null
     itemImages?: ItemImageUncheckedCreateNestedManyWithoutItemInput
     userItem?: UserItemUncheckedCreateNestedManyWithoutItemInput
   }
@@ -20044,21 +20110,21 @@ export namespace Prisma {
     data: XOR<ItemUpdateManyMutationInput, ItemUncheckedUpdateManyWithoutTypeModelInput>
   }
 
-  export type TypeCollectionCreateWithoutItemsInput = {
+  export type CollectionCreateWithoutItemsInput = {
     id: number
     description: string
-    collections?: UserCollectionCreateNestedManyWithoutTypeCollectionInput
+    collections?: UserCollectionCreateNestedManyWithoutCollectionInput
   }
 
-  export type TypeCollectionUncheckedCreateWithoutItemsInput = {
+  export type CollectionUncheckedCreateWithoutItemsInput = {
     id: number
     description: string
-    collections?: UserCollectionUncheckedCreateNestedManyWithoutTypeCollectionInput
+    collections?: UserCollectionUncheckedCreateNestedManyWithoutCollectionInput
   }
 
-  export type TypeCollectionCreateOrConnectWithoutItemsInput = {
-    where: TypeCollectionWhereUniqueInput
-    create: XOR<TypeCollectionCreateWithoutItemsInput, TypeCollectionUncheckedCreateWithoutItemsInput>
+  export type CollectionCreateOrConnectWithoutItemsInput = {
+    where: CollectionWhereUniqueInput
+    create: XOR<CollectionCreateWithoutItemsInput, CollectionUncheckedCreateWithoutItemsInput>
   }
 
   export type TypeModelCreateWithoutItemsInput = {
@@ -20142,18 +20208,18 @@ export namespace Prisma {
   }
 
   export type UserItemCreateWithoutItemInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
-    userCollection: UserCollectionCreateNestedOneWithoutItemsInput
+    userCollection?: UserCollectionCreateNestedOneWithoutItemsInput
     itemImages?: UserItemImageCreateNestedManyWithoutUserItemInput
   }
 
   export type UserItemUncheckedCreateWithoutItemInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
     userCollectionId: string
     itemImages?: UserItemImageUncheckedCreateNestedManyWithoutUserItemInput
@@ -20169,27 +20235,27 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type TypeCollectionUpsertWithoutItemsInput = {
-    update: XOR<TypeCollectionUpdateWithoutItemsInput, TypeCollectionUncheckedUpdateWithoutItemsInput>
-    create: XOR<TypeCollectionCreateWithoutItemsInput, TypeCollectionUncheckedCreateWithoutItemsInput>
-    where?: TypeCollectionWhereInput
+  export type CollectionUpsertWithoutItemsInput = {
+    update: XOR<CollectionUpdateWithoutItemsInput, CollectionUncheckedUpdateWithoutItemsInput>
+    create: XOR<CollectionCreateWithoutItemsInput, CollectionUncheckedCreateWithoutItemsInput>
+    where?: CollectionWhereInput
   }
 
-  export type TypeCollectionUpdateToOneWithWhereWithoutItemsInput = {
-    where?: TypeCollectionWhereInput
-    data: XOR<TypeCollectionUpdateWithoutItemsInput, TypeCollectionUncheckedUpdateWithoutItemsInput>
+  export type CollectionUpdateToOneWithWhereWithoutItemsInput = {
+    where?: CollectionWhereInput
+    data: XOR<CollectionUpdateWithoutItemsInput, CollectionUncheckedUpdateWithoutItemsInput>
   }
 
-  export type TypeCollectionUpdateWithoutItemsInput = {
+  export type CollectionUpdateWithoutItemsInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    collections?: UserCollectionUpdateManyWithoutTypeCollectionNestedInput
+    collections?: UserCollectionUpdateManyWithoutCollectionNestedInput
   }
 
-  export type TypeCollectionUncheckedUpdateWithoutItemsInput = {
+  export type CollectionUncheckedUpdateWithoutItemsInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    collections?: UserCollectionUncheckedUpdateManyWithoutTypeCollectionNestedInput
+    collections?: UserCollectionUncheckedUpdateManyWithoutCollectionNestedInput
   }
 
   export type TypeModelUpsertWithoutItemsInput = {
@@ -20305,9 +20371,9 @@ export namespace Prisma {
     AND?: UserItemScalarWhereInput | UserItemScalarWhereInput[]
     OR?: UserItemScalarWhereInput[]
     NOT?: UserItemScalarWhereInput | UserItemScalarWhereInput[]
-    id?: StringFilter<"UserItem"> | string
     createdAt?: DateTimeFilter<"UserItem"> | Date | string
     description?: StringNullableFilter<"UserItem"> | string | null
+    scale?: StringNullableFilter<"UserItem"> | string | null
     name?: StringNullableFilter<"UserItem"> | string | null
     itemId?: StringFilter<"UserItem"> | string
     userCollectionId?: StringFilter<"UserItem"> | string
@@ -20322,7 +20388,7 @@ export namespace Prisma {
     status?: boolean
     image?: string | null
     createdAt?: Date | string
-    typeCollection?: TypeCollectionCreateNestedOneWithoutItemsInput
+    collection?: CollectionCreateNestedOneWithoutItemsInput
     typeModel: TypeModelCreateNestedOneWithoutItemsInput
     user?: UserCreateNestedOneWithoutItemsInput
     userItem?: UserItemCreateNestedManyWithoutItemInput
@@ -20339,7 +20405,7 @@ export namespace Prisma {
     createdAt?: Date | string
     userId?: string | null
     typeModelId: number
-    typeCollectionId?: number | null
+    collectionId?: number | null
     userItem?: UserItemUncheckedCreateNestedManyWithoutItemInput
   }
 
@@ -20368,7 +20434,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    typeCollection?: TypeCollectionUpdateOneWithoutItemsNestedInput
+    collection?: CollectionUpdateOneWithoutItemsNestedInput
     typeModel?: TypeModelUpdateOneRequiredWithoutItemsNestedInput
     user?: UserUpdateOneWithoutItemsNestedInput
     userItem?: UserItemUpdateManyWithoutItemNestedInput
@@ -20385,7 +20451,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     typeModelId?: IntFieldUpdateOperationsInput | number
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     userItem?: UserItemUncheckedUpdateManyWithoutItemNestedInput
   }
 
@@ -20426,21 +20492,21 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutUserCollectionsInput, UserUncheckedCreateWithoutUserCollectionsInput>
   }
 
-  export type TypeCollectionCreateWithoutCollectionsInput = {
+  export type CollectionCreateWithoutCollectionsInput = {
     id: number
     description: string
-    items?: ItemCreateNestedManyWithoutTypeCollectionInput
+    items?: ItemCreateNestedManyWithoutCollectionInput
   }
 
-  export type TypeCollectionUncheckedCreateWithoutCollectionsInput = {
+  export type CollectionUncheckedCreateWithoutCollectionsInput = {
     id: number
     description: string
-    items?: ItemUncheckedCreateNestedManyWithoutTypeCollectionInput
+    items?: ItemUncheckedCreateNestedManyWithoutCollectionInput
   }
 
-  export type TypeCollectionCreateOrConnectWithoutCollectionsInput = {
-    where: TypeCollectionWhereUniqueInput
-    create: XOR<TypeCollectionCreateWithoutCollectionsInput, TypeCollectionUncheckedCreateWithoutCollectionsInput>
+  export type CollectionCreateOrConnectWithoutCollectionsInput = {
+    where: CollectionWhereUniqueInput
+    create: XOR<CollectionCreateWithoutCollectionsInput, CollectionUncheckedCreateWithoutCollectionsInput>
   }
 
   export type UserCollectionCreateWithoutChildCollectionsInput = {
@@ -20450,7 +20516,7 @@ export namespace Prisma {
     createdAt?: Date | string
     status?: boolean
     user: UserCreateNestedOneWithoutUserCollectionsInput
-    typeCollection?: TypeCollectionCreateNestedOneWithoutCollectionsInput
+    collection?: CollectionCreateNestedOneWithoutCollectionsInput
     parent?: UserCollectionCreateNestedOneWithoutChildCollectionsInput
     items?: UserItemCreateNestedManyWithoutUserCollectionInput
   }
@@ -20460,7 +20526,7 @@ export namespace Prisma {
     description?: string | null
     name: string
     userId: string
-    typeCollectionId?: number | null
+    collectionId?: number | null
     createdAt?: Date | string
     status?: boolean
     fatherId?: string | null
@@ -20479,7 +20545,7 @@ export namespace Prisma {
     createdAt?: Date | string
     status?: boolean
     user: UserCreateNestedOneWithoutUserCollectionsInput
-    typeCollection?: TypeCollectionCreateNestedOneWithoutCollectionsInput
+    collection?: CollectionCreateNestedOneWithoutCollectionsInput
     childCollections?: UserCollectionCreateNestedManyWithoutParentInput
     items?: UserItemCreateNestedManyWithoutUserCollectionInput
   }
@@ -20489,7 +20555,7 @@ export namespace Prisma {
     description?: string | null
     name: string
     userId: string
-    typeCollectionId?: number | null
+    collectionId?: number | null
     createdAt?: Date | string
     status?: boolean
     childCollections?: UserCollectionUncheckedCreateNestedManyWithoutParentInput
@@ -20507,18 +20573,18 @@ export namespace Prisma {
   }
 
   export type UserItemCreateWithoutUserCollectionInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
-    item: ItemCreateNestedOneWithoutUserItemInput
+    item?: ItemCreateNestedOneWithoutUserItemInput
     itemImages?: UserItemImageCreateNestedManyWithoutUserItemInput
   }
 
   export type UserItemUncheckedCreateWithoutUserCollectionInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
     itemId: string
     itemImages?: UserItemImageUncheckedCreateNestedManyWithoutUserItemInput
@@ -20577,27 +20643,27 @@ export namespace Prisma {
     twoFactorConfirmation?: TwoFactorConfirmationUncheckedUpdateOneWithoutUserNestedInput
   }
 
-  export type TypeCollectionUpsertWithoutCollectionsInput = {
-    update: XOR<TypeCollectionUpdateWithoutCollectionsInput, TypeCollectionUncheckedUpdateWithoutCollectionsInput>
-    create: XOR<TypeCollectionCreateWithoutCollectionsInput, TypeCollectionUncheckedCreateWithoutCollectionsInput>
-    where?: TypeCollectionWhereInput
+  export type CollectionUpsertWithoutCollectionsInput = {
+    update: XOR<CollectionUpdateWithoutCollectionsInput, CollectionUncheckedUpdateWithoutCollectionsInput>
+    create: XOR<CollectionCreateWithoutCollectionsInput, CollectionUncheckedCreateWithoutCollectionsInput>
+    where?: CollectionWhereInput
   }
 
-  export type TypeCollectionUpdateToOneWithWhereWithoutCollectionsInput = {
-    where?: TypeCollectionWhereInput
-    data: XOR<TypeCollectionUpdateWithoutCollectionsInput, TypeCollectionUncheckedUpdateWithoutCollectionsInput>
+  export type CollectionUpdateToOneWithWhereWithoutCollectionsInput = {
+    where?: CollectionWhereInput
+    data: XOR<CollectionUpdateWithoutCollectionsInput, CollectionUncheckedUpdateWithoutCollectionsInput>
   }
 
-  export type TypeCollectionUpdateWithoutCollectionsInput = {
+  export type CollectionUpdateWithoutCollectionsInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    items?: ItemUpdateManyWithoutTypeCollectionNestedInput
+    items?: ItemUpdateManyWithoutCollectionNestedInput
   }
 
-  export type TypeCollectionUncheckedUpdateWithoutCollectionsInput = {
+  export type CollectionUncheckedUpdateWithoutCollectionsInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    items?: ItemUncheckedUpdateManyWithoutTypeCollectionNestedInput
+    items?: ItemUncheckedUpdateManyWithoutCollectionNestedInput
   }
 
   export type UserCollectionUpsertWithoutChildCollectionsInput = {
@@ -20618,7 +20684,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutUserCollectionsNestedInput
-    typeCollection?: TypeCollectionUpdateOneWithoutCollectionsNestedInput
+    collection?: CollectionUpdateOneWithoutCollectionsNestedInput
     parent?: UserCollectionUpdateOneWithoutChildCollectionsNestedInput
     items?: UserItemUpdateManyWithoutUserCollectionNestedInput
   }
@@ -20628,7 +20694,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     fatherId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20674,7 +20740,7 @@ export namespace Prisma {
     createdAt?: Date | string
     status?: boolean
     user: UserCreateNestedOneWithoutUserCollectionsInput
-    typeCollection?: TypeCollectionCreateNestedOneWithoutCollectionsInput
+    collection?: CollectionCreateNestedOneWithoutCollectionsInput
     parent?: UserCollectionCreateNestedOneWithoutChildCollectionsInput
     childCollections?: UserCollectionCreateNestedManyWithoutParentInput
   }
@@ -20684,7 +20750,7 @@ export namespace Prisma {
     description?: string | null
     name: string
     userId: string
-    typeCollectionId?: number | null
+    collectionId?: number | null
     createdAt?: Date | string
     status?: boolean
     fatherId?: string | null
@@ -20705,7 +20771,7 @@ export namespace Prisma {
     status?: boolean
     image?: string | null
     createdAt?: Date | string
-    typeCollection?: TypeCollectionCreateNestedOneWithoutItemsInput
+    collection?: CollectionCreateNestedOneWithoutItemsInput
     typeModel: TypeModelCreateNestedOneWithoutItemsInput
     user?: UserCreateNestedOneWithoutItemsInput
     itemImages?: ItemImageCreateNestedManyWithoutItemInput
@@ -20722,7 +20788,7 @@ export namespace Prisma {
     createdAt?: Date | string
     userId?: string | null
     typeModelId: number
-    typeCollectionId?: number | null
+    collectionId?: number | null
     itemImages?: ItemImageUncheckedCreateNestedManyWithoutItemInput
   }
 
@@ -20777,7 +20843,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutUserCollectionsNestedInput
-    typeCollection?: TypeCollectionUpdateOneWithoutCollectionsNestedInput
+    collection?: CollectionUpdateOneWithoutCollectionsNestedInput
     parent?: UserCollectionUpdateOneWithoutChildCollectionsNestedInput
     childCollections?: UserCollectionUpdateManyWithoutParentNestedInput
   }
@@ -20787,7 +20853,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     fatherId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20814,7 +20880,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    typeCollection?: TypeCollectionUpdateOneWithoutItemsNestedInput
+    collection?: CollectionUpdateOneWithoutItemsNestedInput
     typeModel?: TypeModelUpdateOneRequiredWithoutItemsNestedInput
     user?: UserUpdateOneWithoutItemsNestedInput
     itemImages?: ItemImageUpdateManyWithoutItemNestedInput
@@ -20831,7 +20897,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     typeModelId?: IntFieldUpdateOperationsInput | number
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     itemImages?: ItemImageUncheckedUpdateManyWithoutItemNestedInput
   }
 
@@ -20856,7 +20922,8 @@ export namespace Prisma {
     OR?: UserItemImageScalarWhereInput[]
     NOT?: UserItemImageScalarWhereInput | UserItemImageScalarWhereInput[]
     id?: StringFilter<"UserItemImage"> | string
-    userItemId?: StringFilter<"UserItemImage"> | string
+    itemId?: StringFilter<"UserItemImage"> | string
+    userCollectionId?: StringFilter<"UserItemImage"> | string
     link?: StringFilter<"UserItemImage"> | string
     fileName?: StringFilter<"UserItemImage"> | string
     principal?: BoolFilter<"UserItemImage"> | boolean
@@ -20865,18 +20932,18 @@ export namespace Prisma {
   }
 
   export type UserItemCreateWithoutItemImagesInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
-    userCollection: UserCollectionCreateNestedOneWithoutItemsInput
-    item: ItemCreateNestedOneWithoutUserItemInput
+    userCollection?: UserCollectionCreateNestedOneWithoutItemsInput
+    item?: ItemCreateNestedOneWithoutUserItemInput
   }
 
   export type UserItemUncheckedCreateWithoutItemImagesInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
     itemId: string
     userCollectionId: string
@@ -20899,18 +20966,18 @@ export namespace Prisma {
   }
 
   export type UserItemUpdateWithoutItemImagesInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    userCollection?: UserCollectionUpdateOneRequiredWithoutItemsNestedInput
-    item?: ItemUpdateOneRequiredWithoutUserItemNestedInput
+    userCollection?: UserCollectionUpdateOneWithoutItemsNestedInput
+    item?: ItemUpdateOneWithoutUserItemNestedInput
   }
 
   export type UserItemUncheckedUpdateWithoutItemImagesInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     itemId?: StringFieldUpdateOperationsInput | string
     userCollectionId?: StringFieldUpdateOperationsInput | string
@@ -20940,7 +21007,7 @@ export namespace Prisma {
     id?: string
     description?: string | null
     name: string
-    typeCollectionId?: number | null
+    collectionId?: number | null
     createdAt?: Date | string
     status?: boolean
     fatherId?: string | null
@@ -20956,7 +21023,7 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     typeModelId: number
-    typeCollectionId?: number | null
+    collectionId?: number | null
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -21025,7 +21092,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    typeCollection?: TypeCollectionUpdateOneWithoutCollectionsNestedInput
+    collection?: CollectionUpdateOneWithoutCollectionsNestedInput
     parent?: UserCollectionUpdateOneWithoutChildCollectionsNestedInput
     childCollections?: UserCollectionUpdateManyWithoutParentNestedInput
     items?: UserItemUpdateManyWithoutUserCollectionNestedInput
@@ -21035,7 +21102,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     fatherId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21047,7 +21114,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     fatherId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21062,7 +21129,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    typeCollection?: TypeCollectionUpdateOneWithoutItemsNestedInput
+    collection?: CollectionUpdateOneWithoutItemsNestedInput
     typeModel?: TypeModelUpdateOneRequiredWithoutItemsNestedInput
     itemImages?: ItemImageUpdateManyWithoutItemNestedInput
     userItem?: UserItemUpdateManyWithoutItemNestedInput
@@ -21078,7 +21145,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     typeModelId?: IntFieldUpdateOperationsInput | number
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     itemImages?: ItemImageUncheckedUpdateManyWithoutItemNestedInput
     userItem?: UserItemUncheckedUpdateManyWithoutItemNestedInput
   }
@@ -21093,10 +21160,10 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     typeModelId?: IntFieldUpdateOperationsInput | number
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type UserCollectionCreateManyTypeCollectionInput = {
+  export type UserCollectionCreateManyCollectionInput = {
     id?: string
     description?: string | null
     name: string
@@ -21106,7 +21173,7 @@ export namespace Prisma {
     fatherId?: string | null
   }
 
-  export type ItemCreateManyTypeCollectionInput = {
+  export type ItemCreateManyCollectionInput = {
     id: string
     model: string
     series?: string | null
@@ -21119,7 +21186,7 @@ export namespace Prisma {
     typeModelId: number
   }
 
-  export type UserCollectionUpdateWithoutTypeCollectionInput = {
+  export type UserCollectionUpdateWithoutCollectionInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
@@ -21131,7 +21198,7 @@ export namespace Prisma {
     items?: UserItemUpdateManyWithoutUserCollectionNestedInput
   }
 
-  export type UserCollectionUncheckedUpdateWithoutTypeCollectionInput = {
+  export type UserCollectionUncheckedUpdateWithoutCollectionInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
@@ -21143,7 +21210,7 @@ export namespace Prisma {
     items?: UserItemUncheckedUpdateManyWithoutUserCollectionNestedInput
   }
 
-  export type UserCollectionUncheckedUpdateManyWithoutTypeCollectionInput = {
+  export type UserCollectionUncheckedUpdateManyWithoutCollectionInput = {
     id?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
@@ -21153,7 +21220,7 @@ export namespace Prisma {
     fatherId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ItemUpdateWithoutTypeCollectionInput = {
+  export type ItemUpdateWithoutCollectionInput = {
     id?: StringFieldUpdateOperationsInput | string
     model?: StringFieldUpdateOperationsInput | string
     series?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21168,7 +21235,7 @@ export namespace Prisma {
     userItem?: UserItemUpdateManyWithoutItemNestedInput
   }
 
-  export type ItemUncheckedUpdateWithoutTypeCollectionInput = {
+  export type ItemUncheckedUpdateWithoutCollectionInput = {
     id?: StringFieldUpdateOperationsInput | string
     model?: StringFieldUpdateOperationsInput | string
     series?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21183,7 +21250,7 @@ export namespace Prisma {
     userItem?: UserItemUncheckedUpdateManyWithoutItemNestedInput
   }
 
-  export type ItemUncheckedUpdateManyWithoutTypeCollectionInput = {
+  export type ItemUncheckedUpdateManyWithoutCollectionInput = {
     id?: StringFieldUpdateOperationsInput | string
     model?: StringFieldUpdateOperationsInput | string
     series?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21206,7 +21273,7 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     userId?: string | null
-    typeCollectionId?: number | null
+    collectionId?: number | null
   }
 
   export type ItemUpdateWithoutTypeModelInput = {
@@ -21218,7 +21285,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    typeCollection?: TypeCollectionUpdateOneWithoutItemsNestedInput
+    collection?: CollectionUpdateOneWithoutItemsNestedInput
     user?: UserUpdateOneWithoutItemsNestedInput
     itemImages?: ItemImageUpdateManyWithoutItemNestedInput
     userItem?: UserItemUpdateManyWithoutItemNestedInput
@@ -21234,7 +21301,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     itemImages?: ItemImageUncheckedUpdateManyWithoutItemNestedInput
     userItem?: UserItemUncheckedUpdateManyWithoutItemNestedInput
   }
@@ -21249,7 +21316,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type ItemImageCreateManyItemInput = {
@@ -21262,9 +21329,9 @@ export namespace Prisma {
   }
 
   export type UserItemCreateManyItemInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
     userCollectionId: string
   }
@@ -21297,27 +21364,27 @@ export namespace Prisma {
   }
 
   export type UserItemUpdateWithoutItemInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    userCollection?: UserCollectionUpdateOneRequiredWithoutItemsNestedInput
+    userCollection?: UserCollectionUpdateOneWithoutItemsNestedInput
     itemImages?: UserItemImageUpdateManyWithoutUserItemNestedInput
   }
 
   export type UserItemUncheckedUpdateWithoutItemInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     userCollectionId?: StringFieldUpdateOperationsInput | string
     itemImages?: UserItemImageUncheckedUpdateManyWithoutUserItemNestedInput
   }
 
   export type UserItemUncheckedUpdateManyWithoutItemInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     userCollectionId?: StringFieldUpdateOperationsInput | string
   }
@@ -21327,15 +21394,15 @@ export namespace Prisma {
     description?: string | null
     name: string
     userId: string
-    typeCollectionId?: number | null
+    collectionId?: number | null
     createdAt?: Date | string
     status?: boolean
   }
 
   export type UserItemCreateManyUserCollectionInput = {
-    id?: string
     createdAt?: Date | string
     description?: string | null
+    scale?: string | null
     name?: string | null
     itemId: string
   }
@@ -21347,7 +21414,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutUserCollectionsNestedInput
-    typeCollection?: TypeCollectionUpdateOneWithoutCollectionsNestedInput
+    collection?: CollectionUpdateOneWithoutCollectionsNestedInput
     childCollections?: UserCollectionUpdateManyWithoutParentNestedInput
     items?: UserItemUpdateManyWithoutUserCollectionNestedInput
   }
@@ -21357,7 +21424,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
     childCollections?: UserCollectionUncheckedUpdateManyWithoutParentNestedInput
@@ -21369,33 +21436,33 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    typeCollectionId?: NullableIntFieldUpdateOperationsInput | number | null
+    collectionId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserItemUpdateWithoutUserCollectionInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    item?: ItemUpdateOneRequiredWithoutUserItemNestedInput
+    item?: ItemUpdateOneWithoutUserItemNestedInput
     itemImages?: UserItemImageUpdateManyWithoutUserItemNestedInput
   }
 
   export type UserItemUncheckedUpdateWithoutUserCollectionInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     itemId?: StringFieldUpdateOperationsInput | string
     itemImages?: UserItemImageUncheckedUpdateManyWithoutUserItemNestedInput
   }
 
   export type UserItemUncheckedUpdateManyWithoutUserCollectionInput = {
-    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    scale?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     itemId?: StringFieldUpdateOperationsInput | string
   }
@@ -21446,9 +21513,9 @@ export namespace Prisma {
      */
     export type UserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use TypeCollectionCountOutputTypeDefaultArgs instead
+     * @deprecated Use CollectionCountOutputTypeDefaultArgs instead
      */
-    export type TypeCollectionCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TypeCollectionCountOutputTypeDefaultArgs<ExtArgs>
+    export type CollectionCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CollectionCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use TypeModelCountOutputTypeDefaultArgs instead
      */
@@ -21494,9 +21561,9 @@ export namespace Prisma {
      */
     export type TwoFactorConfirmationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TwoFactorConfirmationDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use TypeCollectionDefaultArgs instead
+     * @deprecated Use CollectionDefaultArgs instead
      */
-    export type TypeCollectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TypeCollectionDefaultArgs<ExtArgs>
+    export type CollectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CollectionDefaultArgs<ExtArgs>
     /**
      * @deprecated Use TypeModelDefaultArgs instead
      */
