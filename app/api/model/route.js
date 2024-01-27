@@ -1,18 +1,12 @@
 import { authOptions } from '@app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth"
-import { z } from 'zod'
 import { db } from '@/lib/db';
 import { getItems } from "@/data/model"
 import {uploadFile} from "@/lib/s3Client"
 import {formDataToObject} from "@/lib/util"
 import { v4 as uuidv4 } from 'uuid';
+import { ItemSchema } from '@schemas/zod.schemas';
 
-const FormData = z.object({
-    year: z.string().min(1),
-    model: z.string().min(1),
-    collectionId: z.string().min(1),
-});
-  
 export const GET = async (req, response) => {
     try {
         const collectionId = req.nextUrl?.searchParams?.get('collectionId');
@@ -30,16 +24,11 @@ export const GET = async (req, response) => {
 
 export const POST = async (request, response) => {
     try {
-        const session = await getServerSession(authOptions)
+        const session = await getServerSession(authOptions);
         const itemForm = await request.formData();
         const item = await formDataToObject(itemForm);
         const file = itemForm.get("file");
-        
-        const validResult = FormData.safeParse({
-            ...item,
-            file: file,
-        });
-
+        const validResult = ItemSchema.safeParse(item);
         if (!validResult.success) {
             console.log(validResult.error);
             return new Response(JSON.stringify({ errors: validResult.error.issues }), { status: 400 })
@@ -50,30 +39,24 @@ export const POST = async (request, response) => {
             return new Response(JSON.stringify({ errors: [{ message: "Item alredy exists" }] }), { status: 400 });
         }
         /*"clrm4nlhg00005zbhdnchsgw3"*/
-        const newItem = await db.$transaction(async (tx) => {
-            var entity = await tx.item.create({
+        var newItem = await db.$transaction(async (tx) => {
+            const filePath = `items/model-${item.model}/${item.year}/${encodeURIComponent(file.name)}`;
+            const link = encodeURI(`${process.env.AWS_BUCKET_URL}/${filePath}`);
+            const entity  = await tx.item.create({
                 data: {
-                    id:uuidv4(),
+                    id: uuidv4(), 
                     year: item.year,
                     model: item.model,
-                    userId: session?.user?.id,
+                    userId: session.user?.id,
                     typeModelId:1,
-                    typeCollectionId:parseInt(item.collectionId)
-                },
+                    collectionId:parseInt(item.collectionId),
+                    image: link
+                }
             });
-            const filePath = `items/model-${item.model}/${item.year}/${file.name}`;
             const resultUpload = await uploadFile(filePath, file);
             if (resultUpload?.$metadata?.httpStatusCode != 200) {
                 throw new Error(`Error model file`);
             }
-            entity = await tx.item.update({
-                where: {
-                    id: entity.id
-                },
-                data: {
-                    image: `${process.env.AWS_BUCKET_URL}/${filePath}`,
-                },
-            });
             return entity;
         });
         return new Response(JSON.stringify(newItem), { status: 201 });

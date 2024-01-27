@@ -95,28 +95,28 @@ model Collection {
 }
 
 model TypeModel {
-  id          Int     @id
-  description String  @unique
+  id          Int    @id
+  description String @unique
   items       Item[]
 }
 
 model Item {
-  id               String          @id
-  model            String
-  series           String?
-  seriesNum        String?
-  year             String
-  status           Boolean         @default(true)
-  image            String?
-  createdAt        DateTime        @default(now()) @map(name: "created_at")
-  userId           String?
-  typeModelId      Int
-  collectionId     Int?
-  collection       Collection? @relation(fields: [collectionId], references: [id])
-  typeModel        TypeModel       @relation(fields: [typeModelId], references: [id])
-  user             User?           @relation(fields: [userId], references: [id])
-  itemImages       ItemImage[]
-  userItem         UserItem[]
+  id           String      @id
+  model        String
+  series       String?
+  seriesNum    String?
+  year         String
+  status       Boolean     @default(true)
+  image        String?
+  createdAt    DateTime    @default(now()) @map("created_at")
+  userId       String?
+  typeModelId  Int
+  collectionId Int?
+  collection   Collection? @relation(fields: [collectionId], references: [id])
+  typeModel    TypeModel   @relation(fields: [typeModelId], references: [id])
+  user         User?       @relation(fields: [userId], references: [id])
+  itemImages   ItemImage[]
+  userItem     UserItem[]
 }
 
 model ItemImage {
@@ -140,33 +140,34 @@ model UserCollection {
   status           Boolean          @default(true)
   fatherId         String?          @map(name: "father_id")
   user             User             @relation(fields: [userId], references: [id])
-  collection       Collection?  @relation(fields: [collectionId], references: [id])
+  collection       Collection?      @relation(fields: [collectionId], references: [id])
   parent           UserCollection?  @relation("ChildCollections", fields: [fatherId], references: [id])
   childCollections UserCollection[] @relation("ChildCollections")
   items            UserItem[]
 }
 
 model UserItem {
-  createdAt        DateTime         @default(now()) @map(name: "created_at")
+  createdAt        DateTime        @default(now()) @map(name: "created_at")
   description      String?
   scale            String?
   name             String?
   itemId           String
   userCollectionId String
-  userCollection   UserCollection?   @relation(fields: [userCollectionId], references: [id])
-  item             Item?             @relation(fields: [itemId], references: [id])
+  userCollection   UserCollection? @relation(fields: [userCollectionId], references: [id])
+  item             Item?           @relation(fields: [itemId], references: [id])
   itemImages       UserItemImage[]
-  @@id([itemId,userCollectionId])
+
+  @@id([itemId, userCollectionId])
 }
 
 model UserItemImage {
-  id          String    @id @default(uuid())
-  itemId  String
+  id               String   @id @default(uuid())
+  itemId           String
   userCollectionId String
-  link        String
-  fileName    String
-  principal   Boolean   @default(false)
-  createdAt   DateTime  @default(now()) @map(name: "created_at")
-  status      Boolean   @default(true)
-  userItem    UserItem  @relation(fields: [userCollectionId,itemId], references: [userCollectionId,itemId])
+  link             String
+  fileName         String
+  principal        Boolean  @default(false)
+  createdAt        DateTime @default(now()) @map(name: "created_at")
+  status           Boolean  @default(true)
+  userItem         UserItem @relation(fields: [userCollectionId, itemId], references: [userCollectionId, itemId])
 }

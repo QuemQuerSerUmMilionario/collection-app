@@ -22,23 +22,6 @@ export const getUserByName = async (name) => {
   }
 };
 
-export const getUserByNameAndNotId = async (name,id) => {
-  try {
-    const user = await db.user.findUnique({ 
-      where: { 
-        name:name,
-        id :{
-          not:id
-        }, 
-      } 
-    });
-    return user;
-  } catch (error) {
-    console.error("Error fetching getUserByNameAndNotId:", error);
-    throw error;
-  }
-};
-
 export const getUserByPhone = async (phone) => {
   try {
     const user = await db.user.findUnique({ where: { phone } });
@@ -52,7 +35,16 @@ export const getUserByPhone = async (phone) => {
 
 export const getUserByPhoneAndNotId = async (phone,id) => {
   try {
-    const user = await db.user.findUnique({ where: { phone } });
+    const user = await db.user.findUnique({ 
+      where: { 
+        phone:phone,
+        NOT: [
+          {
+            id :id
+          },
+        ],
+      } 
+    });
     return user;
   } catch (error) {
     console.error("Error fetching getUserByPhone:", error);
@@ -73,7 +65,16 @@ export const getUserByCpf = async (cpf) => {
 
 export const getUserByCpfAndNotId = async (cpf,id) => {
   try {
-    const user = await db.user.findUnique({ where: { cpf } });
+    const user = await db.user.findUnique({ 
+      where: { 
+        cpf:cpf,
+        NOT: [
+          {
+            id :id
+          },
+        ],
+      } 
+    });
     return user;
   } catch (error) {
     console.error("Error fetching getUserByCpfAndNotId:", error);

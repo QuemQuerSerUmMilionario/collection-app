@@ -8,7 +8,6 @@ import { useSession, getSession } from "next-auth/react"
 const UpdateCollection = () => {
   const params = useParams();;
   const id = params.id;
-  const router = useRouter();
   const [submitting, setIsSubmitting] = useState(false);
   const [collection, setCollection] = useState({id:"",description: "",name:""});
 
@@ -33,7 +32,6 @@ const UpdateCollection = () => {
         console.log(errorData);
         return;
       }
-     
     } finally {
       setIsSubmitting(false);
     }

@@ -84,7 +84,7 @@ app
 │   │     ├──[id]
 │   │     │   │  
 │   │     │   └── route.js 
-│   │     └── route.js (editar (PUT) / listar todas (GET))
+│   │     └── rout.js (editar (PUT) / listar todas (GET))
 │   └── route.js
 ├── page.jsx
 │    
