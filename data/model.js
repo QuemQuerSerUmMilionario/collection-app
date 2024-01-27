@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 export const getItems = async (collection,model,year) => {
   try {
     var where = {
-      typeCollectionId:collection
+      collectionId:collection
     };
     if(year){
       where.year = year;

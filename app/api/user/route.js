@@ -1,34 +1,28 @@
 import { authOptions } from '@app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth"
-import { z } from 'zod'
 import { db } from '@/lib/db';
-import { getUserByCpf,getUserByEmail,getUserByPhone,getUserByName } from '@/data/user';
+import { getUserByCpfAndNotId,getUserByPhoneAndNotId } from '@/data/user';
+import {UserSchema} from "@/schemas/zod.schemas"
 
-const FormData = z.object({
-    cpf: z.string(),
-    phone: z.string(),
-    name: z.string(),
-});
 
 export const PUT = async (request) => {
     try {
         const session = await getServerSession(authOptions);
         const userForm = await request.json();
-        const validResult = FormData.safeParse(userForm);
+        const validResult = UserSchema.safeParse(userForm);
         if(!validResult.success){
             console.log(validResult.error);
             return new Response(JSON.stringify({message: "Validation failed", errors: validResult.error.issues }), { status: 400 });
         }
-        const userExist = await db.user.findFirst({
-            where: {
-                id :{
-                    not:session.user.id
-                },
-                name:userForm.name,
-            }
-        });
-        if(userExist){
-            return new Response(JSON.stringify({message:"Error",errors:[{message:"User with this name alredy exists"}]}), { status: 400 });
+
+        const userCpf = await getUserByCpfAndNotId(userForm.cpf,session.user.id);
+        if(userCpf){
+            return new Response(JSON.stringify({message:"Error",errors:[{message:"User with this cpf alredy exists"}]}), { status: 400 });
+        }
+
+        const userPhone = await getUserByPhoneAndNotId(userForm.phone,session.user.id);
+        if(userPhone){
+            return new Response(JSON.stringify({message:"Error",errors:[{message:"User with this phone alredy exists"}]}), { status: 400 });
         }
 
         const updateUser = await db.user.update({
