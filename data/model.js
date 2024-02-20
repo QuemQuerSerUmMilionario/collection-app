@@ -19,7 +19,11 @@ export const getItems = async (collection,model,year) => {
       where: { 
         ...where
       },
-      distinct: ['model','year'],
+      orderBy: [
+        {
+          model: 'asc',
+        }
+      ],
     });
     return items;
   } catch (error) {
@@ -77,6 +81,33 @@ export const getItemsByModelAndYear = async (model,year) => {
         }
       },
       distinct: ['model'],
+    });
+    return items;
+  } catch (error) {
+    console.log("Error fetching getItemByModel:" + error);
+    throw error;
+  }
+};
+
+export const getItemsByModelLike = async (key) => {
+  try {
+    const items = await db.item.findMany({
+      select:{
+        model:true,
+        id:true
+      },
+      where: { 
+        model : {
+            contains: key,
+            mode: 'insensitive'
+        }
+      },
+      distinct: ['model'],
+      orderBy: [
+        {
+          model: 'asc',
+        }
+      ],
     });
     return items;
   } catch (error) {

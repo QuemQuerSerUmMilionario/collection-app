@@ -9,9 +9,9 @@ import { ItemSchema } from '@schemas/zod.schemas';
 
 export const GET = async (req, response) => {
     try {
-        const collectionId = req.nextUrl?.searchParams?.get('collectionId');
-        const model = req.nextUrl?.searchParams?.get('model');
-        const year = req.nextUrl?.searchParams?.get('year');
+        const collectionId = req.nextUrl?.searchParams?.get('collectionId')??"";
+        const model = req.nextUrl?.searchParams?.get('model')??"";
+        const year = req.nextUrl?.searchParams?.get('year')??"";
         if (!collectionId) {
             return new Response(JSON.stringify({ errors: [{ message: "Collection is required" }] }), { status: 400 })
         }

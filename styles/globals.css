@@ -14,7 +14,6 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  padding: 120px 24px 160px 24px;
   pointer-events: none;
 }
 
@@ -61,7 +60,7 @@
 /* Tailwind Styles */
 
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+  @apply relative z-10 flex justify-center items-center flex-col max-w-[90%] mx-auto sm:px-16 px-6;
 }
 
 .black_btn {
@@ -110,7 +109,7 @@
 }
 
 .form_input {
-  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex rounded-lg mt-2 p-1 text-sm text-gray-500 outline-0;
 }
 
 /* Nav Component */
@@ -127,7 +126,11 @@
 }
 
 .collection_card {
-  @apply flex-1 break-inside-avoid rounded-sm border glassmorphism bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg  w-full h-fit;
+  @apply flex justify-center items-center break-inside-avoid  bg-clip-padding  backdrop-blur-lg w-[12rem] max-w-[12rem] h-[12rem];
+}
+
+.collection_card_menu {
+  @apply   border-gray-200 bg-white/20  backdrop-blur-lg ;
 }
 
 .flex-center {
@@ -144,4 +147,12 @@
 
 .flex-between {
   @apply flex justify-between items-center;
+}
+
+input[name="item"]:checked  ~ #item_card {
+  opacity: 100;
+}
+
+input[name="item"]:disabled ~ #item_card{
+  opacity: 50;
 }

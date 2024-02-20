@@ -29,10 +29,21 @@ const Nav = () => {
           height={30}
           className='object-contain'
         />
-        <p className='logo_text'>Collection</p>
+        <p className='logo_text'>CollectFy</p>
       </Link>
 
       {/* Desktop Navigation */}
+      {!session?.user && <div className="flex justify-between">
+              <Link className='mr-2' href='/login'>
+                link 1
+              </Link>
+              <Link className='mr-2' href='/register'>
+                link 2
+              </Link>
+              <Link className='mr-2' href='/register'>
+                link 3
+              </Link>
+      </div>}
       <div className='sm:flex hidden'>
         {session?.user ? (
           <div className='flex gap-3 md:gap-5 items-center'>
@@ -53,11 +64,14 @@ const Nav = () => {
             <ThemeSwitch/>
           </div>
         ) : (
-          <>
-              <Link className='black_btn' href='/login'>
+          <div className="flex justify-between">
+              <Link className='black_btn mr-2' href='/login'>
                 Sign in
               </Link>
-          </>
+              <Link className='black_btn' href='/register'>
+                Sign up
+              </Link>
+          </div>
         )}
       </div>
 

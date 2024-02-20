@@ -2,7 +2,17 @@ import { db } from "@/lib/db";
 
 export const getUserByEmail = async (email) => {
   try {
-    const user = await db.user.findUnique({ where: { email } });
+    const user = await db.user.findUnique({ where: { email:email } });
+    return user;
+  } catch (error) {
+    console.error("Error fetching getUserByEmail:", error);
+    throw error;
+  }
+};
+
+export const getUserByCustumerId = async (custumerId) => {
+  try {
+    const user = await db.user.findFirst({ where: { custumerId:custumerId } });
     return user;
   } catch (error) {
     console.error("Error fetching getUserByEmail:", error);
@@ -85,7 +95,6 @@ export const getUserByCpfAndNotId = async (cpf,id) => {
 export const getUserById = async (id) => {
   try {
     const user = await db.user.findUnique({ where: { id } });
-
     return user;
   } catch (error) {
     console.error("Error fetching getUserById:", error);

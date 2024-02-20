@@ -1,4 +1,3 @@
-import { z } from 'zod'
 import { db } from '@/lib/db';
 import { authOptions } from '@app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth"
@@ -9,17 +8,35 @@ import {uploadFile} from "@/lib/s3Client"
 import {UserItemsSchema} from "@/schemas/zod.schemas"
 
 export async function GET(request,{ params }) {
-  const items = await db.userCollection.findMany({
-    include: {
+  const  id  = params.id;
+  console.log(id);
+  const items = await db.userCollection.findUnique({
+    where: {
+      id: id,
+    },
+    select: {
+      name: true,
+      description: true,
       items: {
-        include : {
-           itemImages:true,
-        }
+        select: {
+          description: true,
+          name: true,
+          itemImages: {
+            select: {
+              link: true,
+              fileName: true,
+            },
+          },
+          item: {
+            select: {
+              model: true,
+              series: true,
+              year: true
+            },
+          },
+        },
       },
     },
-     where: { 
-      id:"b47df16e-8d6d-4035-a5df-9e0ddb1fe3b6" 
-    }
   });
   return  handleResponse(JSON.stringify(items),200,'application/json;charset=utf-8')
 }
@@ -29,7 +46,6 @@ export const POST = async (request, response) => {
       const session = await getServerSession(authOptions);
       const itemForm = await request.formData();
       const userItem = await formDataToObject(itemForm);
-      console.log(userItem);
       const validResult = UserItemsSchema.safeParse(userItem);
       if (!validResult.success) {
           return new Response(JSON.stringify({ errors: validResult.error.issues }), { status: 400 })
@@ -50,7 +66,9 @@ export const POST = async (request, response) => {
           const item = await tx.userItem.create({
               data: {
                 itemId: userItem.itemId,
-                userCollectionId: userItem.collectionId
+                userCollectionId: userItem.collectionId,
+                name:userItem.name,
+                description:userItem.description
               },
           });
           await Promise.all(userItem.files?.map(async (f) => {

@@ -16,7 +16,7 @@ const Profile = ({ type, user, setUser, submitting, handleSubmit }) => {
             Name{" "}
           </span>
           <input
-            value={user.name}
+            value={user?.name}
             onChange={(e) => setUser({ ...user, name: e.target.value })}
             type='text'
             placeholder='name'
@@ -29,7 +29,7 @@ const Profile = ({ type, user, setUser, submitting, handleSubmit }) => {
             Cpf{" "}
           </span>
           <textarea
-            value={user.cpf}
+            value={user?.cpf}
             onChange={(e) => setUser({ ...user, cpf: e.target.value })}
             placeholder='cpf'
             required
@@ -41,7 +41,7 @@ const Profile = ({ type, user, setUser, submitting, handleSubmit }) => {
             Phone{" "}
           </span>
           <textarea
-            value={user.phone}
+            value={user?.phone}
             onChange={(e) => setUser({ ...user, phone: e.target.value })}
             placeholder='phone'
             required

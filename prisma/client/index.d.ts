@@ -19,6 +19,11 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
 /**
+ * Model Plan
+ * 
+ */
+export type Plan = $Result.DefaultSelection<Prisma.$PlanPayload>
+/**
  * Model Session
  * 
  */
@@ -83,6 +88,11 @@ export type UserItem = $Result.DefaultSelection<Prisma.$UserItemPayload>
  * 
  */
 export type UserItemImage = $Result.DefaultSelection<Prisma.$UserItemImagePayload>
+/**
+ * Model LogStripeWebhook
+ * 
+ */
+export type LogStripeWebhook = $Result.DefaultSelection<Prisma.$LogStripeWebhookPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -217,6 +227,16 @@ export class PrismaClient<
   get account(): Prisma.AccountDelegate<ExtArgs>;
 
   /**
+   * `prisma.plan`: Exposes CRUD operations for the **Plan** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Plans
+    * const plans = await prisma.plan.findMany()
+    * ```
+    */
+  get plan(): Prisma.PlanDelegate<ExtArgs>;
+
+  /**
    * `prisma.session`: Exposes CRUD operations for the **Session** model.
     * Example usage:
     * ```ts
@@ -345,6 +365,16 @@ export class PrismaClient<
     * ```
     */
   get userItemImage(): Prisma.UserItemImageDelegate<ExtArgs>;
+
+  /**
+   * `prisma.logStripeWebhook`: Exposes CRUD operations for the **LogStripeWebhook** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LogStripeWebhooks
+    * const logStripeWebhooks = await prisma.logStripeWebhook.findMany()
+    * ```
+    */
+  get logStripeWebhook(): Prisma.LogStripeWebhookDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -816,6 +846,7 @@ export namespace Prisma {
 
   export const ModelName: {
     Account: 'Account',
+    Plan: 'Plan',
     Session: 'Session',
     User: 'User',
     VerificationToken: 'VerificationToken',
@@ -828,7 +859,8 @@ export namespace Prisma {
     ItemImage: 'ItemImage',
     UserCollection: 'UserCollection',
     UserItem: 'UserItem',
-    UserItemImage: 'UserItemImage'
+    UserItemImage: 'UserItemImage',
+    LogStripeWebhook: 'LogStripeWebhook'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -845,7 +877,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'account' | 'session' | 'user' | 'verificationToken' | 'passwordResetToken' | 'twoFactorToken' | 'twoFactorConfirmation' | 'collection' | 'typeModel' | 'item' | 'itemImage' | 'userCollection' | 'userItem' | 'userItemImage'
+      modelProps: 'account' | 'plan' | 'session' | 'user' | 'verificationToken' | 'passwordResetToken' | 'twoFactorToken' | 'twoFactorConfirmation' | 'collection' | 'typeModel' | 'item' | 'itemImage' | 'userCollection' | 'userItem' | 'userItemImage' | 'logStripeWebhook'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -912,6 +944,72 @@ export namespace Prisma {
           count: {
             args: Prisma.AccountCountArgs<ExtArgs>,
             result: $Utils.Optional<AccountCountAggregateOutputType> | number
+          }
+        }
+      }
+      Plan: {
+        payload: Prisma.$PlanPayload<ExtArgs>
+        fields: Prisma.PlanFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PlanFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlanPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PlanFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlanPayload>
+          }
+          findFirst: {
+            args: Prisma.PlanFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlanPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PlanFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlanPayload>
+          }
+          findMany: {
+            args: Prisma.PlanFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlanPayload>[]
+          }
+          create: {
+            args: Prisma.PlanCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlanPayload>
+          }
+          createMany: {
+            args: Prisma.PlanCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.PlanDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlanPayload>
+          }
+          update: {
+            args: Prisma.PlanUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlanPayload>
+          }
+          deleteMany: {
+            args: Prisma.PlanDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PlanUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.PlanUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlanPayload>
+          }
+          aggregate: {
+            args: Prisma.PlanAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregatePlan>
+          }
+          groupBy: {
+            args: Prisma.PlanGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<PlanGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PlanCountArgs<ExtArgs>,
+            result: $Utils.Optional<PlanCountAggregateOutputType> | number
           }
         }
       }
@@ -1773,6 +1871,72 @@ export namespace Prisma {
           }
         }
       }
+      LogStripeWebhook: {
+        payload: Prisma.$LogStripeWebhookPayload<ExtArgs>
+        fields: Prisma.LogStripeWebhookFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LogStripeWebhookFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LogStripeWebhookPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LogStripeWebhookFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LogStripeWebhookPayload>
+          }
+          findFirst: {
+            args: Prisma.LogStripeWebhookFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LogStripeWebhookPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LogStripeWebhookFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LogStripeWebhookPayload>
+          }
+          findMany: {
+            args: Prisma.LogStripeWebhookFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LogStripeWebhookPayload>[]
+          }
+          create: {
+            args: Prisma.LogStripeWebhookCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LogStripeWebhookPayload>
+          }
+          createMany: {
+            args: Prisma.LogStripeWebhookCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.LogStripeWebhookDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LogStripeWebhookPayload>
+          }
+          update: {
+            args: Prisma.LogStripeWebhookUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LogStripeWebhookPayload>
+          }
+          deleteMany: {
+            args: Prisma.LogStripeWebhookDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LogStripeWebhookUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.LogStripeWebhookUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LogStripeWebhookPayload>
+          }
+          aggregate: {
+            args: Prisma.LogStripeWebhookAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateLogStripeWebhook>
+          }
+          groupBy: {
+            args: Prisma.LogStripeWebhookGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<LogStripeWebhookGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LogStripeWebhookCountArgs<ExtArgs>,
+            result: $Utils.Optional<LogStripeWebhookCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1915,6 +2079,40 @@ export namespace Prisma {
   /**
    * Count Types
    */
+
+
+  /**
+   * Count Type PlanCountOutputType
+   */
+
+  export type PlanCountOutputType = {
+    users: number
+  }
+
+  export type PlanCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | PlanCountOutputTypeCountUsersArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * PlanCountOutputType without action
+   */
+  export type PlanCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlanCountOutputType
+     */
+    select?: PlanCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * PlanCountOutputType without action
+   */
+  export type PlanCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+  }
+
 
 
   /**
@@ -3215,6 +3413,925 @@ export namespace Prisma {
 
 
   /**
+   * Model Plan
+   */
+
+  export type AggregatePlan = {
+    _count: PlanCountAggregateOutputType | null
+    _min: PlanMinAggregateOutputType | null
+    _max: PlanMaxAggregateOutputType | null
+  }
+
+  export type PlanMinAggregateOutputType = {
+    id: string | null
+    priceId: string | null
+    description: string | null
+  }
+
+  export type PlanMaxAggregateOutputType = {
+    id: string | null
+    priceId: string | null
+    description: string | null
+  }
+
+  export type PlanCountAggregateOutputType = {
+    id: number
+    priceId: number
+    description: number
+    _all: number
+  }
+
+
+  export type PlanMinAggregateInputType = {
+    id?: true
+    priceId?: true
+    description?: true
+  }
+
+  export type PlanMaxAggregateInputType = {
+    id?: true
+    priceId?: true
+    description?: true
+  }
+
+  export type PlanCountAggregateInputType = {
+    id?: true
+    priceId?: true
+    description?: true
+    _all?: true
+  }
+
+  export type PlanAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Plan to aggregate.
+     */
+    where?: PlanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Plans to fetch.
+     */
+    orderBy?: PlanOrderByWithRelationInput | PlanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PlanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Plans from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Plans.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Plans
+    **/
+    _count?: true | PlanCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PlanMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PlanMaxAggregateInputType
+  }
+
+  export type GetPlanAggregateType<T extends PlanAggregateArgs> = {
+        [P in keyof T & keyof AggregatePlan]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePlan[P]>
+      : GetScalarType<T[P], AggregatePlan[P]>
+  }
+
+
+
+
+  export type PlanGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlanWhereInput
+    orderBy?: PlanOrderByWithAggregationInput | PlanOrderByWithAggregationInput[]
+    by: PlanScalarFieldEnum[] | PlanScalarFieldEnum
+    having?: PlanScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PlanCountAggregateInputType | true
+    _min?: PlanMinAggregateInputType
+    _max?: PlanMaxAggregateInputType
+  }
+
+  export type PlanGroupByOutputType = {
+    id: string
+    priceId: string
+    description: string
+    _count: PlanCountAggregateOutputType | null
+    _min: PlanMinAggregateOutputType | null
+    _max: PlanMaxAggregateOutputType | null
+  }
+
+  type GetPlanGroupByPayload<T extends PlanGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PlanGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PlanGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PlanGroupByOutputType[P]>
+            : GetScalarType<T[P], PlanGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PlanSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    priceId?: boolean
+    description?: boolean
+    users?: boolean | Plan$usersArgs<ExtArgs>
+    _count?: boolean | PlanCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["plan"]>
+
+  export type PlanSelectScalar = {
+    id?: boolean
+    priceId?: boolean
+    description?: boolean
+  }
+
+  export type PlanInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | Plan$usersArgs<ExtArgs>
+    _count?: boolean | PlanCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $PlanPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Plan"
+    objects: {
+      users: Prisma.$UserPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      priceId: string
+      description: string
+    }, ExtArgs["result"]["plan"]>
+    composites: {}
+  }
+
+
+  type PlanGetPayload<S extends boolean | null | undefined | PlanDefaultArgs> = $Result.GetResult<Prisma.$PlanPayload, S>
+
+  type PlanCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<PlanFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: PlanCountAggregateInputType | true
+    }
+
+  export interface PlanDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Plan'], meta: { name: 'Plan' } }
+    /**
+     * Find zero or one Plan that matches the filter.
+     * @param {PlanFindUniqueArgs} args - Arguments to find a Plan
+     * @example
+     * // Get one Plan
+     * const plan = await prisma.plan.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends PlanFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, PlanFindUniqueArgs<ExtArgs>>
+    ): Prisma__PlanClient<$Result.GetResult<Prisma.$PlanPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Plan that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {PlanFindUniqueOrThrowArgs} args - Arguments to find a Plan
+     * @example
+     * // Get one Plan
+     * const plan = await prisma.plan.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends PlanFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlanFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__PlanClient<$Result.GetResult<Prisma.$PlanPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Plan that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlanFindFirstArgs} args - Arguments to find a Plan
+     * @example
+     * // Get one Plan
+     * const plan = await prisma.plan.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends PlanFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlanFindFirstArgs<ExtArgs>>
+    ): Prisma__PlanClient<$Result.GetResult<Prisma.$PlanPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Plan that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlanFindFirstOrThrowArgs} args - Arguments to find a Plan
+     * @example
+     * // Get one Plan
+     * const plan = await prisma.plan.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends PlanFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlanFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__PlanClient<$Result.GetResult<Prisma.$PlanPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Plans that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlanFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Plans
+     * const plans = await prisma.plan.findMany()
+     * 
+     * // Get first 10 Plans
+     * const plans = await prisma.plan.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const planWithIdOnly = await prisma.plan.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends PlanFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlanFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlanPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Plan.
+     * @param {PlanCreateArgs} args - Arguments to create a Plan.
+     * @example
+     * // Create one Plan
+     * const Plan = await prisma.plan.create({
+     *   data: {
+     *     // ... data to create a Plan
+     *   }
+     * })
+     * 
+    **/
+    create<T extends PlanCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, PlanCreateArgs<ExtArgs>>
+    ): Prisma__PlanClient<$Result.GetResult<Prisma.$PlanPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Plans.
+     *     @param {PlanCreateManyArgs} args - Arguments to create many Plans.
+     *     @example
+     *     // Create many Plans
+     *     const plan = await prisma.plan.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends PlanCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlanCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Plan.
+     * @param {PlanDeleteArgs} args - Arguments to delete one Plan.
+     * @example
+     * // Delete one Plan
+     * const Plan = await prisma.plan.delete({
+     *   where: {
+     *     // ... filter to delete one Plan
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends PlanDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, PlanDeleteArgs<ExtArgs>>
+    ): Prisma__PlanClient<$Result.GetResult<Prisma.$PlanPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Plan.
+     * @param {PlanUpdateArgs} args - Arguments to update one Plan.
+     * @example
+     * // Update one Plan
+     * const plan = await prisma.plan.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends PlanUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, PlanUpdateArgs<ExtArgs>>
+    ): Prisma__PlanClient<$Result.GetResult<Prisma.$PlanPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Plans.
+     * @param {PlanDeleteManyArgs} args - Arguments to filter Plans to delete.
+     * @example
+     * // Delete a few Plans
+     * const { count } = await prisma.plan.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends PlanDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlanDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Plans.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlanUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Plans
+     * const plan = await prisma.plan.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends PlanUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, PlanUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Plan.
+     * @param {PlanUpsertArgs} args - Arguments to update or create a Plan.
+     * @example
+     * // Update or create a Plan
+     * const plan = await prisma.plan.upsert({
+     *   create: {
+     *     // ... data to create a Plan
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Plan we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends PlanUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, PlanUpsertArgs<ExtArgs>>
+    ): Prisma__PlanClient<$Result.GetResult<Prisma.$PlanPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Plans.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlanCountArgs} args - Arguments to filter Plans to count.
+     * @example
+     * // Count the number of Plans
+     * const count = await prisma.plan.count({
+     *   where: {
+     *     // ... the filter for the Plans we want to count
+     *   }
+     * })
+    **/
+    count<T extends PlanCountArgs>(
+      args?: Subset<T, PlanCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PlanCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Plan.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlanAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PlanAggregateArgs>(args: Subset<T, PlanAggregateArgs>): Prisma.PrismaPromise<GetPlanAggregateType<T>>
+
+    /**
+     * Group by Plan.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlanGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PlanGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PlanGroupByArgs['orderBy'] }
+        : { orderBy?: PlanGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PlanGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPlanGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Plan model
+   */
+  readonly fields: PlanFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Plan.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PlanClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    users<T extends Plan$usersArgs<ExtArgs> = {}>(args?: Subset<T, Plan$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Plan model
+   */ 
+  interface PlanFieldRefs {
+    readonly id: FieldRef<"Plan", 'String'>
+    readonly priceId: FieldRef<"Plan", 'String'>
+    readonly description: FieldRef<"Plan", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * Plan findUnique
+   */
+  export type PlanFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+    /**
+     * Filter, which Plan to fetch.
+     */
+    where: PlanWhereUniqueInput
+  }
+
+
+  /**
+   * Plan findUniqueOrThrow
+   */
+  export type PlanFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+    /**
+     * Filter, which Plan to fetch.
+     */
+    where: PlanWhereUniqueInput
+  }
+
+
+  /**
+   * Plan findFirst
+   */
+  export type PlanFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+    /**
+     * Filter, which Plan to fetch.
+     */
+    where?: PlanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Plans to fetch.
+     */
+    orderBy?: PlanOrderByWithRelationInput | PlanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Plans.
+     */
+    cursor?: PlanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Plans from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Plans.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Plans.
+     */
+    distinct?: PlanScalarFieldEnum | PlanScalarFieldEnum[]
+  }
+
+
+  /**
+   * Plan findFirstOrThrow
+   */
+  export type PlanFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+    /**
+     * Filter, which Plan to fetch.
+     */
+    where?: PlanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Plans to fetch.
+     */
+    orderBy?: PlanOrderByWithRelationInput | PlanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Plans.
+     */
+    cursor?: PlanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Plans from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Plans.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Plans.
+     */
+    distinct?: PlanScalarFieldEnum | PlanScalarFieldEnum[]
+  }
+
+
+  /**
+   * Plan findMany
+   */
+  export type PlanFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+    /**
+     * Filter, which Plans to fetch.
+     */
+    where?: PlanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Plans to fetch.
+     */
+    orderBy?: PlanOrderByWithRelationInput | PlanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Plans.
+     */
+    cursor?: PlanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Plans from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Plans.
+     */
+    skip?: number
+    distinct?: PlanScalarFieldEnum | PlanScalarFieldEnum[]
+  }
+
+
+  /**
+   * Plan create
+   */
+  export type PlanCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Plan.
+     */
+    data: XOR<PlanCreateInput, PlanUncheckedCreateInput>
+  }
+
+
+  /**
+   * Plan createMany
+   */
+  export type PlanCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Plans.
+     */
+    data: PlanCreateManyInput | PlanCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * Plan update
+   */
+  export type PlanUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Plan.
+     */
+    data: XOR<PlanUpdateInput, PlanUncheckedUpdateInput>
+    /**
+     * Choose, which Plan to update.
+     */
+    where: PlanWhereUniqueInput
+  }
+
+
+  /**
+   * Plan updateMany
+   */
+  export type PlanUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Plans.
+     */
+    data: XOR<PlanUpdateManyMutationInput, PlanUncheckedUpdateManyInput>
+    /**
+     * Filter which Plans to update
+     */
+    where?: PlanWhereInput
+  }
+
+
+  /**
+   * Plan upsert
+   */
+  export type PlanUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Plan to update in case it exists.
+     */
+    where: PlanWhereUniqueInput
+    /**
+     * In case the Plan found by the `where` argument doesn't exist, create a new Plan with this data.
+     */
+    create: XOR<PlanCreateInput, PlanUncheckedCreateInput>
+    /**
+     * In case the Plan was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PlanUpdateInput, PlanUncheckedUpdateInput>
+  }
+
+
+  /**
+   * Plan delete
+   */
+  export type PlanDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+    /**
+     * Filter which Plan to delete.
+     */
+    where: PlanWhereUniqueInput
+  }
+
+
+  /**
+   * Plan deleteMany
+   */
+  export type PlanDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Plans to delete
+     */
+    where?: PlanWhereInput
+  }
+
+
+  /**
+   * Plan.users
+   */
+  export type Plan$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    cursor?: UserWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+
+  /**
+   * Plan without action
+   */
+  export type PlanDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+  }
+
+
+
+  /**
    * Model Session
    */
 
@@ -4140,6 +5257,8 @@ export namespace Prisma {
     cpf: string | null
     emailVerified: Date | null
     image: string | null
+    planId: string | null
+    custumerId: string | null
     isTwoFactorEnabled: boolean | null
   }
 
@@ -4152,6 +5271,8 @@ export namespace Prisma {
     cpf: string | null
     emailVerified: Date | null
     image: string | null
+    planId: string | null
+    custumerId: string | null
     isTwoFactorEnabled: boolean | null
   }
 
@@ -4164,6 +5285,8 @@ export namespace Prisma {
     cpf: number
     emailVerified: number
     image: number
+    planId: number
+    custumerId: number
     isTwoFactorEnabled: number
     _all: number
   }
@@ -4178,6 +5301,8 @@ export namespace Prisma {
     cpf?: true
     emailVerified?: true
     image?: true
+    planId?: true
+    custumerId?: true
     isTwoFactorEnabled?: true
   }
 
@@ -4190,6 +5315,8 @@ export namespace Prisma {
     cpf?: true
     emailVerified?: true
     image?: true
+    planId?: true
+    custumerId?: true
     isTwoFactorEnabled?: true
   }
 
@@ -4202,6 +5329,8 @@ export namespace Prisma {
     cpf?: true
     emailVerified?: true
     image?: true
+    planId?: true
+    custumerId?: true
     isTwoFactorEnabled?: true
     _all?: true
   }
@@ -4287,6 +5416,8 @@ export namespace Prisma {
     cpf: string | null
     emailVerified: Date | null
     image: string | null
+    planId: string | null
+    custumerId: string | null
     isTwoFactorEnabled: boolean
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
@@ -4316,12 +5447,15 @@ export namespace Prisma {
     cpf?: boolean
     emailVerified?: boolean
     image?: boolean
+    planId?: boolean
+    custumerId?: boolean
     isTwoFactorEnabled?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     userCollections?: boolean | User$userCollectionsArgs<ExtArgs>
     items?: boolean | User$itemsArgs<ExtArgs>
     twoFactorConfirmation?: boolean | User$twoFactorConfirmationArgs<ExtArgs>
+    plan?: boolean | User$planArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -4334,6 +5468,8 @@ export namespace Prisma {
     cpf?: boolean
     emailVerified?: boolean
     image?: boolean
+    planId?: boolean
+    custumerId?: boolean
     isTwoFactorEnabled?: boolean
   }
 
@@ -4343,6 +5479,7 @@ export namespace Prisma {
     userCollections?: boolean | User$userCollectionsArgs<ExtArgs>
     items?: boolean | User$itemsArgs<ExtArgs>
     twoFactorConfirmation?: boolean | User$twoFactorConfirmationArgs<ExtArgs>
+    plan?: boolean | User$planArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -4355,6 +5492,7 @@ export namespace Prisma {
       userCollections: Prisma.$UserCollectionPayload<ExtArgs>[]
       items: Prisma.$ItemPayload<ExtArgs>[]
       twoFactorConfirmation: Prisma.$TwoFactorConfirmationPayload<ExtArgs> | null
+      plan: Prisma.$PlanPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -4365,6 +5503,8 @@ export namespace Prisma {
       cpf: string | null
       emailVerified: Date | null
       image: string | null
+      planId: string | null
+      custumerId: string | null
       isTwoFactorEnabled: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -4741,6 +5881,8 @@ export namespace Prisma {
 
     twoFactorConfirmation<T extends User$twoFactorConfirmationArgs<ExtArgs> = {}>(args?: Subset<T, User$twoFactorConfirmationArgs<ExtArgs>>): Prisma__TwoFactorConfirmationClient<$Result.GetResult<Prisma.$TwoFactorConfirmationPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
+    plan<T extends User$planArgs<ExtArgs> = {}>(args?: Subset<T, User$planArgs<ExtArgs>>): Prisma__PlanClient<$Result.GetResult<Prisma.$PlanPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4777,6 +5919,8 @@ export namespace Prisma {
     readonly cpf: FieldRef<"User", 'String'>
     readonly emailVerified: FieldRef<"User", 'DateTime'>
     readonly image: FieldRef<"User", 'String'>
+    readonly planId: FieldRef<"User", 'String'>
+    readonly custumerId: FieldRef<"User", 'String'>
     readonly isTwoFactorEnabled: FieldRef<"User", 'Boolean'>
   }
     
@@ -5186,6 +6330,22 @@ export namespace Prisma {
      */
     include?: TwoFactorConfirmationInclude<ExtArgs> | null
     where?: TwoFactorConfirmationWhereInput
+  }
+
+
+  /**
+   * User.plan
+   */
+  export type User$planArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Plan
+     */
+    select?: PlanSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlanInclude<ExtArgs> | null
+    where?: PlanWhereInput
   }
 
 
@@ -15651,6 +16811,898 @@ export namespace Prisma {
 
 
   /**
+   * Model LogStripeWebhook
+   */
+
+  export type AggregateLogStripeWebhook = {
+    _count: LogStripeWebhookCountAggregateOutputType | null
+    _min: LogStripeWebhookMinAggregateOutputType | null
+    _max: LogStripeWebhookMaxAggregateOutputType | null
+  }
+
+  export type LogStripeWebhookMinAggregateOutputType = {
+    id: string | null
+    description: string | null
+    eventType: string | null
+    error: string | null
+    custumerId: string | null
+    status: boolean | null
+    data: Date | null
+  }
+
+  export type LogStripeWebhookMaxAggregateOutputType = {
+    id: string | null
+    description: string | null
+    eventType: string | null
+    error: string | null
+    custumerId: string | null
+    status: boolean | null
+    data: Date | null
+  }
+
+  export type LogStripeWebhookCountAggregateOutputType = {
+    id: number
+    description: number
+    eventType: number
+    error: number
+    custumerId: number
+    status: number
+    data: number
+    _all: number
+  }
+
+
+  export type LogStripeWebhookMinAggregateInputType = {
+    id?: true
+    description?: true
+    eventType?: true
+    error?: true
+    custumerId?: true
+    status?: true
+    data?: true
+  }
+
+  export type LogStripeWebhookMaxAggregateInputType = {
+    id?: true
+    description?: true
+    eventType?: true
+    error?: true
+    custumerId?: true
+    status?: true
+    data?: true
+  }
+
+  export type LogStripeWebhookCountAggregateInputType = {
+    id?: true
+    description?: true
+    eventType?: true
+    error?: true
+    custumerId?: true
+    status?: true
+    data?: true
+    _all?: true
+  }
+
+  export type LogStripeWebhookAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LogStripeWebhook to aggregate.
+     */
+    where?: LogStripeWebhookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LogStripeWebhooks to fetch.
+     */
+    orderBy?: LogStripeWebhookOrderByWithRelationInput | LogStripeWebhookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LogStripeWebhookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LogStripeWebhooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LogStripeWebhooks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LogStripeWebhooks
+    **/
+    _count?: true | LogStripeWebhookCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LogStripeWebhookMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LogStripeWebhookMaxAggregateInputType
+  }
+
+  export type GetLogStripeWebhookAggregateType<T extends LogStripeWebhookAggregateArgs> = {
+        [P in keyof T & keyof AggregateLogStripeWebhook]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLogStripeWebhook[P]>
+      : GetScalarType<T[P], AggregateLogStripeWebhook[P]>
+  }
+
+
+
+
+  export type LogStripeWebhookGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LogStripeWebhookWhereInput
+    orderBy?: LogStripeWebhookOrderByWithAggregationInput | LogStripeWebhookOrderByWithAggregationInput[]
+    by: LogStripeWebhookScalarFieldEnum[] | LogStripeWebhookScalarFieldEnum
+    having?: LogStripeWebhookScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LogStripeWebhookCountAggregateInputType | true
+    _min?: LogStripeWebhookMinAggregateInputType
+    _max?: LogStripeWebhookMaxAggregateInputType
+  }
+
+  export type LogStripeWebhookGroupByOutputType = {
+    id: string
+    description: string | null
+    eventType: string | null
+    error: string | null
+    custumerId: string | null
+    status: boolean
+    data: Date
+    _count: LogStripeWebhookCountAggregateOutputType | null
+    _min: LogStripeWebhookMinAggregateOutputType | null
+    _max: LogStripeWebhookMaxAggregateOutputType | null
+  }
+
+  type GetLogStripeWebhookGroupByPayload<T extends LogStripeWebhookGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LogStripeWebhookGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LogStripeWebhookGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LogStripeWebhookGroupByOutputType[P]>
+            : GetScalarType<T[P], LogStripeWebhookGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LogStripeWebhookSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    eventType?: boolean
+    error?: boolean
+    custumerId?: boolean
+    status?: boolean
+    data?: boolean
+  }, ExtArgs["result"]["logStripeWebhook"]>
+
+  export type LogStripeWebhookSelectScalar = {
+    id?: boolean
+    description?: boolean
+    eventType?: boolean
+    error?: boolean
+    custumerId?: boolean
+    status?: boolean
+    data?: boolean
+  }
+
+
+  export type $LogStripeWebhookPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LogStripeWebhook"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      description: string | null
+      eventType: string | null
+      error: string | null
+      custumerId: string | null
+      status: boolean
+      data: Date
+    }, ExtArgs["result"]["logStripeWebhook"]>
+    composites: {}
+  }
+
+
+  type LogStripeWebhookGetPayload<S extends boolean | null | undefined | LogStripeWebhookDefaultArgs> = $Result.GetResult<Prisma.$LogStripeWebhookPayload, S>
+
+  type LogStripeWebhookCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<LogStripeWebhookFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: LogStripeWebhookCountAggregateInputType | true
+    }
+
+  export interface LogStripeWebhookDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LogStripeWebhook'], meta: { name: 'LogStripeWebhook' } }
+    /**
+     * Find zero or one LogStripeWebhook that matches the filter.
+     * @param {LogStripeWebhookFindUniqueArgs} args - Arguments to find a LogStripeWebhook
+     * @example
+     * // Get one LogStripeWebhook
+     * const logStripeWebhook = await prisma.logStripeWebhook.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends LogStripeWebhookFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, LogStripeWebhookFindUniqueArgs<ExtArgs>>
+    ): Prisma__LogStripeWebhookClient<$Result.GetResult<Prisma.$LogStripeWebhookPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one LogStripeWebhook that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {LogStripeWebhookFindUniqueOrThrowArgs} args - Arguments to find a LogStripeWebhook
+     * @example
+     * // Get one LogStripeWebhook
+     * const logStripeWebhook = await prisma.logStripeWebhook.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends LogStripeWebhookFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, LogStripeWebhookFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__LogStripeWebhookClient<$Result.GetResult<Prisma.$LogStripeWebhookPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first LogStripeWebhook that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LogStripeWebhookFindFirstArgs} args - Arguments to find a LogStripeWebhook
+     * @example
+     * // Get one LogStripeWebhook
+     * const logStripeWebhook = await prisma.logStripeWebhook.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends LogStripeWebhookFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, LogStripeWebhookFindFirstArgs<ExtArgs>>
+    ): Prisma__LogStripeWebhookClient<$Result.GetResult<Prisma.$LogStripeWebhookPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first LogStripeWebhook that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LogStripeWebhookFindFirstOrThrowArgs} args - Arguments to find a LogStripeWebhook
+     * @example
+     * // Get one LogStripeWebhook
+     * const logStripeWebhook = await prisma.logStripeWebhook.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends LogStripeWebhookFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, LogStripeWebhookFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__LogStripeWebhookClient<$Result.GetResult<Prisma.$LogStripeWebhookPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more LogStripeWebhooks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LogStripeWebhookFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LogStripeWebhooks
+     * const logStripeWebhooks = await prisma.logStripeWebhook.findMany()
+     * 
+     * // Get first 10 LogStripeWebhooks
+     * const logStripeWebhooks = await prisma.logStripeWebhook.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const logStripeWebhookWithIdOnly = await prisma.logStripeWebhook.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends LogStripeWebhookFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LogStripeWebhookFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LogStripeWebhookPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a LogStripeWebhook.
+     * @param {LogStripeWebhookCreateArgs} args - Arguments to create a LogStripeWebhook.
+     * @example
+     * // Create one LogStripeWebhook
+     * const LogStripeWebhook = await prisma.logStripeWebhook.create({
+     *   data: {
+     *     // ... data to create a LogStripeWebhook
+     *   }
+     * })
+     * 
+    **/
+    create<T extends LogStripeWebhookCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, LogStripeWebhookCreateArgs<ExtArgs>>
+    ): Prisma__LogStripeWebhookClient<$Result.GetResult<Prisma.$LogStripeWebhookPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many LogStripeWebhooks.
+     *     @param {LogStripeWebhookCreateManyArgs} args - Arguments to create many LogStripeWebhooks.
+     *     @example
+     *     // Create many LogStripeWebhooks
+     *     const logStripeWebhook = await prisma.logStripeWebhook.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends LogStripeWebhookCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LogStripeWebhookCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a LogStripeWebhook.
+     * @param {LogStripeWebhookDeleteArgs} args - Arguments to delete one LogStripeWebhook.
+     * @example
+     * // Delete one LogStripeWebhook
+     * const LogStripeWebhook = await prisma.logStripeWebhook.delete({
+     *   where: {
+     *     // ... filter to delete one LogStripeWebhook
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends LogStripeWebhookDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, LogStripeWebhookDeleteArgs<ExtArgs>>
+    ): Prisma__LogStripeWebhookClient<$Result.GetResult<Prisma.$LogStripeWebhookPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one LogStripeWebhook.
+     * @param {LogStripeWebhookUpdateArgs} args - Arguments to update one LogStripeWebhook.
+     * @example
+     * // Update one LogStripeWebhook
+     * const logStripeWebhook = await prisma.logStripeWebhook.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends LogStripeWebhookUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, LogStripeWebhookUpdateArgs<ExtArgs>>
+    ): Prisma__LogStripeWebhookClient<$Result.GetResult<Prisma.$LogStripeWebhookPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more LogStripeWebhooks.
+     * @param {LogStripeWebhookDeleteManyArgs} args - Arguments to filter LogStripeWebhooks to delete.
+     * @example
+     * // Delete a few LogStripeWebhooks
+     * const { count } = await prisma.logStripeWebhook.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends LogStripeWebhookDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LogStripeWebhookDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LogStripeWebhooks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LogStripeWebhookUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LogStripeWebhooks
+     * const logStripeWebhook = await prisma.logStripeWebhook.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends LogStripeWebhookUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, LogStripeWebhookUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one LogStripeWebhook.
+     * @param {LogStripeWebhookUpsertArgs} args - Arguments to update or create a LogStripeWebhook.
+     * @example
+     * // Update or create a LogStripeWebhook
+     * const logStripeWebhook = await prisma.logStripeWebhook.upsert({
+     *   create: {
+     *     // ... data to create a LogStripeWebhook
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LogStripeWebhook we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends LogStripeWebhookUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, LogStripeWebhookUpsertArgs<ExtArgs>>
+    ): Prisma__LogStripeWebhookClient<$Result.GetResult<Prisma.$LogStripeWebhookPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of LogStripeWebhooks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LogStripeWebhookCountArgs} args - Arguments to filter LogStripeWebhooks to count.
+     * @example
+     * // Count the number of LogStripeWebhooks
+     * const count = await prisma.logStripeWebhook.count({
+     *   where: {
+     *     // ... the filter for the LogStripeWebhooks we want to count
+     *   }
+     * })
+    **/
+    count<T extends LogStripeWebhookCountArgs>(
+      args?: Subset<T, LogStripeWebhookCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LogStripeWebhookCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LogStripeWebhook.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LogStripeWebhookAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LogStripeWebhookAggregateArgs>(args: Subset<T, LogStripeWebhookAggregateArgs>): Prisma.PrismaPromise<GetLogStripeWebhookAggregateType<T>>
+
+    /**
+     * Group by LogStripeWebhook.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LogStripeWebhookGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LogStripeWebhookGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LogStripeWebhookGroupByArgs['orderBy'] }
+        : { orderBy?: LogStripeWebhookGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LogStripeWebhookGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLogStripeWebhookGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LogStripeWebhook model
+   */
+  readonly fields: LogStripeWebhookFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LogStripeWebhook.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LogStripeWebhookClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the LogStripeWebhook model
+   */ 
+  interface LogStripeWebhookFieldRefs {
+    readonly id: FieldRef<"LogStripeWebhook", 'String'>
+    readonly description: FieldRef<"LogStripeWebhook", 'String'>
+    readonly eventType: FieldRef<"LogStripeWebhook", 'String'>
+    readonly error: FieldRef<"LogStripeWebhook", 'String'>
+    readonly custumerId: FieldRef<"LogStripeWebhook", 'String'>
+    readonly status: FieldRef<"LogStripeWebhook", 'Boolean'>
+    readonly data: FieldRef<"LogStripeWebhook", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * LogStripeWebhook findUnique
+   */
+  export type LogStripeWebhookFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LogStripeWebhook
+     */
+    select?: LogStripeWebhookSelect<ExtArgs> | null
+    /**
+     * Filter, which LogStripeWebhook to fetch.
+     */
+    where: LogStripeWebhookWhereUniqueInput
+  }
+
+
+  /**
+   * LogStripeWebhook findUniqueOrThrow
+   */
+  export type LogStripeWebhookFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LogStripeWebhook
+     */
+    select?: LogStripeWebhookSelect<ExtArgs> | null
+    /**
+     * Filter, which LogStripeWebhook to fetch.
+     */
+    where: LogStripeWebhookWhereUniqueInput
+  }
+
+
+  /**
+   * LogStripeWebhook findFirst
+   */
+  export type LogStripeWebhookFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LogStripeWebhook
+     */
+    select?: LogStripeWebhookSelect<ExtArgs> | null
+    /**
+     * Filter, which LogStripeWebhook to fetch.
+     */
+    where?: LogStripeWebhookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LogStripeWebhooks to fetch.
+     */
+    orderBy?: LogStripeWebhookOrderByWithRelationInput | LogStripeWebhookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LogStripeWebhooks.
+     */
+    cursor?: LogStripeWebhookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LogStripeWebhooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LogStripeWebhooks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LogStripeWebhooks.
+     */
+    distinct?: LogStripeWebhookScalarFieldEnum | LogStripeWebhookScalarFieldEnum[]
+  }
+
+
+  /**
+   * LogStripeWebhook findFirstOrThrow
+   */
+  export type LogStripeWebhookFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LogStripeWebhook
+     */
+    select?: LogStripeWebhookSelect<ExtArgs> | null
+    /**
+     * Filter, which LogStripeWebhook to fetch.
+     */
+    where?: LogStripeWebhookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LogStripeWebhooks to fetch.
+     */
+    orderBy?: LogStripeWebhookOrderByWithRelationInput | LogStripeWebhookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LogStripeWebhooks.
+     */
+    cursor?: LogStripeWebhookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LogStripeWebhooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LogStripeWebhooks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LogStripeWebhooks.
+     */
+    distinct?: LogStripeWebhookScalarFieldEnum | LogStripeWebhookScalarFieldEnum[]
+  }
+
+
+  /**
+   * LogStripeWebhook findMany
+   */
+  export type LogStripeWebhookFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LogStripeWebhook
+     */
+    select?: LogStripeWebhookSelect<ExtArgs> | null
+    /**
+     * Filter, which LogStripeWebhooks to fetch.
+     */
+    where?: LogStripeWebhookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LogStripeWebhooks to fetch.
+     */
+    orderBy?: LogStripeWebhookOrderByWithRelationInput | LogStripeWebhookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LogStripeWebhooks.
+     */
+    cursor?: LogStripeWebhookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LogStripeWebhooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LogStripeWebhooks.
+     */
+    skip?: number
+    distinct?: LogStripeWebhookScalarFieldEnum | LogStripeWebhookScalarFieldEnum[]
+  }
+
+
+  /**
+   * LogStripeWebhook create
+   */
+  export type LogStripeWebhookCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LogStripeWebhook
+     */
+    select?: LogStripeWebhookSelect<ExtArgs> | null
+    /**
+     * The data needed to create a LogStripeWebhook.
+     */
+    data?: XOR<LogStripeWebhookCreateInput, LogStripeWebhookUncheckedCreateInput>
+  }
+
+
+  /**
+   * LogStripeWebhook createMany
+   */
+  export type LogStripeWebhookCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LogStripeWebhooks.
+     */
+    data: LogStripeWebhookCreateManyInput | LogStripeWebhookCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * LogStripeWebhook update
+   */
+  export type LogStripeWebhookUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LogStripeWebhook
+     */
+    select?: LogStripeWebhookSelect<ExtArgs> | null
+    /**
+     * The data needed to update a LogStripeWebhook.
+     */
+    data: XOR<LogStripeWebhookUpdateInput, LogStripeWebhookUncheckedUpdateInput>
+    /**
+     * Choose, which LogStripeWebhook to update.
+     */
+    where: LogStripeWebhookWhereUniqueInput
+  }
+
+
+  /**
+   * LogStripeWebhook updateMany
+   */
+  export type LogStripeWebhookUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LogStripeWebhooks.
+     */
+    data: XOR<LogStripeWebhookUpdateManyMutationInput, LogStripeWebhookUncheckedUpdateManyInput>
+    /**
+     * Filter which LogStripeWebhooks to update
+     */
+    where?: LogStripeWebhookWhereInput
+  }
+
+
+  /**
+   * LogStripeWebhook upsert
+   */
+  export type LogStripeWebhookUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LogStripeWebhook
+     */
+    select?: LogStripeWebhookSelect<ExtArgs> | null
+    /**
+     * The filter to search for the LogStripeWebhook to update in case it exists.
+     */
+    where: LogStripeWebhookWhereUniqueInput
+    /**
+     * In case the LogStripeWebhook found by the `where` argument doesn't exist, create a new LogStripeWebhook with this data.
+     */
+    create: XOR<LogStripeWebhookCreateInput, LogStripeWebhookUncheckedCreateInput>
+    /**
+     * In case the LogStripeWebhook was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LogStripeWebhookUpdateInput, LogStripeWebhookUncheckedUpdateInput>
+  }
+
+
+  /**
+   * LogStripeWebhook delete
+   */
+  export type LogStripeWebhookDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LogStripeWebhook
+     */
+    select?: LogStripeWebhookSelect<ExtArgs> | null
+    /**
+     * Filter which LogStripeWebhook to delete.
+     */
+    where: LogStripeWebhookWhereUniqueInput
+  }
+
+
+  /**
+   * LogStripeWebhook deleteMany
+   */
+  export type LogStripeWebhookDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LogStripeWebhooks to delete
+     */
+    where?: LogStripeWebhookWhereInput
+  }
+
+
+  /**
+   * LogStripeWebhook without action
+   */
+  export type LogStripeWebhookDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LogStripeWebhook
+     */
+    select?: LogStripeWebhookSelect<ExtArgs> | null
+  }
+
+
+
+  /**
    * Enums
    */
 
@@ -15682,6 +17734,15 @@ export namespace Prisma {
   export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
 
 
+  export const PlanScalarFieldEnum: {
+    id: 'id',
+    priceId: 'priceId',
+    description: 'description'
+  };
+
+  export type PlanScalarFieldEnum = (typeof PlanScalarFieldEnum)[keyof typeof PlanScalarFieldEnum]
+
+
   export const SessionScalarFieldEnum: {
     id: 'id',
     sessionToken: 'sessionToken',
@@ -15701,6 +17762,8 @@ export namespace Prisma {
     cpf: 'cpf',
     emailVerified: 'emailVerified',
     image: 'image',
+    planId: 'planId',
+    custumerId: 'custumerId',
     isTwoFactorEnabled: 'isTwoFactorEnabled'
   };
 
@@ -15828,6 +17891,19 @@ export namespace Prisma {
   };
 
   export type UserItemImageScalarFieldEnum = (typeof UserItemImageScalarFieldEnum)[keyof typeof UserItemImageScalarFieldEnum]
+
+
+  export const LogStripeWebhookScalarFieldEnum: {
+    id: 'id',
+    description: 'description',
+    eventType: 'eventType',
+    error: 'error',
+    custumerId: 'custumerId',
+    status: 'status',
+    data: 'data'
+  };
+
+  export type LogStripeWebhookScalarFieldEnum = (typeof LogStripeWebhookScalarFieldEnum)[keyof typeof LogStripeWebhookScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -16018,6 +18094,51 @@ export namespace Prisma {
     session_state?: StringNullableWithAggregatesFilter<"Account"> | string | null
   }
 
+  export type PlanWhereInput = {
+    AND?: PlanWhereInput | PlanWhereInput[]
+    OR?: PlanWhereInput[]
+    NOT?: PlanWhereInput | PlanWhereInput[]
+    id?: StringFilter<"Plan"> | string
+    priceId?: StringFilter<"Plan"> | string
+    description?: StringFilter<"Plan"> | string
+    users?: UserListRelationFilter
+  }
+
+  export type PlanOrderByWithRelationInput = {
+    id?: SortOrder
+    priceId?: SortOrder
+    description?: SortOrder
+    users?: UserOrderByRelationAggregateInput
+  }
+
+  export type PlanWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    priceId?: string
+    AND?: PlanWhereInput | PlanWhereInput[]
+    OR?: PlanWhereInput[]
+    NOT?: PlanWhereInput | PlanWhereInput[]
+    description?: StringFilter<"Plan"> | string
+    users?: UserListRelationFilter
+  }, "id" | "priceId">
+
+  export type PlanOrderByWithAggregationInput = {
+    id?: SortOrder
+    priceId?: SortOrder
+    description?: SortOrder
+    _count?: PlanCountOrderByAggregateInput
+    _max?: PlanMaxOrderByAggregateInput
+    _min?: PlanMinOrderByAggregateInput
+  }
+
+  export type PlanScalarWhereWithAggregatesInput = {
+    AND?: PlanScalarWhereWithAggregatesInput | PlanScalarWhereWithAggregatesInput[]
+    OR?: PlanScalarWhereWithAggregatesInput[]
+    NOT?: PlanScalarWhereWithAggregatesInput | PlanScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Plan"> | string
+    priceId?: StringWithAggregatesFilter<"Plan"> | string
+    description?: StringWithAggregatesFilter<"Plan"> | string
+  }
+
   export type SessionWhereInput = {
     AND?: SessionWhereInput | SessionWhereInput[]
     OR?: SessionWhereInput[]
@@ -16080,12 +18201,15 @@ export namespace Prisma {
     cpf?: StringNullableFilter<"User"> | string | null
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
+    planId?: StringNullableFilter<"User"> | string | null
+    custumerId?: StringNullableFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolFilter<"User"> | boolean
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
     userCollections?: UserCollectionListRelationFilter
     items?: ItemListRelationFilter
     twoFactorConfirmation?: XOR<TwoFactorConfirmationNullableRelationFilter, TwoFactorConfirmationWhereInput> | null
+    plan?: XOR<PlanNullableRelationFilter, PlanWhereInput> | null
   }
 
   export type UserOrderByWithRelationInput = {
@@ -16097,12 +18221,15 @@ export namespace Prisma {
     cpf?: SortOrderInput | SortOrder
     emailVerified?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
+    planId?: SortOrderInput | SortOrder
+    custumerId?: SortOrderInput | SortOrder
     isTwoFactorEnabled?: SortOrder
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
     userCollections?: UserCollectionOrderByRelationAggregateInput
     items?: ItemOrderByRelationAggregateInput
     twoFactorConfirmation?: TwoFactorConfirmationOrderByWithRelationInput
+    plan?: PlanOrderByWithRelationInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -16110,6 +18237,7 @@ export namespace Prisma {
     email?: string
     phone?: string
     cpf?: string
+    custumerId?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
@@ -16117,13 +18245,15 @@ export namespace Prisma {
     password?: StringNullableFilter<"User"> | string | null
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
+    planId?: StringNullableFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolFilter<"User"> | boolean
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
     userCollections?: UserCollectionListRelationFilter
     items?: ItemListRelationFilter
     twoFactorConfirmation?: XOR<TwoFactorConfirmationNullableRelationFilter, TwoFactorConfirmationWhereInput> | null
-  }, "id" | "email" | "phone" | "cpf">
+    plan?: XOR<PlanNullableRelationFilter, PlanWhereInput> | null
+  }, "id" | "email" | "phone" | "cpf" | "custumerId">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -16134,6 +18264,8 @@ export namespace Prisma {
     cpf?: SortOrderInput | SortOrder
     emailVerified?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
+    planId?: SortOrderInput | SortOrder
+    custumerId?: SortOrderInput | SortOrder
     isTwoFactorEnabled?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -16152,6 +18284,8 @@ export namespace Prisma {
     cpf?: StringNullableWithAggregatesFilter<"User"> | string | null
     emailVerified?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
+    planId?: StringNullableWithAggregatesFilter<"User"> | string | null
+    custumerId?: StringNullableWithAggregatesFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
@@ -16806,6 +18940,68 @@ export namespace Prisma {
     status?: BoolWithAggregatesFilter<"UserItemImage"> | boolean
   }
 
+  export type LogStripeWebhookWhereInput = {
+    AND?: LogStripeWebhookWhereInput | LogStripeWebhookWhereInput[]
+    OR?: LogStripeWebhookWhereInput[]
+    NOT?: LogStripeWebhookWhereInput | LogStripeWebhookWhereInput[]
+    id?: StringFilter<"LogStripeWebhook"> | string
+    description?: StringNullableFilter<"LogStripeWebhook"> | string | null
+    eventType?: StringNullableFilter<"LogStripeWebhook"> | string | null
+    error?: StringNullableFilter<"LogStripeWebhook"> | string | null
+    custumerId?: StringNullableFilter<"LogStripeWebhook"> | string | null
+    status?: BoolFilter<"LogStripeWebhook"> | boolean
+    data?: DateTimeFilter<"LogStripeWebhook"> | Date | string
+  }
+
+  export type LogStripeWebhookOrderByWithRelationInput = {
+    id?: SortOrder
+    description?: SortOrderInput | SortOrder
+    eventType?: SortOrderInput | SortOrder
+    error?: SortOrderInput | SortOrder
+    custumerId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    data?: SortOrder
+  }
+
+  export type LogStripeWebhookWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LogStripeWebhookWhereInput | LogStripeWebhookWhereInput[]
+    OR?: LogStripeWebhookWhereInput[]
+    NOT?: LogStripeWebhookWhereInput | LogStripeWebhookWhereInput[]
+    description?: StringNullableFilter<"LogStripeWebhook"> | string | null
+    eventType?: StringNullableFilter<"LogStripeWebhook"> | string | null
+    error?: StringNullableFilter<"LogStripeWebhook"> | string | null
+    custumerId?: StringNullableFilter<"LogStripeWebhook"> | string | null
+    status?: BoolFilter<"LogStripeWebhook"> | boolean
+    data?: DateTimeFilter<"LogStripeWebhook"> | Date | string
+  }, "id">
+
+  export type LogStripeWebhookOrderByWithAggregationInput = {
+    id?: SortOrder
+    description?: SortOrderInput | SortOrder
+    eventType?: SortOrderInput | SortOrder
+    error?: SortOrderInput | SortOrder
+    custumerId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    data?: SortOrder
+    _count?: LogStripeWebhookCountOrderByAggregateInput
+    _max?: LogStripeWebhookMaxOrderByAggregateInput
+    _min?: LogStripeWebhookMinOrderByAggregateInput
+  }
+
+  export type LogStripeWebhookScalarWhereWithAggregatesInput = {
+    AND?: LogStripeWebhookScalarWhereWithAggregatesInput | LogStripeWebhookScalarWhereWithAggregatesInput[]
+    OR?: LogStripeWebhookScalarWhereWithAggregatesInput[]
+    NOT?: LogStripeWebhookScalarWhereWithAggregatesInput | LogStripeWebhookScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"LogStripeWebhook"> | string
+    description?: StringNullableWithAggregatesFilter<"LogStripeWebhook"> | string | null
+    eventType?: StringNullableWithAggregatesFilter<"LogStripeWebhook"> | string | null
+    error?: StringNullableWithAggregatesFilter<"LogStripeWebhook"> | string | null
+    custumerId?: StringNullableWithAggregatesFilter<"LogStripeWebhook"> | string | null
+    status?: BoolWithAggregatesFilter<"LogStripeWebhook"> | boolean
+    data?: DateTimeWithAggregatesFilter<"LogStripeWebhook"> | Date | string
+  }
+
   export type AccountCreateInput = {
     id?: string
     type: string
@@ -16910,6 +19106,52 @@ export namespace Prisma {
     session_state?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type PlanCreateInput = {
+    id: string
+    priceId: string
+    description: string
+    users?: UserCreateNestedManyWithoutPlanInput
+  }
+
+  export type PlanUncheckedCreateInput = {
+    id: string
+    priceId: string
+    description: string
+    users?: UserUncheckedCreateNestedManyWithoutPlanInput
+  }
+
+  export type PlanUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    users?: UserUpdateManyWithoutPlanNestedInput
+  }
+
+  export type PlanUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    users?: UserUncheckedUpdateManyWithoutPlanNestedInput
+  }
+
+  export type PlanCreateManyInput = {
+    id: string
+    priceId: string
+    description: string
+  }
+
+  export type PlanUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlanUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
   export type SessionCreateInput = {
     id?: string
     sessionToken: string
@@ -16967,12 +19209,14 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionCreateNestedManyWithoutUserInput
     items?: ItemCreateNestedManyWithoutUserInput
     twoFactorConfirmation?: TwoFactorConfirmationCreateNestedOneWithoutUserInput
+    plan?: PlanCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -16984,6 +19228,8 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    planId?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -17001,12 +19247,14 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUpdateManyWithoutUserNestedInput
     items?: ItemUpdateManyWithoutUserNestedInput
     twoFactorConfirmation?: TwoFactorConfirmationUpdateOneWithoutUserNestedInput
+    plan?: PlanUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -17018,6 +19266,8 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    planId?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -17035,6 +19285,8 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    planId?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
   }
 
@@ -17047,6 +19299,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -17059,6 +19312,8 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    planId?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -17710,6 +19965,76 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
   }
 
+  export type LogStripeWebhookCreateInput = {
+    id?: string
+    description?: string | null
+    eventType?: string | null
+    error?: string | null
+    custumerId?: string | null
+    status?: boolean
+    data?: Date | string
+  }
+
+  export type LogStripeWebhookUncheckedCreateInput = {
+    id?: string
+    description?: string | null
+    eventType?: string | null
+    error?: string | null
+    custumerId?: string | null
+    status?: boolean
+    data?: Date | string
+  }
+
+  export type LogStripeWebhookUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    eventType?: NullableStringFieldUpdateOperationsInput | string | null
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    data?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LogStripeWebhookUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    eventType?: NullableStringFieldUpdateOperationsInput | string | null
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    data?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LogStripeWebhookCreateManyInput = {
+    id?: string
+    description?: string | null
+    eventType?: string | null
+    error?: string | null
+    custumerId?: string | null
+    status?: boolean
+    data?: Date | string
+  }
+
+  export type LogStripeWebhookUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    eventType?: NullableStringFieldUpdateOperationsInput | string | null
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    data?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LogStripeWebhookUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    eventType?: NullableStringFieldUpdateOperationsInput | string | null
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    data?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -17871,6 +20196,34 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type UserListRelationFilter = {
+    every?: UserWhereInput
+    some?: UserWhereInput
+    none?: UserWhereInput
+  }
+
+  export type UserOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PlanCountOrderByAggregateInput = {
+    id?: SortOrder
+    priceId?: SortOrder
+    description?: SortOrder
+  }
+
+  export type PlanMaxOrderByAggregateInput = {
+    id?: SortOrder
+    priceId?: SortOrder
+    description?: SortOrder
+  }
+
+  export type PlanMinOrderByAggregateInput = {
+    id?: SortOrder
+    priceId?: SortOrder
+    description?: SortOrder
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -17962,6 +20315,11 @@ export namespace Prisma {
     isNot?: TwoFactorConfirmationWhereInput | null
   }
 
+  export type PlanNullableRelationFilter = {
+    is?: PlanWhereInput | null
+    isNot?: PlanWhereInput | null
+  }
+
   export type AccountOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -17987,6 +20345,8 @@ export namespace Prisma {
     cpf?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
+    planId?: SortOrder
+    custumerId?: SortOrder
     isTwoFactorEnabled?: SortOrder
   }
 
@@ -17999,6 +20359,8 @@ export namespace Prisma {
     cpf?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
+    planId?: SortOrder
+    custumerId?: SortOrder
     isTwoFactorEnabled?: SortOrder
   }
 
@@ -18011,6 +20373,8 @@ export namespace Prisma {
     cpf?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
+    planId?: SortOrder
+    custumerId?: SortOrder
     isTwoFactorEnabled?: SortOrder
   }
 
@@ -18452,6 +20816,36 @@ export namespace Prisma {
     status?: SortOrder
   }
 
+  export type LogStripeWebhookCountOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    eventType?: SortOrder
+    error?: SortOrder
+    custumerId?: SortOrder
+    status?: SortOrder
+    data?: SortOrder
+  }
+
+  export type LogStripeWebhookMaxOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    eventType?: SortOrder
+    error?: SortOrder
+    custumerId?: SortOrder
+    status?: SortOrder
+    data?: SortOrder
+  }
+
+  export type LogStripeWebhookMinOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    eventType?: SortOrder
+    error?: SortOrder
+    custumerId?: SortOrder
+    status?: SortOrder
+    data?: SortOrder
+  }
+
   export type UserCreateNestedOneWithoutAccountsInput = {
     create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
     connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
@@ -18480,6 +20874,48 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutAccountsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAccountsInput, UserUpdateWithoutAccountsInput>, UserUncheckedUpdateWithoutAccountsInput>
+  }
+
+  export type UserCreateNestedManyWithoutPlanInput = {
+    create?: XOR<UserCreateWithoutPlanInput, UserUncheckedCreateWithoutPlanInput> | UserCreateWithoutPlanInput[] | UserUncheckedCreateWithoutPlanInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutPlanInput | UserCreateOrConnectWithoutPlanInput[]
+    createMany?: UserCreateManyPlanInputEnvelope
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type UserUncheckedCreateNestedManyWithoutPlanInput = {
+    create?: XOR<UserCreateWithoutPlanInput, UserUncheckedCreateWithoutPlanInput> | UserCreateWithoutPlanInput[] | UserUncheckedCreateWithoutPlanInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutPlanInput | UserCreateOrConnectWithoutPlanInput[]
+    createMany?: UserCreateManyPlanInputEnvelope
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type UserUpdateManyWithoutPlanNestedInput = {
+    create?: XOR<UserCreateWithoutPlanInput, UserUncheckedCreateWithoutPlanInput> | UserCreateWithoutPlanInput[] | UserUncheckedCreateWithoutPlanInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutPlanInput | UserCreateOrConnectWithoutPlanInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutPlanInput | UserUpsertWithWhereUniqueWithoutPlanInput[]
+    createMany?: UserCreateManyPlanInputEnvelope
+    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    update?: UserUpdateWithWhereUniqueWithoutPlanInput | UserUpdateWithWhereUniqueWithoutPlanInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutPlanInput | UserUpdateManyWithWhereWithoutPlanInput[]
+    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type UserUncheckedUpdateManyWithoutPlanNestedInput = {
+    create?: XOR<UserCreateWithoutPlanInput, UserUncheckedCreateWithoutPlanInput> | UserCreateWithoutPlanInput[] | UserUncheckedCreateWithoutPlanInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutPlanInput | UserCreateOrConnectWithoutPlanInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutPlanInput | UserUpsertWithWhereUniqueWithoutPlanInput[]
+    createMany?: UserCreateManyPlanInputEnvelope
+    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    update?: UserUpdateWithWhereUniqueWithoutPlanInput | UserUpdateWithWhereUniqueWithoutPlanInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutPlanInput | UserUpdateManyWithWhereWithoutPlanInput[]
+    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSessionsInput = {
@@ -18532,6 +20968,12 @@ export namespace Prisma {
     create?: XOR<TwoFactorConfirmationCreateWithoutUserInput, TwoFactorConfirmationUncheckedCreateWithoutUserInput>
     connectOrCreate?: TwoFactorConfirmationCreateOrConnectWithoutUserInput
     connect?: TwoFactorConfirmationWhereUniqueInput
+  }
+
+  export type PlanCreateNestedOneWithoutUsersInput = {
+    create?: XOR<PlanCreateWithoutUsersInput, PlanUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: PlanCreateOrConnectWithoutUsersInput
+    connect?: PlanWhereUniqueInput
   }
 
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
@@ -18640,6 +21082,16 @@ export namespace Prisma {
     delete?: TwoFactorConfirmationWhereInput | boolean
     connect?: TwoFactorConfirmationWhereUniqueInput
     update?: XOR<XOR<TwoFactorConfirmationUpdateToOneWithWhereWithoutUserInput, TwoFactorConfirmationUpdateWithoutUserInput>, TwoFactorConfirmationUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PlanUpdateOneWithoutUsersNestedInput = {
+    create?: XOR<PlanCreateWithoutUsersInput, PlanUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: PlanCreateOrConnectWithoutUsersInput
+    upsert?: PlanUpsertWithoutUsersInput
+    disconnect?: PlanWhereInput | boolean
+    delete?: PlanWhereInput | boolean
+    connect?: PlanWhereUniqueInput
+    update?: XOR<XOR<PlanUpdateToOneWithWhereWithoutUsersInput, PlanUpdateWithoutUsersInput>, PlanUncheckedUpdateWithoutUsersInput>
   }
 
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
@@ -19428,11 +21880,13 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     sessions?: SessionCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionCreateNestedManyWithoutUserInput
     items?: ItemCreateNestedManyWithoutUserInput
     twoFactorConfirmation?: TwoFactorConfirmationCreateNestedOneWithoutUserInput
+    plan?: PlanCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -19444,6 +21898,8 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    planId?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionUncheckedCreateNestedManyWithoutUserInput
@@ -19476,11 +21932,13 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     sessions?: SessionUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUpdateManyWithoutUserNestedInput
     items?: ItemUpdateManyWithoutUserNestedInput
     twoFactorConfirmation?: TwoFactorConfirmationUpdateOneWithoutUserNestedInput
+    plan?: PlanUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -19492,11 +21950,92 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    planId?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUncheckedUpdateManyWithoutUserNestedInput
     items?: ItemUncheckedUpdateManyWithoutUserNestedInput
     twoFactorConfirmation?: TwoFactorConfirmationUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutPlanInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    password?: string | null
+    phone?: string | null
+    cpf?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    custumerId?: string | null
+    isTwoFactorEnabled?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    userCollections?: UserCollectionCreateNestedManyWithoutUserInput
+    items?: ItemCreateNestedManyWithoutUserInput
+    twoFactorConfirmation?: TwoFactorConfirmationCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutPlanInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    password?: string | null
+    phone?: string | null
+    cpf?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    custumerId?: string | null
+    isTwoFactorEnabled?: boolean
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    userCollections?: UserCollectionUncheckedCreateNestedManyWithoutUserInput
+    items?: ItemUncheckedCreateNestedManyWithoutUserInput
+    twoFactorConfirmation?: TwoFactorConfirmationUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutPlanInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPlanInput, UserUncheckedCreateWithoutPlanInput>
+  }
+
+  export type UserCreateManyPlanInputEnvelope = {
+    data: UserCreateManyPlanInput | UserCreateManyPlanInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithWhereUniqueWithoutPlanInput = {
+    where: UserWhereUniqueInput
+    update: XOR<UserUpdateWithoutPlanInput, UserUncheckedUpdateWithoutPlanInput>
+    create: XOR<UserCreateWithoutPlanInput, UserUncheckedCreateWithoutPlanInput>
+  }
+
+  export type UserUpdateWithWhereUniqueWithoutPlanInput = {
+    where: UserWhereUniqueInput
+    data: XOR<UserUpdateWithoutPlanInput, UserUncheckedUpdateWithoutPlanInput>
+  }
+
+  export type UserUpdateManyWithWhereWithoutPlanInput = {
+    where: UserScalarWhereInput
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutPlanInput>
+  }
+
+  export type UserScalarWhereInput = {
+    AND?: UserScalarWhereInput | UserScalarWhereInput[]
+    OR?: UserScalarWhereInput[]
+    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
+    id?: StringFilter<"User"> | string
+    name?: StringNullableFilter<"User"> | string | null
+    email?: StringNullableFilter<"User"> | string | null
+    password?: StringNullableFilter<"User"> | string | null
+    phone?: StringNullableFilter<"User"> | string | null
+    cpf?: StringNullableFilter<"User"> | string | null
+    emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
+    image?: StringNullableFilter<"User"> | string | null
+    planId?: StringNullableFilter<"User"> | string | null
+    custumerId?: StringNullableFilter<"User"> | string | null
+    isTwoFactorEnabled?: BoolFilter<"User"> | boolean
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -19508,11 +22047,13 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionCreateNestedManyWithoutUserInput
     items?: ItemCreateNestedManyWithoutUserInput
     twoFactorConfirmation?: TwoFactorConfirmationCreateNestedOneWithoutUserInput
+    plan?: PlanCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -19524,6 +22065,8 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    planId?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionUncheckedCreateNestedManyWithoutUserInput
@@ -19556,11 +22099,13 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUpdateManyWithoutUserNestedInput
     items?: ItemUpdateManyWithoutUserNestedInput
     twoFactorConfirmation?: TwoFactorConfirmationUpdateOneWithoutUserNestedInput
+    plan?: PlanUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -19572,6 +22117,8 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    planId?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUncheckedUpdateManyWithoutUserNestedInput
@@ -19726,6 +22273,23 @@ export namespace Prisma {
     create: XOR<TwoFactorConfirmationCreateWithoutUserInput, TwoFactorConfirmationUncheckedCreateWithoutUserInput>
   }
 
+  export type PlanCreateWithoutUsersInput = {
+    id: string
+    priceId: string
+    description: string
+  }
+
+  export type PlanUncheckedCreateWithoutUsersInput = {
+    id: string
+    priceId: string
+    description: string
+  }
+
+  export type PlanCreateOrConnectWithoutUsersInput = {
+    where: PlanWhereUniqueInput
+    create: XOR<PlanCreateWithoutUsersInput, PlanUncheckedCreateWithoutUsersInput>
+  }
+
   export type AccountUpsertWithWhereUniqueWithoutUserInput = {
     where: AccountWhereUniqueInput
     update: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
@@ -19868,6 +22432,29 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
   }
 
+  export type PlanUpsertWithoutUsersInput = {
+    update: XOR<PlanUpdateWithoutUsersInput, PlanUncheckedUpdateWithoutUsersInput>
+    create: XOR<PlanCreateWithoutUsersInput, PlanUncheckedCreateWithoutUsersInput>
+    where?: PlanWhereInput
+  }
+
+  export type PlanUpdateToOneWithWhereWithoutUsersInput = {
+    where?: PlanWhereInput
+    data: XOR<PlanUpdateWithoutUsersInput, PlanUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type PlanUpdateWithoutUsersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlanUncheckedUpdateWithoutUsersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    priceId?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
   export type UserCreateWithoutTwoFactorConfirmationInput = {
     id?: string
     name?: string | null
@@ -19877,11 +22464,13 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionCreateNestedManyWithoutUserInput
     items?: ItemCreateNestedManyWithoutUserInput
+    plan?: PlanCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutTwoFactorConfirmationInput = {
@@ -19893,6 +22482,8 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    planId?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -19925,11 +22516,13 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUpdateManyWithoutUserNestedInput
     items?: ItemUpdateManyWithoutUserNestedInput
+    plan?: PlanUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTwoFactorConfirmationInput = {
@@ -19941,6 +22534,8 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    planId?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -20151,11 +22746,13 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionCreateNestedManyWithoutUserInput
     twoFactorConfirmation?: TwoFactorConfirmationCreateNestedOneWithoutUserInput
+    plan?: PlanCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutItemsInput = {
@@ -20167,6 +22764,8 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    planId?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -20299,11 +22898,13 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUpdateManyWithoutUserNestedInput
     twoFactorConfirmation?: TwoFactorConfirmationUpdateOneWithoutUserNestedInput
+    plan?: PlanUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutItemsInput = {
@@ -20315,6 +22916,8 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    planId?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -20464,11 +23067,13 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     items?: ItemCreateNestedManyWithoutUserInput
     twoFactorConfirmation?: TwoFactorConfirmationCreateNestedOneWithoutUserInput
+    plan?: PlanCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutUserCollectionsInput = {
@@ -20480,6 +23085,8 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
+    planId?: string | null
+    custumerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -20620,11 +23227,13 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     items?: ItemUpdateManyWithoutUserNestedInput
     twoFactorConfirmation?: TwoFactorConfirmationUpdateOneWithoutUserNestedInput
+    plan?: PlanUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserCollectionsInput = {
@@ -20636,6 +23245,8 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    planId?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -20981,6 +23592,68 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     itemId?: StringFieldUpdateOperationsInput | string
     userCollectionId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserCreateManyPlanInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    password?: string | null
+    phone?: string | null
+    cpf?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    custumerId?: string | null
+    isTwoFactorEnabled?: boolean
+  }
+
+  export type UserUpdateWithoutPlanInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    cpf?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    userCollections?: UserCollectionUpdateManyWithoutUserNestedInput
+    items?: ItemUpdateManyWithoutUserNestedInput
+    twoFactorConfirmation?: TwoFactorConfirmationUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPlanInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    cpf?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    userCollections?: UserCollectionUncheckedUpdateManyWithoutUserNestedInput
+    items?: ItemUncheckedUpdateManyWithoutUserNestedInput
+    twoFactorConfirmation?: TwoFactorConfirmationUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateManyWithoutPlanInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    cpf?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type AccountCreateManyUserInput = {
@@ -21509,6 +24182,10 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
+     * @deprecated Use PlanCountOutputTypeDefaultArgs instead
+     */
+    export type PlanCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PlanCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use UserCountOutputTypeDefaultArgs instead
      */
     export type UserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -21536,6 +24213,10 @@ export namespace Prisma {
      * @deprecated Use AccountDefaultArgs instead
      */
     export type AccountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AccountDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PlanDefaultArgs instead
+     */
+    export type PlanArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PlanDefaultArgs<ExtArgs>
     /**
      * @deprecated Use SessionDefaultArgs instead
      */
@@ -21588,6 +24269,10 @@ export namespace Prisma {
      * @deprecated Use UserItemImageDefaultArgs instead
      */
     export type UserItemImageArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserItemImageDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use LogStripeWebhookDefaultArgs instead
+     */
+    export type LogStripeWebhookArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LogStripeWebhookDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

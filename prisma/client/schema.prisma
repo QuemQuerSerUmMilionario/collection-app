@@ -28,6 +28,14 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
+model Plan {
+  id                String  @id
+  priceId           String  @unique 
+  description       String
+  users             User[]
+}
+
+
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
@@ -45,12 +53,15 @@ model User {
   cpf                   String?                @unique
   emailVerified         DateTime?
   image                 String?
+  planId                String?
+  custumerId            String?                @unique
   accounts              Account[]
   sessions              Session[]
   userCollections       UserCollection[]
   items                 Item[]
   isTwoFactorEnabled    Boolean                @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
+  plan                  Plan?                  @relation(fields: [planId], references: [id])
 }
 
 model VerificationToken {
@@ -127,7 +138,7 @@ model ItemImage {
   principal Boolean  @default(false)
   createdAt DateTime @default(now()) @map(name: "created_at")
   status    Boolean  @default(true)
-  item      Item     @relation(fields: [itemId], references: [id])
+  item      Item     @relation(fields: [itemId], references: [id],onDelete: Cascade)
 }
 
 model UserCollection {
@@ -153,7 +164,7 @@ model UserItem {
   name             String?
   itemId           String
   userCollectionId String
-  userCollection   UserCollection? @relation(fields: [userCollectionId], references: [id])
+  userCollection   UserCollection? @relation(fields: [userCollectionId], references: [id],onDelete: Cascade)
   item             Item?           @relation(fields: [itemId], references: [id])
   itemImages       UserItemImage[]
 
@@ -169,5 +180,16 @@ model UserItemImage {
   principal        Boolean  @default(false)
   createdAt        DateTime @default(now()) @map(name: "created_at")
   status           Boolean  @default(true)
-  userItem         UserItem @relation(fields: [userCollectionId, itemId], references: [userCollectionId, itemId])
+  userItem         UserItem @relation(fields: [userCollectionId, itemId], references: [userCollectionId, itemId] ,onDelete: Cascade)
+}
+
+
+model LogStripeWebhook {
+  id               String   @id @default(uuid())
+  description      String?
+  eventType        String?
+  error            String?
+  custumerId       String? 
+  status           Boolean  @default(true)
+  data             DateTime @default(now())
 }

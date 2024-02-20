@@ -1,9 +1,19 @@
 import { authOptions } from '@app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth"
 import { db } from '@/lib/db';
-import { getUserByCpfAndNotId,getUserByPhoneAndNotId } from '@/data/user';
+import { getUserByCpfAndNotId,getUserByPhoneAndNotId ,getUserById} from '@/data/user';
 import {UserSchema} from "@/schemas/zod.schemas"
 
+export const GET = async (request) => {
+    try {
+        const session = await getServerSession(authOptions);
+        const user = await getUserById(session?.user?.id)
+        return new Response(JSON.stringify(user), { status: 200 });
+    } catch (error) {
+        console.log(error);
+        return new Response(JSON.stringify({message:"Error",errors:[{message:"Failed to find user - " + error}]}), { status: 500 });
+    }
+}
 
 export const PUT = async (request) => {
     try {

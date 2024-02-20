@@ -122,6 +122,12 @@ exports.Prisma.AccountScalarFieldEnum = {
   session_state: 'session_state'
 };
 
+exports.Prisma.PlanScalarFieldEnum = {
+  id: 'id',
+  priceId: 'priceId',
+  description: 'description'
+};
+
 exports.Prisma.SessionScalarFieldEnum = {
   id: 'id',
   sessionToken: 'sessionToken',
@@ -138,6 +144,8 @@ exports.Prisma.UserScalarFieldEnum = {
   cpf: 'cpf',
   emailVerified: 'emailVerified',
   image: 'image',
+  planId: 'planId',
+  custumerId: 'custumerId',
   isTwoFactorEnabled: 'isTwoFactorEnabled'
 };
 
@@ -231,6 +239,16 @@ exports.Prisma.UserItemImageScalarFieldEnum = {
   status: 'status'
 };
 
+exports.Prisma.LogStripeWebhookScalarFieldEnum = {
+  id: 'id',
+  description: 'description',
+  eventType: 'eventType',
+  error: 'error',
+  custumerId: 'custumerId',
+  status: 'status',
+  data: 'data'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -249,6 +267,7 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   Account: 'Account',
+  Plan: 'Plan',
   Session: 'Session',
   User: 'User',
   VerificationToken: 'VerificationToken',
@@ -261,7 +280,8 @@ exports.Prisma.ModelName = {
   ItemImage: 'ItemImage',
   UserCollection: 'UserCollection',
   UserItem: 'UserItem',
-  UserItemImage: 'UserItemImage'
+  UserItemImage: 'UserItemImage',
+  LogStripeWebhook: 'LogStripeWebhook'
 };
 
 /**

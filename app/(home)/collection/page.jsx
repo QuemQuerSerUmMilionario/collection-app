@@ -1,18 +1,19 @@
 "use client";
-
+import { Suspense } from 'react'
 import CollectionCard from "@components/collection/CollectionCard";
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import Loading from './loading';
 
 const CollectionList = ({data}) => {
     return (
-       <div>
-            {
-              data.map((collection , index) => {
-                return (<CollectionCard key={index} collection={collection}/>) 
-              })
-            }
-       </div>
+      <>
+        {
+          data.map((collection , index) => {
+            return (<CollectionCard key={index} collection={collection}/>) 
+          })
+        }
+      </>
+          
     ) 
    
 }
@@ -20,7 +21,7 @@ const CollectionList = ({data}) => {
 const Collection = () => {
   const [collections, setCollections] = useState([]);
   const getCollections = async (e) => {
-
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     const response = await fetch( `/api/collection/`,
       {
         method: 'GET'
@@ -33,6 +34,7 @@ const Collection = () => {
     }
      const lista = await response.json();
      setCollections(lista);
+     
   };
 
   useEffect(() => {
@@ -40,12 +42,12 @@ const Collection = () => {
   }, []);
 
   return (
-    <div className="w-full">
-        <Link href='/collection/create-collection' className="black_btn">+</Link>
-        {collections.length > 0 && <CollectionList data={collections} />}
-
-    </div>
+      <div className="w-full flex flex-wrap justify-center">
+          {collections.length > 0 ?
+            (<CollectionList data={collections} />):
+            (<Loading/>)
+          }
+      </div>
   );
 };
-
 export default Collection;

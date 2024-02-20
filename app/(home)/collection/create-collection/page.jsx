@@ -4,18 +4,16 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Form from "@components/collection/CollectionForm";
 import { useSession, getSession } from "next-auth/react"
-
-const CreateCollection = () => {
-  const { data: session, status } = useSession()
-
-  const router = useRouter();
+import ErrorCard from "@components/ErrorCard"
+export default function CreateCollection() {
+  const { data: session, status } = useSession();
+  const [error, setError] = useState(null);
   const [submitting, setIsSubmitting] = useState(false);
-  const [collection, setCollection] = useState({ description: "",name:""});
-
+  const [collection, setCollection] = useState({ description: "", name: "" });
+  
   const createCollection = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       const response = await fetch("/api/collection", {
         method: "POST",
@@ -24,25 +22,26 @@ const CreateCollection = () => {
       const result = await response.json();
       console.log(result);
       if (response.ok) {
-        router.push("/collection");
+        router.push("/collection?callBack=create-collection");
+      }else if(result.errors){
+        setError(result.errors);
       }
     } catch (error) {
-      console.log(error);
-    } finally {
-      setIsSubmitting(false);
+       console.log(error.message);
+    }finally{
+      setIsSubmitting(true);
     }
+    
   };
   return (
-    <div>
-       <Form
+    <>
+      <Form
         type='Create'
         collection={collection}
         setCollection={setCollection}
         submitting={submitting}
-        handleSubmit={createCollection}
-      />
-    </div>
+        handleSubmit={createCollection} />
+        {error && <ErrorCard errors={error}/>}
+    </>
   );
-};
-
-export default CreateCollection;
+}

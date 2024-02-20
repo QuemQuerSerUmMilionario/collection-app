@@ -1,17 +1,32 @@
+import "@styles/globals.css";
+
 import SideNav from "@components/SideNav";
 import Nav from "@components/Nav";
-const HomeLayout = ({ children }) => {
+import  Provider  from "@components/Provider"
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+
+
+  export default async function RootLayout({ 
+    children, 
+  }) {
     return (
-      <main className="w-full">
-          <Nav />
-          <div className="max-w-[80rem] w-full flex justify-between">
-            <SideNav/>
-            <div className="w-full flex flex-col justify-start items-center">
-                {children}
+      <html lang='en' suppressHydrationWarning>
+      <body>
+        <Provider>
+            <div className='main'>
+              <div className='gradient' />
             </div>
-          </div>
-      </main>
-    );
-  };
-  
-  export default HomeLayout;
+            <main className='app'>
+              <Nav />
+              <div className="w-full flex justify-between">
+                <SideNav/>
+                <div className="w-full flex flex-col justify-start items-center">
+                    {children}
+                </div>
+              </div>
+            </main>
+        </Provider>
+      </body>
+    </html>
+    )
+  }
