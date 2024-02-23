@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import CollectionCard from "@components/collection/CollectionCard";
 import { useState, useEffect } from "react";
 import Loading from './loading';
+import Image from 'next/image';
 
 const CollectionList = ({data}) => {
     return (
@@ -20,6 +21,7 @@ const CollectionList = ({data}) => {
 
 const Collection = () => {
   const [collections, setCollections] = useState([]);
+  const [loading, setLoading] = useState(true);
   const getCollections = async (e) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     const response = await fetch( `/api/collection/`,
@@ -33,6 +35,7 @@ const Collection = () => {
       return;
     }
      const lista = await response.json();
+     setLoading(false);
      setCollections(lista);
      
   };
@@ -43,9 +46,11 @@ const Collection = () => {
 
   return (
       <div className="w-full flex flex-wrap justify-center">
-          {collections.length > 0 ?
-            (<CollectionList data={collections} />):
-            (<Loading/>)
+          {loading &&
+              <Loading/>
+          }
+          {!loading && collections.length > 0 &&
+            <CollectionList data={collections} />
           }
       </div>
   );

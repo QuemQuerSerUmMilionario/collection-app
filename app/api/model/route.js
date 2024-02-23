@@ -12,10 +12,11 @@ export const GET = async (req, response) => {
         const collectionId = req.nextUrl?.searchParams?.get('collectionId')??"";
         const model = req.nextUrl?.searchParams?.get('model')??"";
         const year = req.nextUrl?.searchParams?.get('year')??"";
+        const skip = req.nextUrl?.searchParams?.get('skip')??"";
         if (!collectionId) {
             return new Response(JSON.stringify({ errors: [{ message: "Collection is required" }] }), { status: 400 })
         }
-        const items = await getItems(parseInt(collectionId), model, year);
+        const items = await getItems(parseInt(collectionId), model, year,parseInt(skip),5);
         return new Response(JSON.stringify(items), { status: 200 })
     } catch (error) {
         return new Response(JSON.stringify({ errors: [{ message: "Failed to fetch models , " + error }] }), { status: 500 })
