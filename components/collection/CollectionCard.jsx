@@ -14,7 +14,7 @@ const CollectionCard = ({ collection }) => {
   return (
     <div className="m-12 flex flex-col items-start">
       <div className='flex  w-full'>
-        <h1 className='ml-8'>{collection.description}</h1>
+        <h1 className='ml-8'>{collection.name}</h1>
       </div>
       <div className='collection_card flex flex-between m-2'>
             <div className="flex justify-center w-3/4">
