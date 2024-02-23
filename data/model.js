@@ -1,8 +1,9 @@
 import { db } from "@/lib/db";
 
 
-export const getItems = async (collection,model,year) => {
+export const getItems = async (collection,model,year,skip,limit) => {
   try {
+    var clause = {};
     var where = {
       collectionId:collection
     };
@@ -15,10 +16,15 @@ export const getItems = async (collection,model,year) => {
           mode: 'insensitive'
       }
     }
+    if(skip){
+      clause.skip = skip;
+    }
+    if(limit){
+      clause.take = limit;
+    }
+    clause.where = where;
     const items = await db.item.findMany({
-      where: { 
-        ...where
-      },
+      ...clause,
       orderBy: [
         {
           model: 'asc',
