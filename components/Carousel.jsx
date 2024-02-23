@@ -35,8 +35,8 @@ const Carousel = ({slides}) => {
             <FontAwesomeIcon className='text-slate-300'  icon={faAngleLeft} />
 
           </button>
-          <button onClick={nextSlide} className='absolute right-0'>
-            <FontAwesomeIcon className='text-slate-300' icon={faAngleRight} />
+          <button onClick={nextSlide} className='absolute right-[-10px] z-[999]'>
+            <FontAwesomeIcon className='text-slate-500' icon={faAngleRight} />
           </button>
         </div>
   

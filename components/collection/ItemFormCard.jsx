@@ -3,8 +3,9 @@ import Image from "next/image"
 const ItemFormCard = ({ itemForm, itemCard, setItem , setSelected }) => {
   return (
     <label
-      className={`bg-white shadow-2xl pl-4 pr-4 pt-0 rounded-lg  m-16 cursor-pointer flex flex-col items-center justify-center   ${itemForm.itemId === itemCard.id ? '' : 'opacity-50'}`}
+      className={`bg-white shadow-2xl pl-4 pr-4 pt-0 rounded-lg  m-16 cursor-pointer flex flex-col items-center justify-center  item_card  ${itemForm.itemId === itemCard.id ? '' : 'opacity-50'}`}
       id="item_card"
+
     >
       <input
         type="radio"

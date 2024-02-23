@@ -5,15 +5,18 @@ import Image from "next/image";
 import CircularProgress from '@mui/material/CircularProgress';
 import Autocomplete from "@mui/material/Autocomplete";
 import { TextField } from "@mui/material";
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import ItemFormCard from "@components/collection/ItemFormCard";
-import Modal from "@components/Modal";
+import ItemCard from "@components/collection/ItemCard";
+import { faCircleXmark} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
 
   const [loading, setLoading] = useState(false);
   const [options, setSuggestions] = useState([]);
-  const [items, setItems] = useState([]);
+  const [stopSearching, setStopSearching] = useState(false);
+  var [items, setItems] = useState([]);
   const [selected, setSelected] = useState(null);
   const isOptionEqualToValue = (option, value) => option.model === value.model && option.id === value.id;
   const [files, setImage] = useState(null);
@@ -33,8 +36,9 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
     setLoading(false);
     return models;
   }
-  const fetchItems = async () => {
-    const items = await fetch(`/api/model?collectionId=1&&model=${item.model ?? ""}&&year=${item.year ?? ""}`,
+
+  const laodItems = async () => {
+    const result = await fetch(`/api/model?collectionId=1&&model=${item.model ?? ""}&&year=${item.year ?? ""}&&skip=${items.length}`,
       {
         method: 'GET'
       }
@@ -44,8 +48,26 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
       console.error(error);
       return [];
     });
-    setItems(items);
+    if (result.length == 0) {
+      setStopSearching(true);
+    }
+    setItems([...items, ...result]);
   }
+  const fetchItemsBy = async () => {
+    setStopSearching(false);
+    const result = await fetch(`/api/model?collectionId=1&&model=${item.model ?? ""}&&year=${item.year ?? ""}&&skip=0`,
+      {
+        method: 'GET'
+      }
+    ).then((response) => {
+      return response.json();
+    }).catch(error => {
+      console.error(error);
+      return [];
+    });
+    setItems(result);
+  }
+
 
   const openRegisterForm = async () => {
     document.getElementById("item_selection").style.display = "none";
@@ -57,9 +79,29 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
     document.getElementById("item_selection").style.display = "none";
   }
 
-  const removeFile =  (index) => {
-      setItem({...item,files:Array.from(item.files).slice(0,1)})
+
+  const handleScroll = (e) => {
+    if (e.target.scrollTop + e.target.clientHeight >= e.target.scrollHeight) {
+      if (!stopSearching) {
+        laodItems();
+      }
+    }
   }
+
+  const removeFile = (index) => {
+    let data = new DataTransfer();
+    Array.from(item.files).forEach((blob, i) => {
+      if (i != index) {
+        data.items.add(blob)
+      }
+
+    })
+    setItem({ ...item, files: data.files })
+  }
+
+  useEffect(() => {
+    fetchItemsBy();
+  }, [])
 
   return (
     <>
@@ -75,9 +117,9 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
             options={options}
             getOptionLabel={(option) => option.model}
             onInputChange={async (event, value) => {
-              if(value){
+              if (value) {
                 setSuggestions(await fetchModels(value))
-              }else{
+              } else {
                 setSuggestions([]);
               }
             }}
@@ -86,11 +128,10 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
               if (newValue) {
                 //setItem({ ...item, model: newValue.model })
                 item.model = newValue.model;
-                fetchItems();
-              }else{
-                setItems([]);
+              } else {
                 item.model = "";
               }
+              fetchItemsBy();
             }}
             renderInput={(params) => (
               <TextField
@@ -114,9 +155,9 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
             <TextField
               onChange={(e) => {
                 const value = e.target.value;
-                if(value){
+                if (value) {
                   item.year = value;
-                  fetchItems();
+                  fetchItemsBy();
                 }
               }}
               label='Year'
@@ -124,28 +165,11 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
               className='form_input'
             />
           </label>
-          {/*<label>
-            <TextField
-              value={item?.name}
-              onChange={(e) => setItem({ ...item, name: e.target.value })}
-              label='Year'
-              required
-              className='form_input'
-            />
-          </label>
-          <label>
-            <TextField
-              value={item?.year}
-              onChange={(e) => setItem({ ...item, year: e.target.value })}
-              label='Name'
-              required
-              className='form_input'
-            />
-          </label>*/}
-          <div className="flex flex-wrap justify-center max-h-96 shadow-inner overflow-auto">
+          <div id="items" onScroll={(e) => handleScroll(e)} className="flex flex-wrap justify-center max-h-96 shadow-inner overflow-auto">
             {items?.map((itemCard, index) => {
               return (
                 <ItemFormCard
+
                   key={index}
                   itemCard={itemCard}
                   itemForm={item}
@@ -176,13 +200,21 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
           className='mt-10 w-[90%] max-w-[90%] flex flex-col gap-7 glassmorphism'
         >
           <div className="flex flex-wrap justify-center">
-            {selected && <ItemFormCard
+            {selected && <ItemCard
               itemCard={selected}
-              itemForm={selected}
-              setItem={setItem}
             />}
           </div>
-          <label>
+          <label htmlFor="">
+            <input
+              value={item?.name}
+              onChange={(e) => setItem({ ...item, name: e.target.value })}
+              label='Name'
+              placeholder="Name"
+              required
+              className='form_input'
+            />
+          </label>
+          <label htmlFor="">
             <textarea
               value={item?.description}
               onChange={(e) => setItem({ ...item, description: e.target.value })}
@@ -198,29 +230,32 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
               className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium"
               placeholder="Type in here…"
               onChange={(event) => {
+                let combinedFiles = new DataTransfer();
                 var files = event?.target?.files;
                 for (let i = 0; i < files.length; i++) {
                   const fileURL = URL.createObjectURL(files[i]);
                   files[i].url = fileURL;
+                  combinedFiles.items.add(files[i]);
                 }
-                Array.from(files).push(...item.files);
-                setItem({...item,files:files})
+                Array.from(item?.files).forEach(blob => {
+                  combinedFiles.items.add(blob);
+                });
+                setItem({ ...item, files: combinedFiles.files })
               }} />
-              <div className="flex gap-3 mt-6">
-                {item.files?.length > 0 && 
-                  Array.from(item.files).map((file,index) => {
-                      console.log(file.url);
-                      return (
-                        <div key={index} className="relative">
-                          <span className="top-0 right-0 p-0 m-0 absolute" onClick={() => removeFile(index)}>x</span>
-                          <Image  width={100} height={100} className="object-contain" src={file.url} alt="..."/>
-                        </div>
-                      )
-                  })
-                }
-              </div>
+            <div className="flex justify-center flex-wrap gap-3 mt-6">
+              {item.files?.length > 0 &&
+                Array.from(item.files).map((file, index) => {
+                  return (
+                    <div key={index} className="relative">
+                      <span className="top-0 right-0 p-0 m-0 absolute" onClick={() => removeFile(index)}><FontAwesomeIcon icon={faCircleXmark}/></span>
+                      <Image width={300} height={300} className="object-contain" src={file.url} alt="..." />
+                    </div>
+                  )
+                })
+              }
+            </div>
           </label>
-        
+
           <div className='flex-end mx-3 mb-5 gap-4'>
             <Link href='/collection' className='text-gray-500 text-sm'>
               Cancel
