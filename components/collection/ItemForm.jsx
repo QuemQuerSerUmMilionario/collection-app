@@ -10,19 +10,24 @@ import ItemFormCard from "@components/collection/ItemFormCard";
 import ItemCard from "@components/collection/ItemCard";
 import { faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Loading from "@app/(home)/collection/[id]/item/loading";
+import ErrorCard from "@components/ErrorCard";
 
 const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
 
-  const [loading, setLoading] = useState(false);
+  const [loadingModel, setloadingModel] = useState(false);
+  const [loading, setloading] = useState(false);
+  const [loadingScreen, setloadingScreen] = useState(false);
   const [options, setSuggestions] = useState([]);
   const [stopSearching, setStopSearching] = useState(false);
   var [items, setItems] = useState([]);
+  const [error,setError] = useState(null);
   const [selected, setSelected] = useState(null);
   const isOptionEqualToValue = (option, value) => option.model === value.model && option.id === value.id;
   const [files, setImage] = useState(null);
 
   const fetchModels = async (value) => {
-    setLoading(true);
+    setloadingModel(true);
     const models = await fetch(`/api/model/autocomplete/${value}`,
       {
         method: 'GET'
@@ -33,11 +38,12 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
       console.error(error);
       return [];
     });
-    setLoading(false);
+    setloadingModel(false);
     return models;
   }
 
   const laodItems = async () => {
+    setloading(true);
     const result = await fetch(`/api/model?collectionId=1&&model=${item.model ?? ""}&&year=${item.year ?? ""}&&skip=${items.length}`,
       {
         method: 'GET'
@@ -51,9 +57,11 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
     if (result.length == 0) {
       setStopSearching(true);
     }
+    setloading(false);
     setItems([...items, ...result]);
   }
   const fetchItemsBy = async () => {
+    setloading(true);
     setStopSearching(false);
     const result = await fetch(`/api/model?collectionId=1&&model=${item.model ?? ""}&&year=${item.year ?? ""}&&skip=0`,
       {
@@ -65,17 +73,29 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
       console.error(error);
       return [];
     });
+    setloading(false);
     setItems(result);
   }
 
 
   const openRegisterForm = async () => {
-    document.getElementById("item_selection").style.display = "none";
-    document.getElementById("item_register").style.display = "flex";
+    if(selected){
+      setError(null);
+      setloadingScreen(true);
+      document.getElementById("item_selection").style.display = "none";
+      setTimeout(function(){
+        setloadingScreen(false);
+        document.getElementById("item_register").style.display = "flex";
+      },1000)
+   
+    }else{
+      setError({message:"Select a item to continue"})
+    }
   }
 
   const openSelectionForm = async () => {
-    document.getElementById("item_selection").style.display = "flex";
+    setError(null);
+    document.getElementById("item_register").style.display = "flex";
     document.getElementById("item_selection").style.display = "none";
   }
 
@@ -104,13 +124,14 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
   }, [])
 
   return (
-    <>
-      <section id="item_selection" className='w-full max-w-full flex justify-center flex-col'>
-        <h1 className='head_text'>
+    <div className="w-full h-full flex flex-col  items-center">
+      <h1 className='head_text'>
           <span className=''>{type} item</span>
-        </h1>
+      </h1>
+      <section id="item_selection" className='w-full max-w-full flex justify-center flex-col'>
+      
         <div
-          className='mt-10 w-[90%] max-w-[90%] flex flex-col gap-7 glassmorphism'
+          className='mt-10 w-full flex flex-col gap-7 glassmorphism'
         >
           <Autocomplete
             className='form_input'
@@ -143,7 +164,7 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
                   ...params.InputProps,
                   endAdornment: (
                     <React.Fragment>
-                      {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                      {loadingModel ? <CircularProgress color="inherit" size={20} /> : null}
                       {params.InputProps.endAdornment}
                     </React.Fragment>
                   ),
@@ -169,7 +190,6 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
             {items?.map((itemCard, index) => {
               return (
                 <ItemFormCard
-
                   key={index}
                   itemCard={itemCard}
                   itemForm={item}
@@ -178,6 +198,7 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
                 />
               )
             })}
+            {loading && <Loading/>}
           </div>
           <div className='flex-end mx-3 mb-5 gap-4'>
             <Link href='/collection' className='text-gray-500 text-sm'>
@@ -192,13 +213,19 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
               next
             </button>
           </div>
+          
         </div>
+          {
+            error && <ErrorCard error={error}/>
+          }
       </section>
+      {loadingScreen && <CircularProgress color="inherit" className="m-auto" size={20} />}
       <section id="item_register" className='w-full max-w-full  justify-center flex-col hidden'>
         <form
           onSubmit={handleSubmit}
           className='mt-10 w-[90%] max-w-[90%] flex flex-col gap-7 glassmorphism'
         >
+           <span type="button"  className="text-gray-500 text-sm cursor-pointer self-start underline" onClick={(e) => openSelectionForm()}>back</span>
           <div className="flex flex-wrap justify-center">
             {selected && <ItemCard
               itemCard={selected}
@@ -269,8 +296,9 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
             </button>
           </div>
         </form>
+        
       </section>
-    </>
+    </div>
 
   );
 };

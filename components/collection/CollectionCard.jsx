@@ -12,12 +12,12 @@ const CollectionCard = ({ collection }) => {
     { id: 6, label: "Delete", icon: faTrash, link: "/delete" },
   ];
   return (
-    <div className="m-12 flex flex-col items-start">
-      <div className='flex  w-full'>
-        <h1 className='ml-8'>{collection.name}</h1>
+    <div className="m-12 flex flex-col items-center">
+      <div className='flex justify-center w-full'>
+        <h1 className='mr-8 text-sm font-extrabold leading-[1.15] text-black'>{collection.name}</h1>
       </div>
       <div className='collection_card flex flex-between m-2'>
-            <div className="flex justify-center w-3/4">
+            <div className="flex justify-center w-4/5 h-full shadow-inner">
               <Image
                 src='/assets/images/perfil.png'
                 alt='logo'
@@ -26,7 +26,7 @@ const CollectionCard = ({ collection }) => {
                 className='object-contain'
               />
             </div>
-            <div className="collection_card_menu w-1/4">
+            <div className="collection_card_menu w-1/5 h-full">
                 {items.map(({ icon: Icon, ...menu } , index) => {
                     return (
                     <div key={index}>
