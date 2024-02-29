@@ -77,6 +77,11 @@ export const POST = async (request, response) => {
           default:
             // Unhandled event type
         }
+        await db.logStripeWebhook.create({
+          data:{
+            
+          }
+        })
         return new Response({},{ status: 200 });
     } catch (error) {
         console.log(error);

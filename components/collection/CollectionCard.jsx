@@ -1,9 +1,12 @@
 "use client";
+import { useSession } from "next-auth/client"
 import { faGear ,faFolderPlus , faFolder , faFileCirclePlus , faTrash , faImage} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from "next/link";
 import Image from "next/image"
 const CollectionCard = ({ collection }) => {
+  const [session, loading] = useSession()
+
   const items = [
     { id: 1, label: "Collection", icon: faFolder, link: `/collection/update-collection/${collection.id}` },
     { id: 2, label: "Image", icon: faImage, link: `/collection/${collection.id}` },
@@ -27,7 +30,8 @@ const CollectionCard = ({ collection }) => {
               />
             </div>
             <div className="collection_card_menu w-1/5 h-full">
-                {items.map(({ icon: Icon, ...menu } , index) => {
+                {session?.user?.id == collection.userId && 
+                 items.map(({ icon: Icon, ...menu } , index) => {
                     return (
                     <div key={index}>
                         <Link href={menu.link}>
