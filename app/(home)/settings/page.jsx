@@ -2,6 +2,7 @@
 import { useState,useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Form from "@components/user/Profile";
+import Setting from "@components/user/Setting";
 import { useSession, getSession } from "next-auth/react"
 
 const MyProfile = () => {
@@ -48,13 +49,17 @@ const MyProfile = () => {
   };
   
   return (
-      <Form
-      type='Update'
-      user={user}
-      setUser={setUser}
-      submitting={submitting}
-      handleSubmit={updateUser}
-    />
+    <>
+        { /* <Form
+        type='Update'
+        user={user}
+        setUser={setUser}
+        submitting={submitting}
+        handleSubmit={updateUser}
+    />*/}
+        <Setting/>
+    </>
+  
   );
 };
 

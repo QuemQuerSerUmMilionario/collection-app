@@ -20,7 +20,6 @@ export default function CreateCollection() {
         body: JSON.stringify(collection),
       });
       const result = await response.json();
-      console.log(result);
       if (response.ok) {
         router.push("/collection?callBack=create-collection");
       }else if(result.errors){

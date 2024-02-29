@@ -1,11 +1,11 @@
 "use client";
-import { useSession } from "next-auth/client"
+import { useSession } from "next-auth/react"
 import { faGear ,faFolderPlus , faFolder , faFileCirclePlus , faTrash , faImage} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from "next/link";
 import Image from "next/image"
 const CollectionCard = ({ collection }) => {
-  const [session, loading] = useSession()
+  const { data: session } = useSession();
 
   const items = [
     { id: 1, label: "Collection", icon: faFolder, link: `/collection/update-collection/${collection.id}` },

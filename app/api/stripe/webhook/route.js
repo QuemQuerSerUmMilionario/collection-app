@@ -6,6 +6,7 @@ export const POST = async (request, response) => {
     let data;
     let eventType;
     let event;
+    let custumerId;
     const webhookSecret = 'whsec_9b18cabd54399c1c1ea872446c5a23b522a4449e759b0747a0823333ece5365a';
     try {
         const rawBody = await request.text();
@@ -53,11 +54,10 @@ export const POST = async (request, response) => {
             // The subscription becomes past_due. Notify your customer and send them to the
             // customer portal to update their payment information.
             const plan = await getPlanByPriceId(data.object?.plan?.id);
-            console.log(plan);
-            console.log(data.object?.customer);
+            custumerId = data.object?.customer;
             await db.user.update({
               where: {
-                custumerId:data.object?.customer,
+                custumerId:custumerId,
               },
               data: {
                 planId:plan.id,
@@ -65,6 +65,7 @@ export const POST = async (request, response) => {
             });
             break;
             case 'customer.created':
+              custumerId = data.object?.customer;
               await db.user.update({
                   where: {
                       email:data.object?.email,
@@ -79,12 +80,23 @@ export const POST = async (request, response) => {
         }
         await db.logStripeWebhook.create({
           data:{
-            
+            description: "", 
+            eventType:eventType,
+            error:false,
+            custumerId:custumerId,
           }
         })
         return new Response({},{ status: 200 });
     } catch (error) {
         console.log(error);
-        return new Response(JSON.stringify({ errors: [{ message: "Failed to create a new item ," + error }] }), { status: 500 });
+        await db.logStripeWebhook.create({
+          data:{
+            description:"Failed  update stripe status," + error, 
+            eventType:eventType,
+            error:true,
+            custumerId:custumerId,
+          }
+        })
+        return new Response(JSON.stringify({ errors: [{ message: "Failed  update stripe status," + error }] }), { status: 500 });
     }
 }

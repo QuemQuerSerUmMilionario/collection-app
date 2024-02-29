@@ -6,9 +6,6 @@ export default function Modal({
     title = "",
     content = "",
     buttons = [],
-    classes = "",
-    onDiscard = "",
-    onConfirm = "",
     children,
     open
 }) {

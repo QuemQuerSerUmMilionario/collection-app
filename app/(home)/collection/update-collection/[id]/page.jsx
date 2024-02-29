@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import { useParams,useRouter } from 'next/navigation';
 import Form from "@components/collection/CollectionForm";
 import { useSession, getSession } from "next-auth/react"
+import ErrorCard from "@components/ErrorCard"
 
 const UpdateCollection = () => {
   const params = useParams();;
   const id = params.id;
+  const [error, setError] = useState(null);
   const [submitting, setIsSubmitting] = useState(false);
   const [collection, setCollection] = useState({id:"",description: "",name:""});
 
@@ -26,11 +28,11 @@ const UpdateCollection = () => {
           'Content-Type': 'application/json',
         },
       });
-      
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.log(errorData);
-        return;
+      const result = await response.json();
+      if (response.ok) {
+        router.push("/collection?callBack=create-collection");
+      }else if(result.errors){
+        setError(result.errors);
       }
     } finally {
       setIsSubmitting(false);
@@ -64,6 +66,8 @@ const UpdateCollection = () => {
         submitting={submitting}
         handleSubmit={updateCollection}
       />
+      {error && <ErrorCard errors={error}/>}
+
     </div>
   );
 };
