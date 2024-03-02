@@ -10,35 +10,11 @@ import {UserItemsSchema} from "@/schemas/zod.schemas"
 
 export async function GET(request,{ params }) {
   const  id  = params.id;
-  console.log(id);
-  const items = await db.userCollection.findUnique({
-    where: {
-      id: id,
-    },
-    select: {
-      name: true,
-      description: true,
-      items: {
-        select: {
-          description: true,
-          name: true,
-          itemImages: {
-            select: {
-              link: true,
-              fileName: true,
-            },
-          },
-          item: {
-            select: {
-              model: true,
-              series: true,
-              year: true
-            },
-          },
-        },
-      },
-    },
-  });
+  const  itemId  = params.itemId;
+  const userItemExist = await getUserItem(id,itemId);
+  if(!userItemExist){
+    return  handleResponse(JSON.stringify({ errors: [{ message: `Item not found`}] }),200,'application/json;charset=utf-8')
+  }
   return  handleResponse(JSON.stringify(items),200,'application/json;charset=utf-8')
 }
   

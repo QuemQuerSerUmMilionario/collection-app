@@ -5258,7 +5258,7 @@ export namespace Prisma {
     emailVerified: Date | null
     image: string | null
     planId: string | null
-    custumerId: string | null
+    customerId: string | null
     isTwoFactorEnabled: boolean | null
   }
 
@@ -5272,7 +5272,7 @@ export namespace Prisma {
     emailVerified: Date | null
     image: string | null
     planId: string | null
-    custumerId: string | null
+    customerId: string | null
     isTwoFactorEnabled: boolean | null
   }
 
@@ -5286,7 +5286,7 @@ export namespace Prisma {
     emailVerified: number
     image: number
     planId: number
-    custumerId: number
+    customerId: number
     isTwoFactorEnabled: number
     _all: number
   }
@@ -5302,7 +5302,7 @@ export namespace Prisma {
     emailVerified?: true
     image?: true
     planId?: true
-    custumerId?: true
+    customerId?: true
     isTwoFactorEnabled?: true
   }
 
@@ -5316,7 +5316,7 @@ export namespace Prisma {
     emailVerified?: true
     image?: true
     planId?: true
-    custumerId?: true
+    customerId?: true
     isTwoFactorEnabled?: true
   }
 
@@ -5330,7 +5330,7 @@ export namespace Prisma {
     emailVerified?: true
     image?: true
     planId?: true
-    custumerId?: true
+    customerId?: true
     isTwoFactorEnabled?: true
     _all?: true
   }
@@ -5417,7 +5417,7 @@ export namespace Prisma {
     emailVerified: Date | null
     image: string | null
     planId: string | null
-    custumerId: string | null
+    customerId: string | null
     isTwoFactorEnabled: boolean
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
@@ -5448,7 +5448,7 @@ export namespace Prisma {
     emailVerified?: boolean
     image?: boolean
     planId?: boolean
-    custumerId?: boolean
+    customerId?: boolean
     isTwoFactorEnabled?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
@@ -5469,7 +5469,7 @@ export namespace Prisma {
     emailVerified?: boolean
     image?: boolean
     planId?: boolean
-    custumerId?: boolean
+    customerId?: boolean
     isTwoFactorEnabled?: boolean
   }
 
@@ -5504,7 +5504,7 @@ export namespace Prisma {
       emailVerified: Date | null
       image: string | null
       planId: string | null
-      custumerId: string | null
+      customerId: string | null
       isTwoFactorEnabled: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -5920,7 +5920,7 @@ export namespace Prisma {
     readonly emailVerified: FieldRef<"User", 'DateTime'>
     readonly image: FieldRef<"User", 'String'>
     readonly planId: FieldRef<"User", 'String'>
-    readonly custumerId: FieldRef<"User", 'String'>
+    readonly customerId: FieldRef<"User", 'String'>
     readonly isTwoFactorEnabled: FieldRef<"User", 'Boolean'>
   }
     
@@ -17763,7 +17763,7 @@ export namespace Prisma {
     emailVerified: 'emailVerified',
     image: 'image',
     planId: 'planId',
-    custumerId: 'custumerId',
+    customerId: 'customerId',
     isTwoFactorEnabled: 'isTwoFactorEnabled'
   };
 
@@ -18202,7 +18202,7 @@ export namespace Prisma {
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
     planId?: StringNullableFilter<"User"> | string | null
-    custumerId?: StringNullableFilter<"User"> | string | null
+    customerId?: StringNullableFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolFilter<"User"> | boolean
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
@@ -18222,7 +18222,7 @@ export namespace Prisma {
     emailVerified?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     planId?: SortOrderInput | SortOrder
-    custumerId?: SortOrderInput | SortOrder
+    customerId?: SortOrderInput | SortOrder
     isTwoFactorEnabled?: SortOrder
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
@@ -18237,7 +18237,7 @@ export namespace Prisma {
     email?: string
     phone?: string
     cpf?: string
-    custumerId?: string
+    customerId?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
@@ -18253,7 +18253,7 @@ export namespace Prisma {
     items?: ItemListRelationFilter
     twoFactorConfirmation?: XOR<TwoFactorConfirmationNullableRelationFilter, TwoFactorConfirmationWhereInput> | null
     plan?: XOR<PlanNullableRelationFilter, PlanWhereInput> | null
-  }, "id" | "email" | "phone" | "cpf" | "custumerId">
+  }, "id" | "email" | "phone" | "cpf" | "customerId">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -18265,7 +18265,7 @@ export namespace Prisma {
     emailVerified?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     planId?: SortOrderInput | SortOrder
-    custumerId?: SortOrderInput | SortOrder
+    customerId?: SortOrderInput | SortOrder
     isTwoFactorEnabled?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -18285,7 +18285,7 @@ export namespace Prisma {
     emailVerified?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
     planId?: StringNullableWithAggregatesFilter<"User"> | string | null
-    custumerId?: StringNullableWithAggregatesFilter<"User"> | string | null
+    customerId?: StringNullableWithAggregatesFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
@@ -19209,7 +19209,7 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -19229,7 +19229,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     planId?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -19247,7 +19247,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -19267,7 +19267,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     planId?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -19286,7 +19286,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     planId?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
   }
 
@@ -19299,7 +19299,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -19313,7 +19313,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     planId?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -20346,7 +20346,7 @@ export namespace Prisma {
     emailVerified?: SortOrder
     image?: SortOrder
     planId?: SortOrder
-    custumerId?: SortOrder
+    customerId?: SortOrder
     isTwoFactorEnabled?: SortOrder
   }
 
@@ -20360,7 +20360,7 @@ export namespace Prisma {
     emailVerified?: SortOrder
     image?: SortOrder
     planId?: SortOrder
-    custumerId?: SortOrder
+    customerId?: SortOrder
     isTwoFactorEnabled?: SortOrder
   }
 
@@ -20374,7 +20374,7 @@ export namespace Prisma {
     emailVerified?: SortOrder
     image?: SortOrder
     planId?: SortOrder
-    custumerId?: SortOrder
+    customerId?: SortOrder
     isTwoFactorEnabled?: SortOrder
   }
 
@@ -21880,7 +21880,7 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     sessions?: SessionCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionCreateNestedManyWithoutUserInput
@@ -21899,7 +21899,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     planId?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionUncheckedCreateNestedManyWithoutUserInput
@@ -21932,7 +21932,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     sessions?: SessionUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUpdateManyWithoutUserNestedInput
@@ -21951,7 +21951,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     planId?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUncheckedUpdateManyWithoutUserNestedInput
@@ -21968,7 +21968,7 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -21986,7 +21986,7 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -22034,7 +22034,7 @@ export namespace Prisma {
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
     planId?: StringNullableFilter<"User"> | string | null
-    custumerId?: StringNullableFilter<"User"> | string | null
+    customerId?: StringNullableFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolFilter<"User"> | boolean
   }
 
@@ -22047,7 +22047,7 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionCreateNestedManyWithoutUserInput
@@ -22066,7 +22066,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     planId?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     userCollections?: UserCollectionUncheckedCreateNestedManyWithoutUserInput
@@ -22099,7 +22099,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUpdateManyWithoutUserNestedInput
@@ -22118,7 +22118,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     planId?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     userCollections?: UserCollectionUncheckedUpdateManyWithoutUserNestedInput
@@ -22464,7 +22464,7 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -22483,7 +22483,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     planId?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -22516,7 +22516,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -22535,7 +22535,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     planId?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -22746,7 +22746,7 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -22765,7 +22765,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     planId?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -22898,7 +22898,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -22917,7 +22917,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     planId?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -23067,7 +23067,7 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -23086,7 +23086,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     planId?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -23227,7 +23227,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -23246,7 +23246,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     planId?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -23603,7 +23603,7 @@ export namespace Prisma {
     cpf?: string | null
     emailVerified?: Date | string | null
     image?: string | null
-    custumerId?: string | null
+    customerId?: string | null
     isTwoFactorEnabled?: boolean
   }
 
@@ -23616,7 +23616,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -23634,7 +23634,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -23652,7 +23652,7 @@ export namespace Prisma {
     cpf?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
-    custumerId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
   }
 

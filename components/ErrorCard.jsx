@@ -5,7 +5,7 @@ const ErrorCard = ({ errors , error}) => {
   return (
     <>
     
-        <ul className="mt-4 mb-4 p-3 rounded-md w-full h-fit bg-red-400  border-red-600 border text-black font-bold">
+        <ul className="mt-4 mb-4 p-3 rounded-md w-[50%] h-fit bg-red-400  border-red-600 border text-black font-bold">
           
             {error  && 
                 <li>

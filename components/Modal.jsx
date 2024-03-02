@@ -10,28 +10,27 @@ export default function Modal({
     onDiscard = "",
     onConfirm = "",
     children,
-    open
+    open,
+    setIsOpen
 }) {
-    let [ isOpen, setIsOpen ] = useState(open);
 
     useEffect(() => {
-        setIsOpen(isOpen);
-        if(!isOpen) {
+        if(!open) {
             document.documentElement.style.overflow = "auto";
         } else {
             document.documentElement.style.overflow = "hidden";
         }
-    }, [isOpen]);
+    }, [open]);
 
     const HandleChange = () => {
-        setIsOpen(!isOpen);
+        setIsOpen(!open);
     }
     return <>
         <div onClick={() => HandleChange()}>
             {children}
         </div>
 
-        <Transition show={isOpen}>
+        <Transition show={open}>
             <Transition.Child
                 as={Fragment}
                 enter="transition-all duration-200"
@@ -52,7 +51,7 @@ export default function Modal({
                 leaveTo="opacity-0 scale-75"
                 leaveFrom="opacity-100 scale-100"
             >
-                <div  id="modal" className="h-[600px] w-[50%] absolute top-10 left-0 right-0 m-auto bg-slate-100 z-50">
+                <div  id="modal" className="h-[600px] w-[50%] absolute bottom-0 top-0 left-0 right-0 m-auto bg-slate-100 z-50">
                     <header className="w-full h-1/6 flex items-center justify-center p-4">
                         <h1 className="head_text">{title}</h1>
                     </header>

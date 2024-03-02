@@ -33,7 +33,7 @@ export default function CreateCollection() {
     
   };
   return (
-    <>
+    <div>
       <Form
         type='Create'
         collection={collection}
@@ -41,6 +41,6 @@ export default function CreateCollection() {
         submitting={submitting}
         handleSubmit={createCollection} />
         {error && <ErrorCard errors={error}/>}
-    </>
+    </div>
   );
 }

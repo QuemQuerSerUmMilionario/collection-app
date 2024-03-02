@@ -7,10 +7,10 @@ import { db } from "@/lib/db";
 
 
 const FormData = z.object({
-  name: z.string().min(1).max(70),
-  email: z.string().email().max(64),
-  password: z.string().min(6),
-  confirmPassword: z.string().min(6),
+  name: z.string().min(1).max(70,{message: "name to big"}),
+  email: z.string().email().max(64,{message: "email to big"}),
+  password: z.string().min(6,{message: "password to small"}),
+  confirmPassword: z.string(),
 }).superRefine(({ confirmPassword, password }, ctx) => {
     if (confirmPassword !== password) {
       ctx.addIssue({

@@ -5,9 +5,12 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import PlanCard from "@components/PlanCard";
 import Modal from "@components/Modal";
+import { useState,useEffect } from "react";
 
 const Home = () => {
   const { data: session } = useSession();
+  const [openModalLogin, setModalLogin] = useState(false);
+
   const createCheckoutSession = async (idPlan) => {
     if (session?.user?.id) {
       const plan = { id: idPlan }
@@ -20,7 +23,7 @@ const Home = () => {
         window.location.href = result.urlRedirect;
       }
     } else {
-      console.log("login first");
+      setModalLogin(true);
     }
   }
 
@@ -141,7 +144,7 @@ const Home = () => {
             Your browser does not support the video tag.
           </video>
         </div>
-        <Modal title="Tetse" content="Você precisa estar logado para se inscrever" buttons={[<a href="/login" className="p-4 mt-4 flex justify-center w-full h-auto bg-yellow-500 rounded-md" key="1">ok</a>]} open={true} />
+        <Modal title="Tetse" content="Você precisa estar logado para se inscrever" buttons={[<a href="/login" className="p-4 mt-4 flex justify-center w-full h-auto bg-yellow-500 rounded-md" key="1">ok</a>]} open={openModalLogin} setIsOpen={setModalLogin}/>
       </section>
   );
 }

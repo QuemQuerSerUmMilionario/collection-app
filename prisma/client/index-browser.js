@@ -145,7 +145,7 @@ exports.Prisma.UserScalarFieldEnum = {
   emailVerified: 'emailVerified',
   image: 'image',
   planId: 'planId',
-  custumerId: 'custumerId',
+  customerId: 'customerId',
   isTwoFactorEnabled: 'isTwoFactorEnabled'
 };
 

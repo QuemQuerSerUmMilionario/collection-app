@@ -11,6 +11,23 @@ const CreateItem = () => {
   const [submitting, setIsSubmitting] = useState(false);
   var [item, setItem] = useState({ itemId: "",collectionId:1,name:"",description:"",files:[]});
 
+  const getUserItem = async () => {
+    try {
+        const response = await fetch(`/api/collection/${id}/model`,
+          {
+            method: 'POST',
+            body: form,
+          }
+        );
+        const result = await response.json();
+        console.log(result);
+       
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsSubmitting(false);
+      }
+  } 
   const createItem = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);

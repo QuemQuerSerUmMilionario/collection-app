@@ -24,8 +24,7 @@ export const POST = async (request, response) => {
         }else{
             return new Response(JSON.stringify({ errors: [{ message: "You are not subscribed yet"}] }), { status: 400 });
         }
-            
-        return new Response(JSON.stringify({message:"success"}), { status: 200 });
+        return new Response(JSON.stringify({message:"Success"}), { status: 200 });
     } catch (error) {
         console.log(error);
         return new Response(JSON.stringify({ errors: [{ message: "Failed to create a new item ," + error }] }), { status: 500 });

@@ -76,6 +76,7 @@ export const authOptions = {
         session.user.image = token.image;
         session.accessToken = token.accessToken;
         session.error = token.error;
+
       }
       return  session;
     },

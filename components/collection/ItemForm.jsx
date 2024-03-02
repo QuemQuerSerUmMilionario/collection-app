@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from "@app/(home)/collection/[id]/item/loading";
 import ErrorCard from "@components/ErrorCard";
 
-const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
+const ItemForm = ({ type, item, setItem, submitting, handleSubmit , error , setError }) => {
 
   const [loadingModel, setloadingModel] = useState(false);
   const [loading, setloading] = useState(false);
@@ -21,7 +21,6 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
   const [options, setSuggestions] = useState([]);
   const [stopSearching, setStopSearching] = useState(false);
   var [items, setItems] = useState([]);
-  const [error,setError] = useState(null);
   const [selected, setSelected] = useState(null);
   const isOptionEqualToValue = (option, value) => option.model === value.model && option.id === value.id;
   const [files, setImage] = useState(null);
@@ -215,9 +214,6 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
           </div>
           
         </div>
-          {
-            error && <ErrorCard error={error}/>
-          }
       </section>
       {loadingScreen && <CircularProgress color="inherit" className="m-auto" size={20} />}
       <section id="item_register" className='w-full max-w-full  justify-center flex-col hidden'>
@@ -282,7 +278,6 @@ const ItemForm = ({ type, item, setItem, submitting, handleSubmit }) => {
               }
             </div>
           </label>
-
           <div className='flex-end mx-3 mb-5 gap-4'>
             <Link href='/collection' className='text-gray-500 text-sm'>
               Cancel

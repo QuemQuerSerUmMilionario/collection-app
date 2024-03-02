@@ -1,20 +1,24 @@
 import Link from "next/link";
-import { faUser} from '@fortawesome/free-solid-svg-icons'
+import { faCreditCard , faUser} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Setting = () => {
   return (
-    <section className='w-full max-w-full flex-start flex-col'>
+    <section className='w-full max-w-full flex-center flex-col'>
       <h1 className='head_text'>
-        <span className=''>Meus Dados</span>
+        <span className=''>Profile</span>
       </h1>
 
       <div
-        className='mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism'
+        className='mt-10 w-full max-w-2xl flex flex-col gap-4 glassmorphism'
       >
-        <div className="w-full h-20 border-black border-spacing-1 flex justify-between">
-            <p>Cadastro</p>
+        <Link  href="./settings/profile" className="w-full h-10 p-6 rounded-md shadow-sm box-border border-2 flex items-center justify-between">
+            <p>Register</p>
             <FontAwesomeIcon icon={faUser}/>
-        </div>
+        </Link>
+        <Link href="./settings/profile" className="w-full h-10 p-6 rounded-md shadow-sm box-border border-2 flex items-center justify-between">
+            <p>Subscription</p>
+            <FontAwesomeIcon icon={faCreditCard}/>
+        </Link>
       </div>
     </section>
   );

@@ -6,7 +6,7 @@ import Form from "@components/auth/RegisterForm";
 import ErrorCard from "@components/ErrorCard";
 const Register = () => {
   const [submitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState(null);
   const [user, setUser] = useState({ email: "" , name : "", password: "" , confirmPassword: "" });
 
   const handleSubmit = async (e) => {
@@ -44,6 +44,7 @@ const Register = () => {
         handleSubmit={handleSubmit}
         errors={errors}
       />
+      {errors && <ErrorCard errors={errors}/>}
     </>
        
   );
